@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{7050fab6-161f-4481-b23b-14199e979c45}">
+		<property name="name">
+			<value>Chorus 2</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a874fd4e-3347-452a-8db2-d859be68d2bd}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1b2eba36-c499-4c1d-b0ba-5296c4927280}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1b2eba36-c499-4c1d-b0ba-5296c4927280}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

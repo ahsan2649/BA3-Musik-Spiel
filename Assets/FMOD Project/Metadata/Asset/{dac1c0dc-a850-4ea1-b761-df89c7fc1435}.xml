@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{dac1c0dc-a850-4ea1-b761-df89c7fc1435}">
+		<property name="assetPath">
+			<value>The Storm/MISC/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ada5624c-cd01-4423-aa7d-2b95536f03f7}</destination>
+		</relationship>
+	</object>
+</objects>

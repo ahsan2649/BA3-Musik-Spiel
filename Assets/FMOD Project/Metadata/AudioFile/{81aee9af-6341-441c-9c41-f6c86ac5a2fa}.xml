@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{81aee9af-6341-441c-9c41-f6c86ac5a2fa}">
+		<property name="assetPath">
+			<value>The Storm/MISC/FX SOUND 2 STEM PM.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>174.25530612244899</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ada5624c-cd01-4423-aa7d-2b95536f03f7}</destination>
+		</relationship>
+	</object>
+</objects>

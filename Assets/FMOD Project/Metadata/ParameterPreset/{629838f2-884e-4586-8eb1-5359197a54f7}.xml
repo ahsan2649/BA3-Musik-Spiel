@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{629838f2-884e-4586-8eb1-5359197a54f7}">
+		<property name="name">
+			<value>Bass</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c271ec3d-0d09-4628-80af-cda9fa864ed8}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{fc3884be-5b40-4e6d-91b9-3043b0054999}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{fc3884be-5b40-4e6d-91b9-3043b0054999}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
