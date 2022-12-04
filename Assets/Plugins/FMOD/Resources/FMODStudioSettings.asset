@@ -433,7 +433,7 @@ MonoBehaviour:
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0
-  AutomaticSampleLoading: 0
+  AutomaticSampleLoading: 1
   EncryptionKey: 
   ImportType: 0
   TargetAssetPath: FMODBanks
@@ -450,7 +450,8 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - Music
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -462,7 +463,7 @@ MonoBehaviour:
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131593
-  HideSetupWizard: 0
+  HideSetupWizard: 1
   LastEventReferenceScanVersion: 131593
   Platforms:
   - {fileID: 8114246044720408931}
@@ -768,7 +769,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 1
+      Value: 0
       HasValue: 1
     Logging:
       Value: 0
