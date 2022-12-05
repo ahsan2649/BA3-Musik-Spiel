@@ -8,10 +8,15 @@ using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] Transform bulletStart;
-    [SerializeField] float bulletSpeed;
-    [SerializeField] public string GunType;
+    GameObject bulletPrefab;
+    Transform bulletStart;
+    float bulletSpeed;
+    public string instrument;
+
+    public void Start()
+    {
+        
+    }
 
     public void Fire()
     {
@@ -20,5 +25,14 @@ public class Gun : MonoBehaviour
             var bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.identity);
             bullet.GetComponent<Bullet>().speed = bulletSpeed;
         }
+    }
+
+    public void SetInfo(float bulletSpeed, string GunType, GameObject bulletPrefab, Transform bulletStart)
+    {
+        this.bulletSpeed = bulletSpeed;
+        this.instrument = GunType;
+        this.bulletPrefab = bulletPrefab;
+        this.bulletStart = bulletStart;
+
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{4404cbc6-4740-4f25-bba0-3a98411b7813}">
+		<property name="name">
+			<value>Snare</value>
+		</property>
+		<relationship name="folder">
+			<destination>{4efffefd-5365-4f2c-89ad-14745c7d87a1}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{a250458c-3870-4f6a-b581-4b3e2e6afcab}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{a250458c-3870-4f6a-b581-4b3e2e6afcab}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

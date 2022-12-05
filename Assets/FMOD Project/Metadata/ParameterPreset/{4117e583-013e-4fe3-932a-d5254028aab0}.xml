@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{4117e583-013e-4fe3-932a-d5254028aab0}">
+		<property name="name">
+			<value>Hook</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ac15f481-4ebf-4cad-afaf-7162e3c792aa}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{5044a9c8-b672-4d29-9ac0-1a14dc683ed9}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{5044a9c8-b672-4d29-9ac0-1a14dc683ed9}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

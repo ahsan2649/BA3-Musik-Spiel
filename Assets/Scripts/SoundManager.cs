@@ -1,6 +1,7 @@
 using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 
@@ -9,8 +10,8 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
 
     [SerializeField] SongObject Song;
-    [SerializeField] List<SongObject.Params> Weapons;
-    [SerializeField] List<SongObject.Params> Phases;
+    [SerializeField] public List<SongObject.Instrument> Weapons;
+    [SerializeField] public List<SongObject.Phase> Phases;
 
     StudioEventEmitter emitter;
 
@@ -31,13 +32,15 @@ public class SoundManager : MonoBehaviour
 
         emitter.EventReference = Song.Song;
         emitter.Preload = true;
-        Weapons = Song.Weapons;
+        Weapons = Song.Instruments;
         Phases = Song.Phases;        
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        beat += new FMOD.Studio.EVENT_CALLBACK(GunManager.instance.ShootCallback);
+
         emitter.EventDescription.setCallback(beat, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
     }
 
@@ -48,22 +51,33 @@ public class SoundManager : MonoBehaviour
         SetPhases();
     }
 
-    
+    private void OnApplicationQuit()
+    {
+        beat -= GunManager.instance.ShootCallback;
+        if(emitter.IsPlaying()) emitter.Stop();
+    }
+
+    private void OnDisable()
+    {
+        if (emitter.IsPlaying()) emitter.Stop();
+    }
+
+
     void SetPhases()
     {
-        foreach (SongObject.Params phase in Phases)
+        foreach (SongObject.Phase phase in Phases)
         {
-                emitter.EventInstance.setParameterByName(phase.name, phase.value ? 1 : 0);
+            emitter.EventInstance.setParameterByName(phase.name, phase.isLooping ? 1 : 0);
         }
     }
 
     void SetWeapons()
     {
-        foreach (SongObject.Params weapon in Weapons)
+        foreach (SongObject.Instrument weapon in Weapons)
         {
-            emitter.EventInstance.setParameterByName(weapon.name, weapon.value ? 1 : 0);
+            emitter.EventInstance.setParameterByName(weapon.name, weapon.on ? 1 : 0);
         }
     }
 
-    
+
 }

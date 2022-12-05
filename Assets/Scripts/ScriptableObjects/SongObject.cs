@@ -7,15 +7,25 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Song", menuName = "ScriptableObject/Song", order = 1)]
 public class SongObject : ScriptableObject
 {
-    public EventReference Song;
-
     [Serializable]
-    public class Params
+    public class Instrument
     {
         public string name;
-        public bool value;
+        public bool on;
+        public GunObject GunObject;
     }
 
-    public List<Params> Weapons;
-    public List<Params> Phases;
+    [Serializable]
+    public class Phase
+    {
+        public string name;
+        public bool isLooping;
+        public List<string> availableWeapons;
+    }
+
+    public EventReference Song;
+
+
+    public List<Instrument> Instruments;
+    public List<Phase> Phases;
 }

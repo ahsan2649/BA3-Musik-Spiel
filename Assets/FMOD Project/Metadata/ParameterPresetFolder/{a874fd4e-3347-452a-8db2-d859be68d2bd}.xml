@@ -5,7 +5,7 @@
 			<value>Phases</value>
 		</property>
 		<relationship name="folder">
-			<destination>{41b9ded9-a5f5-4b06-9208-bf377bff83bd}</destination>
+			<destination>{c18c80ec-9804-414d-a30f-e03fe39e24cf}</destination>
 		</relationship>
 	</object>
 </objects>

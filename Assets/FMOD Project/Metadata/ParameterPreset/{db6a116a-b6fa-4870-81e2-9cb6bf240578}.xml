@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{db6a116a-b6fa-4870-81e2-9cb6bf240578}">
+		<property name="name">
+			<value>Bridge 1</value>
+		</property>
+		<relationship name="folder">
+			<destination>{ac15f481-4ebf-4cad-afaf-7162e3c792aa}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{cada2247-ac78-43ca-af98-3117667f5ba1}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{cada2247-ac78-43ca-af98-3117667f5ba1}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

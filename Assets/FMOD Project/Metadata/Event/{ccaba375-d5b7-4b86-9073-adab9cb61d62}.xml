@@ -268,7 +268,6 @@
 			<destination>{1d1ccdb0-ee1c-4193-b4dc-21d38363d370}</destination>
 			<destination>{db0f5a51-d411-4a6e-8e26-2fa03d83227d}</destination>
 			<destination>{2370d80b-7d63-4f8f-8505-718f226e4697}</destination>
-			<destination>{01807179-add6-4cdb-9ec1-c1f46d145aca}</destination>
 		</relationship>
 	</object>
 	<object class="ParameterProxy" id="{4da91527-3ef7-4bca-af4a-879b46680dab}">
@@ -314,6 +313,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{380248f2-4c54-4d9f-b051-db4c96af0f80}">
+		<property name="color">
+			<value>Magenta</value>
+		</property>
 		<property name="length">
 			<value>232.79913811795316</value>
 		</property>
@@ -347,6 +349,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{10c9fe27-e3c9-4428-bfc9-177341ef8ea8}">
+		<property name="color">
+			<value>Green</value>
+		</property>
 		<property name="length">
 			<value>232.79913811795316</value>
 		</property>
@@ -380,6 +385,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{eabb4884-7162-440b-8931-db53d7e0e44a}">
+		<property name="color">
+			<value>Yellow</value>
+		</property>
 		<property name="length">
 			<value>232.79913811795316</value>
 		</property>
@@ -413,6 +421,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{965e3c1b-9021-43ae-b01c-6e562f337510}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="length">
 			<value>48</value>
 		</property>
@@ -424,6 +435,9 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{4ed9480e-6884-469d-ad88-69eafd0aa43f}">
+		<property name="color">
+			<value>Red</value>
+		</property>
 		<property name="start">
 			<value>48</value>
 		</property>
@@ -2081,20 +2095,6 @@
 		</relationship>
 		<relationship name="markerTrack">
 			<destination>{0eedf34f-c657-42b2-9158-e311ed2817d1}</destination>
-		</relationship>
-	</object>
-	<object class="TransitionMarker" id="{01807179-add6-4cdb-9ec1-c1f46d145aca}">
-		<property name="position">
-			<value>0</value>
-		</property>
-		<relationship name="timeline">
-			<destination>{0869f967-bf2a-444a-bb27-c1d7a24fa7f0}</destination>
-		</relationship>
-		<relationship name="markerTrack">
-			<destination>{b8622307-7ab2-482f-9506-aab30a8fd503}</destination>
-		</relationship>
-		<relationship name="destination">
-			<destination>{5607d06b-ac0b-4d9f-87ea-ea49a314613d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{df81364c-ed65-4d1a-906f-89635082e7b0}">

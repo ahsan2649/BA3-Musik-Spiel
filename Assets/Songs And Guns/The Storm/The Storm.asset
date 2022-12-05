@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209675f1bd159834f98dfae65a29e46c, type: 3}
+  m_Name: The Storm
+  m_EditorClassIdentifier: 
+  Song:
+    Guid:
+      Data1: -1556590545
+      Data2: 1320564092
+      Data3: 320402314
+      Data4: -782248772
+    Path: event:/The Storm
+  Instruments:
+  - name: Bass
+    on: 0
+    GunObject: {fileID: 11400000, guid: 173127cd100d78a46b9d44733ef36d45, type: 2}
+  - name: Clap
+    on: 1
+    GunObject: {fileID: 11400000, guid: f81f95aeec001394bafe7cbf53f4d205, type: 2}
+  - name: Key 3
+    on: 1
+    GunObject: {fileID: 11400000, guid: 291bfb2f75003e6408af705d5374b60a, type: 2}
+  - name: Key 4
+    on: 1
+    GunObject: {fileID: 11400000, guid: 1762f73a53bf2544baeea66a6b898e73, type: 2}
+  - name: Key 6
+    on: 1
+    GunObject: {fileID: 11400000, guid: b3cc8e88e7d23a940a64e3f90afefee4, type: 2}
+  - name: Kick 1
+    on: 1
+    GunObject: {fileID: 11400000, guid: 1805daba28feb5342a48ae5dc1b9939e, type: 2}
+  - name: Kick 2
+    on: 1
+    GunObject: {fileID: 11400000, guid: 603ac06b744290840b68e5474f249dd0, type: 2}
+  - name: Snare
+    on: 1
+    GunObject: {fileID: 11400000, guid: 7a0510c09ac933246987419b4bc420b0, type: 2}
+  Phases:
+  - name: Intro
+    isLooping: 0
+    availableWeapons: []
+  - name: Intro 2
+    isLooping: 0
+    availableWeapons: []
+  - name: Chorus 1
+    isLooping: 0
+    availableWeapons: []
+  - name: Chorus 2
+    isLooping: 0
+    availableWeapons: []
+  - name: Bridge 1
+    isLooping: 0
+    availableWeapons: []
+  - name: Bridge 2
+    isLooping: 0
+    availableWeapons: []
+  - name: Hook
+    isLooping: 0
+    availableWeapons: []
