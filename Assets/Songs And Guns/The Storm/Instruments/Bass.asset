@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80462c6ea1f5d674780d4ba41dac4b4f, type: 3}
   m_Name: Bass
   m_EditorClassIdentifier: 
+  color: {r: 0.74173635, g: 0.40970984, b: 0.9339623, a: 1}
   bulletSpeed: 15
   instrument: Bass

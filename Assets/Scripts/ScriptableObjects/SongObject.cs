@@ -11,7 +11,7 @@ public class SongObject : ScriptableObject
     public class Instrument
     {
         public string name;
-        public bool on;
+        public bool isOn;
         public GunObject GunObject;
     }
 
@@ -23,9 +23,20 @@ public class SongObject : ScriptableObject
         public List<string> availableWeapons;
     }
 
+    [Serializable]
+    public class OptTrack
+    {
+        public string name;
+        public bool isOn;
+        
+    }
+
+
     public EventReference Song;
 
 
     public List<Instrument> Instruments;
     public List<Phase> Phases;
+    public List<OptTrack> OptTracks;
+
 }

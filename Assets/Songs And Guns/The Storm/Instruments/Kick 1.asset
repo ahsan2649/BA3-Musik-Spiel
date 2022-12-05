@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80462c6ea1f5d674780d4ba41dac4b4f, type: 3}
   m_Name: Kick 1
   m_EditorClassIdentifier: 
+  color: {r: 0.9528302, g: 0.47042245, b: 0.22921856, a: 1}
   bulletSpeed: 10
   instrument: Kick 1

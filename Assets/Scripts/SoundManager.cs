@@ -12,6 +12,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] SongObject Song;
     [SerializeField] public List<SongObject.Instrument> Weapons;
     [SerializeField] public List<SongObject.Phase> Phases;
+    [SerializeField] public List<SongObject.OptTrack> OptTracks;
+
 
     StudioEventEmitter emitter;
 
@@ -33,7 +35,9 @@ public class SoundManager : MonoBehaviour
         emitter.EventReference = Song.Song;
         emitter.Preload = true;
         Weapons = Song.Instruments;
-        Phases = Song.Phases;        
+        Phases = Song.Phases;
+        OptTracks = Song.OptTracks;
+
     }
 
     // Start is called before the first frame update
@@ -49,11 +53,12 @@ public class SoundManager : MonoBehaviour
     {
         SetWeapons();
         SetPhases();
+        SetOptTracks();
+
     }
 
     private void OnApplicationQuit()
     {
-        beat -= GunManager.instance.ShootCallback;
         if(emitter.IsPlaying()) emitter.Stop();
     }
 
@@ -75,7 +80,15 @@ public class SoundManager : MonoBehaviour
     {
         foreach (SongObject.Instrument weapon in Weapons)
         {
-            emitter.EventInstance.setParameterByName(weapon.name, weapon.on ? 1 : 0);
+            emitter.EventInstance.setParameterByName(weapon.name, weapon.isOn ? 1 : 0);
+        }
+    }
+
+    void SetOptTracks()
+    {
+        foreach (SongObject.OptTrack optTrack in OptTracks)
+        {
+            emitter.EventInstance.setParameterByName(optTrack.name, optTrack.isOn ? 1 : 0);
         }
     }
 

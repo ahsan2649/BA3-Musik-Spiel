@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GunObject : ScriptableObject
 {
+    public Color color;
     public float bulletSpeed;
     public string instrument;
 }

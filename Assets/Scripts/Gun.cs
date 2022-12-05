@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.U2D;
 
 public class Gun : MonoBehaviour
 {
@@ -24,15 +25,16 @@ public class Gun : MonoBehaviour
         {
             var bullet = Instantiate(bulletPrefab, bulletStart.position, Quaternion.identity);
             bullet.GetComponent<Bullet>().speed = bulletSpeed;
+            bullet.GetComponent<SpriteShapeRenderer>().color = GetComponentInChildren<SpriteRenderer>().color;
         }
     }
 
-    public void SetInfo(float bulletSpeed, string GunType, GameObject bulletPrefab, Transform bulletStart)
+    public void SetInfo(float bulletSpeed, string GunType, GameObject bulletPrefab, Transform bulletStart, Color color)
     {
         this.bulletSpeed = bulletSpeed;
         this.instrument = GunType;
         this.bulletPrefab = bulletPrefab;
         this.bulletStart = bulletStart;
-
+        GetComponentInChildren<SpriteRenderer>().color = color;
     }
 }

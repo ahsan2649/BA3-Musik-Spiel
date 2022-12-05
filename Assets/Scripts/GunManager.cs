@@ -23,7 +23,7 @@ public class GunManager : MonoBehaviour
         foreach (var weapon in SoundManager.instance.Weapons)
         {
             var gun = Instantiate(gunPrefab);
-            gun.AddComponent<Gun>().SetInfo(weapon.GunObject.bulletSpeed, weapon.GunObject.name, bulletPrefab, gun.GetComponentInChildren<Transform>());
+            gun.AddComponent<Gun>().SetInfo(weapon.GunObject.bulletSpeed, weapon.GunObject.name, bulletPrefab, gun.GetComponentInChildren<Transform>(), weapon.GunObject.color);
             Guns.Add(gun.GetComponent<Gun>());
             
         }

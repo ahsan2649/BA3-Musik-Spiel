@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{10612eef-bdc2-40fa-8472-1a5918c73c41}">
+		<property name="name">
+			<value>Vox</value>
+		</property>
+		<relationship name="folder">
+			<destination>{bc71a904-f74e-4feb-81f1-ffdefd432575}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{7fdf9d3d-b75a-4451-a9b6-051ec6c767b2}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{7fdf9d3d-b75a-4451-a9b6-051ec6c767b2}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
