@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: {r: 0.9528302, g: 0.47042245, b: 0.22921856, a: 1}
   bulletSpeed: 10
-  instrument: Kick 1
+  instrument: Kick
