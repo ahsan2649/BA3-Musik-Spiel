@@ -106,7 +106,7 @@ public class Character : MonoBehaviour
     float stickAngle;
     float relativeStickAngle;
     Vector2 stickValue;
-    [SerializeField] float aimSmooth;
+    [SerializeField] float aimSmooth = 0.25f;
     [SerializeField] GameObject aimPivot;
 
     void StickInput()
@@ -154,5 +154,15 @@ public class Character : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.transform.tag == "Surface") grounded = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Weapon")
+        {
+            Debug.Log("Weapon");
+            collision.transform.parent = aimPivot.transform;
+            collision.transform.position = aimPivot.transform.position + new Vector3(0.8f,0,0);
+        }
     }
 }
