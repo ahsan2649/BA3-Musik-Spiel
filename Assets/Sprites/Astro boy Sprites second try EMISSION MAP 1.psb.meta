@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9da0cdf43c928ae4bb07c60cc4d47ceb
+guid: ef812a3fb588ca24394068d5a6e567c9
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ ScriptedImporter:
       y: 4
       width: 326
       height: 247
-    spriteID: 3ba0613e104bc044f906e7e1f8b2efcb
+    spriteID: 1f09af71a813225489f5fe6828b8fd5e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -126,7 +126,7 @@ ScriptedImporter:
       y: 672
       width: 246
       height: 181
-    spriteID: 66167ebb9af868c4e963fc0f8d382882
+    spriteID: fb3a775ac39dbbf4c97060d0cd68c36f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -148,7 +148,7 @@ ScriptedImporter:
       y: 4
       width: 449
       height: 346
-    spriteID: 51fc6948c096bca4dbda74c2e680682e
+    spriteID: 69e8b4cc94a3bc640bee799bdd59afdb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 358
       width: 234
       height: 197
-    spriteID: 03b72d0cd38d9984fb6ae1a4d022a11d
+    spriteID: 0afefda3c24bd4b45a9a6fc547c27550
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 563
       width: 201
       height: 100
-    spriteID: d46526bcbeb0e10489b1f70cffb89995
+    spriteID: 6f73575535a52034c8287e685ada98cc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -214,7 +214,7 @@ ScriptedImporter:
       y: 550
       width: 218
       height: 65
-    spriteID: f74000d4f760162498b3b4ec0c7348f6
+    spriteID: be15803b0d3ac2e4181a9df2c5bf3a18
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -236,7 +236,7 @@ ScriptedImporter:
       y: 358
       width: 266
       height: 184
-    spriteID: dd63365d7f06690478ec81b23ac9c7cb
+    spriteID: 61177771f94798f4c990b37971bfc7bb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -258,7 +258,7 @@ ScriptedImporter:
       y: 672
       width: 134
       height: 210
-    spriteID: 0d2d9f11044eb7d40901c8a342278da3
+    spriteID: 80f8f27e0f158d3419755fe1b8584f70
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -280,7 +280,7 @@ ScriptedImporter:
       y: 4
       width: 193
       height: 306
-    spriteID: f5743098426082f48be484cd0021f8d2
+    spriteID: 67618d5311b1e89408168f82beb19ea7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -302,7 +302,7 @@ ScriptedImporter:
       y: 358
       width: 266
       height: 184
-    spriteID: befe2492e7b821b459d340e738957aa5
+    spriteID: 25b920741f9ae564e8f62ab235c0e72a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -324,7 +324,7 @@ ScriptedImporter:
       y: 672
       width: 134
       height: 210
-    spriteID: 5ce21a0f998de004e9388f31ad6b624e
+    spriteID: 1bb5fa22634368a45a17c7c85469c51b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -346,7 +346,7 @@ ScriptedImporter:
       y: 358
       width: 193
       height: 306
-    spriteID: 785424545e9a1484d9d84bd630ba73f1
+    spriteID: 197220f5ee27eaa419e19f6a832e49d2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -391,7 +391,7 @@ ScriptedImporter:
     spriteName: Helmet Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: 3ba0613e104bc044f906e7e1f8b2efcb
+    spriteID: 1f09af71a813225489f5fe6828b8fd5e
     layerID: 51
     mosaicPosition: {x: 461, y: 4}
     flatten: 0
@@ -401,7 +401,7 @@ ScriptedImporter:
     spriteName: Pipe Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: 66167ebb9af868c4e963fc0f8d382882
+    spriteID: fb3a775ac39dbbf4c97060d0cd68c36f
     layerID: 70
     mosaicPosition: {x: 4, y: 672}
     flatten: 0
@@ -411,7 +411,7 @@ ScriptedImporter:
     spriteName: Torso Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: 51fc6948c096bca4dbda74c2e680682e
+    spriteID: 69e8b4cc94a3bc640bee799bdd59afdb
     layerID: 61
     mosaicPosition: {x: 4, y: 4}
     flatten: 0
@@ -421,7 +421,7 @@ ScriptedImporter:
     spriteName: Head Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: 03b72d0cd38d9984fb6ae1a4d022a11d
+    spriteID: 0afefda3c24bd4b45a9a6fc547c27550
     layerID: 69
     mosaicPosition: {x: 753, y: 358}
     flatten: 0
@@ -431,7 +431,7 @@ ScriptedImporter:
     spriteName: Hip Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: d46526bcbeb0e10489b1f70cffb89995
+    spriteID: 6f73575535a52034c8287e685ada98cc
     layerID: 73
     mosaicPosition: {x: 753, y: 563}
     flatten: 0
@@ -441,7 +441,7 @@ ScriptedImporter:
     spriteName: Torse backside Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: f74000d4f760162498b3b4ec0c7348f6
+    spriteID: be15803b0d3ac2e4181a9df2c5bf3a18
     layerID: 93
     mosaicPosition: {x: 205, y: 550}
     flatten: 0
@@ -451,7 +451,7 @@ ScriptedImporter:
     spriteName: left shoe Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: dd63365d7f06690478ec81b23ac9c7cb
+    spriteID: 61177771f94798f4c990b37971bfc7bb
     layerID: 91
     mosaicPosition: {x: 205, y: 358}
     flatten: 0
@@ -461,7 +461,7 @@ ScriptedImporter:
     spriteName: left  Upper Leg Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: 0d2d9f11044eb7d40901c8a342278da3
+    spriteID: 80f8f27e0f158d3419755fe1b8584f70
     layerID: 101
     mosaicPosition: {x: 258, y: 672}
     flatten: 0
@@ -471,7 +471,7 @@ ScriptedImporter:
     spriteName: left  Lower Leg Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: f5743098426082f48be484cd0021f8d2
+    spriteID: 67618d5311b1e89408168f82beb19ea7
     layerID: 99
     mosaicPosition: {x: 795, y: 4}
     flatten: 0
@@ -481,7 +481,7 @@ ScriptedImporter:
     spriteName: Right shoe  Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: befe2492e7b821b459d340e738957aa5
+    spriteID: 25b920741f9ae564e8f62ab235c0e72a
     layerID: 85
     mosaicPosition: {x: 479, y: 358}
     flatten: 0
@@ -491,7 +491,7 @@ ScriptedImporter:
     spriteName: Right Upper Leg Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: 5ce21a0f998de004e9388f31ad6b624e
+    spriteID: 1bb5fa22634368a45a17c7c85469c51b
     layerID: 106
     mosaicPosition: {x: 400, y: 672}
     flatten: 0
@@ -501,7 +501,7 @@ ScriptedImporter:
     spriteName: Right Lower Leg Glow
     isGroup: 0
     parentIndex: -1
-    spriteID: 785424545e9a1484d9d84bd630ba73f1
+    spriteID: 197220f5ee27eaa419e19f6a832e49d2
     layerID: 104
     mosaicPosition: {x: 4, y: 358}
     flatten: 0
