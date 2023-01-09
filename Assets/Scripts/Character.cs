@@ -1,168 +1,176 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Character : MonoBehaviour
 {
-    BoxCollider2D col;
-    Rigidbody2D rb;
 
-    [Tooltip("How smoothly the aim rotates")]
-    [SerializeField] [Range(0.1f,0.75f)] float alignSmooth;
-    
-    [Tooltip("The increase in velocity per kick")]
-    [SerializeField] float kickForce;
+    Rigidbody2D rb;
+    PlayerInput playerInput;
 
     [Tooltip("The force in jumping off the ground")]
-    [SerializeField]float jumpForce;
-    
-    [Tooltip("Limit the character's speed to avoid buzzing around the arena")]
-    [SerializeField] float maxVelocity;
+    float jumpForce;
 
-    [Tooltip("The velocity after which the character can slide up walls")]
+    [Tooltip("The forward force per kick")]
+    float kickForce;
+
+    bool grounded;
+    [SerializeField] float baseGravity;
+    float gravity;
+
+    [SerializeField] GameObject body;
+    [SerializeField] float topSpeed;
     [SerializeField] float climbVelocity;
 
-    [Tooltip("Gravity modifier when jumping up (less than fall gravity)")]
-    [SerializeField] float climbGravity;
-
-    [Tooltip("Gravity modifier when falling down (more than climb gravity)")]
-    [SerializeField] float fallGravity;
+    bool kick;
 
 
 
-    bool antiClockFace = true;
-    float gravity;
-    [SerializeField] bool grounded;
+    Vector2 gravityDirection;
 
-    Vector2 velocity;
-    
     // Start is called before the first frame update
     void Start()
     {
-
-        inputs = new Inputs();
-        inputs.Player.Enable();
-        
-        col = GetComponent<BoxCollider2D>();
         rb = GetComponent<Rigidbody2D>();
+        playerInput = GetComponent<PlayerInput>();
+
+        gravity = baseGravity;
+        gravityDirection = Vector2.down;
+    }
+
+    public void Stick(InputAction.CallbackContext ctx)
+    {
+        stickValue = ctx.ReadValue<Vector2>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        velocity = rb.velocity;
         ToggleFace();
+        GetStickInput();
+        CalculateAim();
 
-        StickInput();
-        CalculateAimDirection();
+        kick = playerInput.actions.FindAction("Kick").WasPressedThisFrame();
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && grounded)
+        if (grounded)
         {
-            rb.gravityScale = 1;
-            rb.AddForce(new Vector2(0, jumpForce));
+            if (kick && aimDir == AimDirection.inside)
+            {
+                rb.AddForce(body.transform.up * jumpForce);
+            }
+
+            if (kick && aimDir == AimDirection.back)
+            {
+                antiClockFace = !antiClockFace;
+                rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+            }
+
+            if (kick && aimDir == AimDirection.front)
+            {
+                rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+            }
+            if (kick && aimDir == AimDirection.outside)
+            {
+                rb.velocity = Vector2.zero;
+            }
         }
-        
-        if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
+        else
         {
-            rb.AddForce(new Vector2(kickForce, 0));
-            antiClockFace = true;
-        }
-        
-        if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
-        {
-            rb.AddForce(new Vector2(-kickForce, 0));
-            antiClockFace = false;
-        }
 
-        if(rb.velocity.magnitude > maxVelocity)
-        {
-            rb.velocity = rb.velocity.normalized * maxVelocity;
-        }
-
-
-        if (rb.velocity.magnitude > climbVelocity) rb.gravityScale = 0;
-        else rb.gravityScale = 1;
-
-        if (rb.velocity.y > 0 && !grounded)
-        {
-            rb.gravityScale = 1 * climbGravity;
         }
 
-        if(rb.velocity.y < 0 && !grounded)
-        {
-            rb.gravityScale = 1 * fallGravity;
-        }
-    }
+        if (rb.velocity.magnitude > topSpeed) rb.velocity = Vector2.ClampMagnitude(rb.velocity, topSpeed);
 
-    void ToggleFace()
-    {
-        transform.localScale = new Vector3(antiClockFace ? 1 : -1, 1, 1);
+        rb.AddForce(gravityDirection * rb.mass * rb.mass * gravity);
+
+
+        Debug.DrawRay(transform.position, rb.velocity.normalized * 2f, Color.green);
     }
 
     #region Aim
-    
-    Inputs inputs;
+
     enum AimDirection { outside, inside, front, back, none };
     AimDirection aimDir;
-    float stickAngle;
-    float relativeStickAngle;
+
+    float stickAngle, relativeStickAngle;
     Vector2 stickValue;
+    bool antiClockFace = true;
+
     [SerializeField] float aimSmooth = 0.25f;
     [SerializeField] GameObject aimPivot;
 
-    void StickInput()
+    void GetStickInput()
     {
-        stickValue = inputs.Player.Aim.ReadValue<Vector2>();
         stickAngle = stickValue.magnitude == 0 ? float.NaN : Mathf.Atan2(stickValue.y, stickValue.x) * Mathf.Rad2Deg;
         relativeStickAngle = stickValue.magnitude == 0 ? float.NaN : Vector2.SignedAngle(stickValue, transform.up);
-        
-        aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : (antiClockFace ? stickAngle : stickAngle + 180)), aimSmooth);
-
     }
 
-    void CalculateAimDirection()
+    void CalculateAim()
     {
         if (stickValue.magnitude == 0) aimDir = AimDirection.none;
         else if (-45 <= relativeStickAngle && relativeStickAngle <= 45) aimDir = AimDirection.inside;
         else if (135 <= relativeStickAngle || -135 >= relativeStickAngle) aimDir = AimDirection.outside;
         else if (45 < relativeStickAngle && relativeStickAngle < 135) aimDir = antiClockFace ? AimDirection.front : AimDirection.back;
         else if (-45 > relativeStickAngle && relativeStickAngle > -135) aimDir = antiClockFace ? AimDirection.back : AimDirection.front;
+
+        aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : (antiClockFace ? stickAngle : stickAngle + 180)), aimSmooth);
     }
 
     #endregion
 
-
-    void ResetPosition()
+    void ToggleFace()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            velocity.y = 0;
-            transform.position = new Vector3(0, 5, 0);
-            transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-        }
+        transform.localScale = new Vector3(antiClockFace ? 1 : -1, 1, 1);
+    }
 
-        if(Keyboard.current.enterKey.wasPressedThisFrame)
-        {
-            antiClockFace = !antiClockFace;
-        }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Surface") grounded = true;
+        if (collision.gameObject.tag == "Surface")
+        {
+            grounded = true;
+
+            if (rb.velocity.magnitude > climbVelocity)
+            {
+                gravityDirection = -collision.GetContact(0).normal;
+            }
+            else
+            {
+                gravityDirection = Vector2.down;
+            }
+            body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.FromToRotation(Vector2.up, collision.GetContact(0).normal), 0.25f);
+
+            kickForce = collision.gameObject.GetComponent<Platform>().kickForce;
+            jumpForce = collision.gameObject.GetComponent<Platform>().jumpForce;
+            gravity = collision.gameObject.GetComponent<Platform>().gravity;
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Surface") grounded = false;
+        if (collision.gameObject.tag == "Surface")
+        {
+            grounded = false;
+            gravityDirection = Vector2.down;
+            body.transform.rotation = Quaternion.identity;
+
+            gravity = baseGravity;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Weapon")
+        if (collision.tag == "Weapon")
         {
             Debug.Log("Weapon");
             collision.transform.parent = aimPivot.transform;
-            collision.transform.position = aimPivot.transform.position + new Vector3(0.8f,0,0);
+            collision.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
         }
     }
 }
