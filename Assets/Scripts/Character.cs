@@ -17,16 +17,23 @@ public class Character : MonoBehaviour
     bool jumpRegion;
 
     [Header("Gravity")]
+    [Tooltip("Gravity when not touching the surface")]
     [SerializeField] float airGravity;
+    [Tooltip("Gravity when in a trigger tagged 'Jump'")]
     [SerializeField] float jumpGravity;
+    [Tooltip("Gravity when touching the surface")]
     [SerializeField] float baseGravity;
 
     [Header("Kick Force")]
+    [Tooltip("Gravity when touching the surface")]
     [SerializeField] float baseKickForce;
+    [Tooltip("Jump force when in a trigger tagged 'Jump'")]
     [SerializeField] float jumpKickForce;
 
     [Header("Jump Force")]
+    [Tooltip("Kick force when touching the surface")]
     [SerializeField] float baseJumpForce;
+    [Tooltip("Kick force when in a trigger tagged 'Jump'")]
     [SerializeField] float jumpJumpForce;
 
 
