@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Song:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Instruments: []
+      Data1: 2011340497
+      Data2: 1085677376
+      Data3: 505156247
+      Data4: -1431882874
+    Path: event:/Soundtrack
+  Instruments:
+  - name: Weapon 2
+    isOn: 0
+    GunObject: {fileID: 11400000, guid: f28835b39df852d4895e3119982c0a82, type: 2}
   Phases: []
   OptTracks: []
