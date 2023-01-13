@@ -9,6 +9,7 @@ public class Character : MonoBehaviour
     Rigidbody2D rb;
     PlayerInput playerInput;
 
+    float health = 100;
     float jumpForce;
     float kickForce;
     float gravity;
@@ -38,6 +39,8 @@ public class Character : MonoBehaviour
 
 
     [SerializeField] GameObject body;
+
+    [Tooltip("The speed limit for the character")]
     [SerializeField] float topSpeed;
 
 
@@ -191,11 +194,20 @@ public class Character : MonoBehaviour
             Debug.Log("Weapon");
             collision.transform.parent = aimPivot.transform;
             collision.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
+            collision.GetComponent<Gun>().owner = this;
         }
 
         if (collision.tag == "Jump")
         {
             jumpRegion = true;
+        }
+
+        if (collision.tag == "Bullet")
+        {
+            if (collision.GetComponent<Bullet>().shooter != this)
+            {
+                health -= collision.GetComponent<Bullet>().damage;
+            }
         }
     }
 

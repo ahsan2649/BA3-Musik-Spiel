@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 0
+  damage: 0
+  shooter: {fileID: 0}
 --- !u!1 &4455410755697241171
 GameObject:
   m_ObjectHideFlags: 0

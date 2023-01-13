@@ -7,6 +7,9 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletSpeed;
+    [SerializeField] float damage;
+    public Character owner;
+
 
 
     // Start is called before the first frame update
@@ -25,5 +28,7 @@ public class Gun : MonoBehaviour
     {
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         newBullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
+        newBullet.GetComponent<Bullet>().shooter = owner;
+        newBullet.GetComponent<Bullet>().damage = damage;
     }
 }
