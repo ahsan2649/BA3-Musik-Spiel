@@ -17,6 +17,8 @@ public class Character : MonoBehaviour
     bool grounded;
     bool jumpRegion;
 
+    public Gun gun;
+
     [Header("Gravity")]
     [Tooltip("Gravity when not touching the surface")]
     [SerializeField] float airGravity;
@@ -192,9 +194,10 @@ public class Character : MonoBehaviour
         if (collision.tag == "Weapon")
         {
             Debug.Log("Weapon");
-            collision.transform.parent = aimPivot.transform;
-            collision.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
-            collision.GetComponent<Gun>().owner = this;
+            gun = collision.GetComponent<Gun>();
+            gun.owner = this;
+            gun.transform.parent = aimPivot.transform;
+            gun.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
         }
 
         if (collision.tag == "Jump")
