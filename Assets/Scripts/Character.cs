@@ -67,6 +67,10 @@ public class Character : MonoBehaviour
         stickValue = ctx.ReadValue<Vector2>();
     }
 
+    public void Kick(InputAction.CallbackContext ctx)
+    {
+        kick = ctx.ReadValueAsButton();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -74,12 +78,44 @@ public class Character : MonoBehaviour
         GetStickInput();
         CalculateAim();
 
-        kick = playerInput.actions.FindAction("Kick").WasPressedThisFrame();
+        //kick = playerInput.actions.FindAction("Kick").WasPerformedThisFrame();
 
         if (grounded)
         {
+            
+
+            if (!jumpRegion)
+            {
+                jumpForce = baseJumpForce;
+                kickForce = baseKickForce;
+                gravity = baseGravity;
+            }
+            else
+            {
+                jumpForce = jumpJumpForce;
+                kickForce = jumpKickForce;
+                gravity = jumpGravity;
+            }
+        }
+        else
+        {
+            gravity = airGravity;
+        }
+
+
+
+
+        Debug.DrawRay(transform.position, rb.velocity.normalized * 2f, Color.green);
+    }
+
+    private void FixedUpdate()
+    {
+
+        if(grounded)
+        {
             if (kick)
             {
+                kick = false;
                 if (aimDir == AimDirection.inside)
                 {
                     rb.AddForce(body.transform.up * jumpForce);
@@ -100,30 +136,11 @@ public class Character : MonoBehaviour
                 }
             }
 
-            if (!jumpRegion)
-            {
-                jumpForce = baseJumpForce;
-                kickForce = baseKickForce;
-                gravity = baseGravity;
-            }
-            else
-            {
-                jumpForce = jumpJumpForce;
-                kickForce = jumpKickForce;
-                gravity = jumpGravity;
-            }
+            if (rb.velocity.magnitude > topSpeed) rb.velocity = Vector2.ClampMagnitude(rb.velocity, topSpeed);
         }
-        else
-        {
-            gravity = airGravity;
-        }
+        
+        rb.AddForce(gravityDirection * rb.mass * gravity);
 
-        if (rb.velocity.magnitude > topSpeed) rb.velocity = Vector2.ClampMagnitude(rb.velocity, topSpeed);
-
-        rb.AddForce(gravityDirection * rb.mass * rb.mass * gravity);
-
-
-        Debug.DrawRay(transform.position, rb.velocity.normalized * 2f, Color.green);
     }
 
     #region Aim
