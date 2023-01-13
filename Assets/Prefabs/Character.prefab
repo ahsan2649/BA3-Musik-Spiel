@@ -530,7 +530,7 @@ MonoBehaviour:
   baseGravity: 500
   baseKickForce: 7.5
   jumpKickForce: 0
-  baseJumpForce: 10
+  baseJumpForce: 25
   jumpJumpForce: 10
   body: {fileID: 748162646908231712}
   topSpeed: 25
