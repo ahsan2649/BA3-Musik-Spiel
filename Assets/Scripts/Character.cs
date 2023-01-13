@@ -110,8 +110,10 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
+        body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -gravityDirection), 0.25f);
 
-        if(grounded)
+
+        if (grounded)
         {
             if (kick)
             {
@@ -140,6 +142,7 @@ public class Character : MonoBehaviour
         }
         
         rb.AddForce(gravityDirection * rb.mass * gravity);
+        
 
     }
 
