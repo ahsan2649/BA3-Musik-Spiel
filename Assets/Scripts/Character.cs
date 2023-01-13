@@ -120,10 +120,18 @@ public class Character : MonoBehaviour
 
         if (rb.velocity.magnitude > topSpeed) rb.velocity = Vector2.ClampMagnitude(rb.velocity, topSpeed);
 
-        rb.AddForce(gravityDirection * rb.mass * rb.mass * gravity);
+        body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -gravityDirection), 0.25f);
 
 
         Debug.DrawRay(transform.position, rb.velocity.normalized * 2f, Color.green);
+    }
+
+    private void FixedUpdate()
+    {
+        
+
+        rb.AddForce(gravityDirection * rb.mass * rb.mass * gravity);
+
     }
 
     #region Aim
@@ -174,7 +182,6 @@ public class Character : MonoBehaviour
             grounded = true;
 
             gravityDirection = -collision.GetContact(0).normal;
-            body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.FromToRotation(Vector2.up, collision.GetContact(0).normal), 0.25f);
         }
 
     }
@@ -185,7 +192,6 @@ public class Character : MonoBehaviour
         {
             grounded = false;
             gravityDirection = Vector2.down;
-            body.transform.rotation = Quaternion.identity;
         }
     }
 
