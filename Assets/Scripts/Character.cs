@@ -9,19 +9,40 @@ public class Character : MonoBehaviour
     Rigidbody2D rb;
     PlayerInput playerInput;
 
-    [Tooltip("The force in jumping off the ground")]
+    float health = 100;
     float jumpForce;
-
-    [Tooltip("The forward force per kick")]
     float kickForce;
-
-    bool grounded;
-    [SerializeField] float baseGravity;
     float gravity;
 
+    bool grounded;
+    bool jumpRegion;
+
+    [Header("Gravity")]
+    [Tooltip("Gravity when not touching the surface")]
+    [SerializeField] float airGravity;
+    [Tooltip("Gravity when in a trigger tagged 'Jump'")]
+    [SerializeField] float jumpGravity;
+    [Tooltip("Gravity when touching the surface")]
+    [SerializeField] float baseGravity;
+
+    [Header("Kick Force")]
+    [Tooltip("Gravity when touching the surface")]
+    [SerializeField] float baseKickForce;
+    [Tooltip("Jump force when in a trigger tagged 'Jump'")]
+    [SerializeField] float jumpKickForce;
+
+    [Header("Jump Force")]
+    [Tooltip("Kick force when touching the surface")]
+    [SerializeField] float baseJumpForce;
+    [Tooltip("Kick force when in a trigger tagged 'Jump'")]
+    [SerializeField] float jumpJumpForce;
+
+
     [SerializeField] GameObject body;
+
+    [Tooltip("The speed limit for the character")]
     [SerializeField] float topSpeed;
-    [SerializeField] float climbVelocity;
+
 
     bool kick;
 
@@ -55,29 +76,44 @@ public class Character : MonoBehaviour
 
         if (grounded)
         {
-            if (kick && aimDir == AimDirection.inside)
+            if (kick)
             {
-                rb.AddForce(body.transform.up * jumpForce);
+                if (aimDir == AimDirection.inside)
+                {
+                    rb.AddForce(body.transform.up * jumpForce);
+                }
+
+                if (aimDir == AimDirection.back)
+                {
+                    antiClockFace = !antiClockFace;
+                    rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+                }
+                if (aimDir == AimDirection.front)
+                {
+                    rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+                }
+                if (aimDir == AimDirection.outside)
+                {
+                    rb.velocity = Vector2.zero;
+                }
             }
 
-            if (kick && aimDir == AimDirection.back)
+            if (!jumpRegion)
             {
-                antiClockFace = !antiClockFace;
-                rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+                jumpForce = baseJumpForce;
+                kickForce = baseKickForce;
+                gravity = baseGravity;
             }
-
-            if (kick && aimDir == AimDirection.front)
+            else
             {
-                rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
-            }
-            if (kick && aimDir == AimDirection.outside)
-            {
-                rb.velocity = Vector2.zero;
+                jumpForce = jumpJumpForce;
+                kickForce = jumpKickForce;
+                gravity = jumpGravity;
             }
         }
         else
         {
-
+            gravity = airGravity;
         }
 
         if (rb.velocity.magnitude > topSpeed) rb.velocity = Vector2.ClampMagnitude(rb.velocity, topSpeed);
@@ -103,7 +139,7 @@ public class Character : MonoBehaviour
     void GetStickInput()
     {
         stickAngle = stickValue.magnitude == 0 ? float.NaN : Mathf.Atan2(stickValue.y, stickValue.x) * Mathf.Rad2Deg;
-        relativeStickAngle = stickValue.magnitude == 0 ? float.NaN : Vector2.SignedAngle(stickValue, transform.up);
+        relativeStickAngle = stickValue.magnitude == 0 ? float.NaN : Vector2.SignedAngle(stickValue, body.transform.up);
     }
 
     void CalculateAim()
@@ -135,19 +171,8 @@ public class Character : MonoBehaviour
         {
             grounded = true;
 
-            if (rb.velocity.magnitude > climbVelocity)
-            {
-                gravityDirection = -collision.GetContact(0).normal;
-            }
-            else
-            {
-                gravityDirection = Vector2.down;
-            }
+            gravityDirection = -collision.GetContact(0).normal;
             body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.FromToRotation(Vector2.up, collision.GetContact(0).normal), 0.25f);
-
-            kickForce = collision.gameObject.GetComponent<Platform>().kickForce;
-            jumpForce = collision.gameObject.GetComponent<Platform>().jumpForce;
-            gravity = collision.gameObject.GetComponent<Platform>().gravity;
         }
 
     }
@@ -159,8 +184,6 @@ public class Character : MonoBehaviour
             grounded = false;
             gravityDirection = Vector2.down;
             body.transform.rotation = Quaternion.identity;
-
-            gravity = baseGravity;
         }
     }
 
@@ -171,6 +194,28 @@ public class Character : MonoBehaviour
             Debug.Log("Weapon");
             collision.transform.parent = aimPivot.transform;
             collision.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
+            collision.GetComponent<Gun>().owner = this;
+        }
+
+        if (collision.tag == "Jump")
+        {
+            jumpRegion = true;
+        }
+
+        if (collision.tag == "Bullet")
+        {
+            if (collision.GetComponent<Bullet>().shooter != this)
+            {
+                health -= collision.GetComponent<Bullet>().damage;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Jump")
+        {
+            jumpRegion = false;
         }
     }
 }

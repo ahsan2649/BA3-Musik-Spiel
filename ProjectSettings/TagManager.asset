@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Surface
   - Weapon
+  - Jump
+  - Bullet
   layers:
   - Default
   - TransparentFX

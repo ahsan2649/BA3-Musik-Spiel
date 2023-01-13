@@ -190,7 +190,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879966396963229758}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.769, y: 0.019, z: 0}
+  m_LocalPosition: {x: 1.248, y: 0.019, z: 0}
   m_LocalScale: {x: 0.1857, y: 0.1857, z: 0.1857}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -272,8 +272,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2718559642855813903}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.52, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -524,18 +524,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b847eec5b099a5e48b900f9d02d413a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airGravity: 0
+  jumpGravity: 0
   baseGravity: 15
+  baseKickForce: 0
+  jumpKickForce: 0
+  baseJumpForce: 0
+  jumpJumpForce: 0
   body: {fileID: 748162646908231712}
   topSpeed: 25
-  climbVelocity: 5
-  kickAction:
-    m_Name: Kick
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: b1546ce3-6132-4a9f-8303-1f7f1e635a3a
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
   aimSmooth: 0.25
   aimPivot: {fileID: 2718559642855813903}
