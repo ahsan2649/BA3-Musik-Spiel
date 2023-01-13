@@ -143,13 +143,6 @@ public class Character : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        
-
-        rb.AddForce(gravityDirection * rb.mass * rb.mass * gravity);
-
-    }
 
     #region Aim
 
