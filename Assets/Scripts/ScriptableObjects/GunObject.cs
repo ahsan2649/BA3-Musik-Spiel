@@ -8,5 +8,6 @@ public class GunObject : ScriptableObject
 {
     public Color color;
     public float bulletSpeed;
+    public float damage;
     public string instrument;
 }

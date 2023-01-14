@@ -445,7 +445,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ef931fa81da9e654788603195c212342, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
@@ -524,13 +524,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b847eec5b099a5e48b900f9d02d413a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airGravity: 0
-  jumpGravity: 0
-  baseGravity: 15
-  baseKickForce: 0
+  gun: {fileID: 0}
+  airGravity: 100
+  jumpGravity: 10
+  baseGravity: 500
+  baseKickForce: 7.5
   jumpKickForce: 0
-  baseJumpForce: 0
-  jumpJumpForce: 0
+  baseJumpForce: 25
+  jumpJumpForce: 10
   body: {fileID: 748162646908231712}
   topSpeed: 25
   aimSmooth: 0.25
