@@ -47,12 +47,14 @@ public class Character : MonoBehaviour
     [Tooltip("The speed limit for the character")]
     [SerializeField] float topSpeed;
 
+    [SerializeField] float drag = 1;
 
+    float constantVelocity = 0;
     bool kick;
+    bool isSliding;
+    [SerializeField] float slideModifier = 0.5f;
 
-    float constantVelocity;
     public bool keep_velocity = true;
-    public float drag = 1;
     public int framecount = 0;
 
     Vector2 gravityDirection;
@@ -126,19 +128,41 @@ public class Character : MonoBehaviour
                 rb.AddForce(body.transform.up * jumpForce);
                 grounded = false;
                 gravity = airGravity;
-                Debug.Log("Jump " + framecount.ToString());
+                //Debug.Log("Jump " + framecount.ToString());
             }
 
             if (aimDir == AimDirection.back)
             {
-                antiClockFace = !antiClockFace;
-                rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
-                constantVelocity -= kickForce;
+                if (constantVelocity == 0)
+                {
+                    antiClockFace = !antiClockFace;
+                }
+                else if (!isSliding)
+                {
+                    isSliding = true;
+                    constantVelocity *= slideModifier;
+                }
+                else
+                {
+                    isSliding = false;
+                    constantVelocity /= slideModifier;
+                    rb.velocity = -rb.velocity.normalized * constantVelocity;
+                }
             }
             if (aimDir == AimDirection.front)
             {
-                rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
-                constantVelocity += kickForce;
+                if (isSliding)
+                {
+                    isSliding = false;
+                    constantVelocity /= slideModifier;
+                    rb.velocity = rb.velocity.normalized * constantVelocity;
+                }
+                else
+                {
+                    rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+                    constantVelocity += kickForce;
+                }
+
             }
             if (aimDir == AimDirection.outside)
             {
@@ -172,18 +196,7 @@ public class Character : MonoBehaviour
     {
         if (grounded)
         {
-            if (keep_velocity && constantVelocity == 0)
-            {
-                constantVelocity = rb.velocity.magnitude;
-            }
-            else if (keep_velocity)
-            {
-                rb.velocity = rb.velocity.normalized * constantVelocity;
-            }
-            if (!keep_velocity)
-            {
-                constantVelocity = 0;
-            }
+            rb.velocity = rb.velocity.normalized * constantVelocity;
         }       
     }
 
@@ -213,14 +226,15 @@ public class Character : MonoBehaviour
         else if (45 < relativeStickAngle && relativeStickAngle < 135) aimDir = antiClockFace ? AimDirection.front : AimDirection.back;
         else if (-45 > relativeStickAngle && relativeStickAngle > -135) aimDir = antiClockFace ? AimDirection.back : AimDirection.front;
 
-        aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : (antiClockFace ? stickAngle : stickAngle + 180)), aimSmooth);
+        aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : stickAngle), aimSmooth);
     }
 
     #endregion
 
     void ToggleFace()
     {
-        transform.localScale = new Vector3(antiClockFace ? 1 : -1, 1, 1);
+        if (constantVelocity != 0) antiClockFace = Vector2.SignedAngle(body.transform.up, rb.velocity) < 0 ? true : false;
+        body.transform.localScale = new Vector3(antiClockFace ? 1 : -1, 1, 1);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -249,7 +263,7 @@ public class Character : MonoBehaviour
         {
             grounded = false;
             gravityDirection = Vector2.down;
-            Debug.Log("Exit " + framecount.ToString());
+            //Debug.Log("Exit " + framecount.ToString());
         }
         
     }
@@ -278,7 +292,7 @@ public class Character : MonoBehaviour
                 health -= collision.GetComponent<Bullet>().damage;
             }
         }
-        Debug.Log("Enter " + framecount.ToString());
+        //Debug.Log("Enter " + framecount.ToString());
     }
 
     private void OnTriggerExit2D(Collider2D collision)

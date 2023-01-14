@@ -21483,6 +21483,10 @@ PrefabInstance:
       propertyPath: keep_velocity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2836240742534587780, guid: 2d7775fc42cfb8d49975f73804c18243, type: 3}
+      propertyPath: slideModifier
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7251681412852479060, guid: 2d7775fc42cfb8d49975f73804c18243, type: 3}
       propertyPath: m_RootOrder
       value: 1
