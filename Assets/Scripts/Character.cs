@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -48,7 +50,10 @@ public class Character : MonoBehaviour
 
     bool kick;
 
-
+    float constantVelocity;
+    public bool keep_velocity = true;
+    public float drag = 1;
+    public int framecount = 0;
 
     Vector2 gravityDirection;
 
@@ -113,39 +118,74 @@ public class Character : MonoBehaviour
         body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -gravityDirection), 0.25f);
 
 
-        if (grounded)
+        if (kick && grounded)
         {
-            if (kick)
+            kick = false;
+            if (aimDir == AimDirection.inside)
             {
-                kick = false;
-                if (aimDir == AimDirection.inside)
-                {
-                    rb.AddForce(body.transform.up * jumpForce);
-                }
-
-                if (aimDir == AimDirection.back)
-                {
-                    antiClockFace = !antiClockFace;
-                    rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
-                }
-                if (aimDir == AimDirection.front)
-                {
-                    rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
-                }
-                if (aimDir == AimDirection.outside)
-                {
-                    rb.velocity = Vector2.zero;
-                }
+                rb.AddForce(body.transform.up * jumpForce);
+                grounded = false;
+                gravity = airGravity;
+                Debug.Log("Jump " + framecount.ToString());
             }
 
+            if (aimDir == AimDirection.back)
+            {
+                antiClockFace = !antiClockFace;
+                rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+                constantVelocity -= kickForce;
+            }
+            if (aimDir == AimDirection.front)
+            {
+                rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+                constantVelocity += kickForce;
+            }
+            if (aimDir == AimDirection.outside)
+            {
+                rb.velocity = Vector2.zero;
+                constantVelocity = 0;
+            }
+        }
+
+        if (grounded) //second check is here so that after a jump the velocity is not checked
+        {
+            
             if (rb.velocity.magnitude > topSpeed) rb.velocity = Vector2.ClampMagnitude(rb.velocity, topSpeed);
+            
+            constantVelocity -= drag * Time.fixedDeltaTime;
+            if (constantVelocity < 0)
+            {
+                constantVelocity = 0;
+            }
+            if (constantVelocity > topSpeed)
+            {
+                constantVelocity = topSpeed;
+            }
+
         }
         
         rb.AddForce(gravityDirection * rb.mass * gravity);
-        
-
+        framecount += 1;
     }
 
+    private void LateUpdate()
+    {
+        if (grounded)
+        {
+            if (keep_velocity && constantVelocity == 0)
+            {
+                constantVelocity = rb.velocity.magnitude;
+            }
+            else if (keep_velocity)
+            {
+                rb.velocity = rb.velocity.normalized * constantVelocity;
+            }
+            if (!keep_velocity)
+            {
+                constantVelocity = 0;
+            }
+        }       
+    }
 
     #region Aim
 
@@ -185,14 +225,18 @@ public class Character : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        if (collision.gameObject.tag == "Surface")
+        {
+            grounded = true;
+            gravityDirection = -collision.GetContact(0).normal;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Surface")
         {
-            grounded = true;
+            //grounded = true;
 
             gravityDirection = -collision.GetContact(0).normal;
         }
@@ -205,11 +249,14 @@ public class Character : MonoBehaviour
         {
             grounded = false;
             gravityDirection = Vector2.down;
+            Debug.Log("Exit " + framecount.ToString());
         }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.tag == "Weapon")
         {
             Debug.Log("Weapon");
@@ -231,6 +278,7 @@ public class Character : MonoBehaviour
                 health -= collision.GetComponent<Bullet>().damage;
             }
         }
+        Debug.Log("Enter " + framecount.ToString());
     }
 
     private void OnTriggerExit2D(Collider2D collision)
