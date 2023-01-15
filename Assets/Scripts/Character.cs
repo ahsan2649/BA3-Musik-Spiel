@@ -10,6 +10,9 @@ public class Character : MonoBehaviour
 
     Rigidbody2D rb;
     PlayerInput playerInput;
+    
+    [SerializeField] Animator ani;
+    [SerializeField] float min_velocity_to_start_skate;
 
     float health = 100;
     float jumpForce;
@@ -109,7 +112,14 @@ public class Character : MonoBehaviour
             gravity = airGravity;
         }
 
-
+        if (constantVelocity > min_velocity_to_start_skate)
+        {
+            ani.SetBool("HasMomentum", true);
+        }
+        else
+        {
+            ani.SetBool("HasMomentum", false);
+        }
 
 
         Debug.DrawRay(transform.position, rb.velocity.normalized * 2f, Color.green);
@@ -127,6 +137,7 @@ public class Character : MonoBehaviour
             {
                 rb.AddForce(body.transform.up * jumpForce);
                 grounded = false;
+                ani.SetBool("OnGround", false);
                 gravity = airGravity;
                 //Debug.Log("Jump " + framecount.ToString());
             }
@@ -140,11 +151,15 @@ public class Character : MonoBehaviour
                 else if (!isSliding)
                 {
                     isSliding = true;
+                    ani.SetBool("Sliding", true);
+                    ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                    ani.SetTrigger("Kick");
                     constantVelocity *= slideModifier;
                 }
                 else
                 {
                     isSliding = false;
+                    ani.SetBool("Sliding", false);
                     constantVelocity /= slideModifier;
                     rb.velocity = -rb.velocity.normalized * constantVelocity;
                 }
@@ -154,6 +169,9 @@ public class Character : MonoBehaviour
                 if (isSliding)
                 {
                     isSliding = false;
+                    ani.SetBool("Sliding", false);
+                    ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                    ani.SetTrigger("Kick");
                     constantVelocity /= slideModifier;
                     rb.velocity = rb.velocity.normalized * constantVelocity;
                 }
@@ -161,6 +179,9 @@ public class Character : MonoBehaviour
                 {
                     rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
                     constantVelocity += kickForce;
+                    
+                    ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                    ani.SetTrigger("Kick");
                 }
 
             }
@@ -242,6 +263,7 @@ public class Character : MonoBehaviour
         if (collision.gameObject.tag == "Surface")
         {
             grounded = true;
+            ani.SetBool("OnGround", true);
             gravityDirection = -collision.GetContact(0).normal;
         }
     }
@@ -262,6 +284,7 @@ public class Character : MonoBehaviour
         if (collision.gameObject.tag == "Surface")
         {
             grounded = false;
+            ani.SetBool("OnGround", false);
             gravityDirection = Vector2.down;
             //Debug.Log("Exit " + framecount.ToString());
         }
