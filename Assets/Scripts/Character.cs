@@ -295,28 +295,29 @@ public class Character : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if (collision.tag == "Weapon")
+        switch (collision.tag)
         {
-            Debug.Log("Weapon");
-            gun = collision.GetComponent<Gun>();
-            gun.owner = this;
-            gun.transform.parent = aimPivot.transform;
-            gun.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
+            case "Weapon":
+                Debug.Log("Weapon");
+                gun = collision.GetComponent<Gun>();
+                gun.owner = this;
+                gun.transform.parent = aimPivot.transform;
+                gun.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
+                break;
+            case "Jump":
+                jumpRegion = true;
+                break;
+            case "Bullet":
+                if (collision.GetComponent<Bullet>().shooter != this)
+                {
+                    health -= collision.GetComponent<Bullet>().damage;
+                }
+                break;
+            case "Coin":
+                Destroy(collision.gameObject);
+                break;
         }
 
-        if (collision.tag == "Jump")
-        {
-            jumpRegion = true;
-        }
-
-        if (collision.tag == "Bullet")
-        {
-            if (collision.GetComponent<Bullet>().shooter != this)
-            {
-                health -= collision.GetComponent<Bullet>().damage;
-            }
-        }
         //Debug.Log("Enter " + framecount.ToString());
     }
 
