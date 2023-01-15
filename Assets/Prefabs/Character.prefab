@@ -534,5 +534,9 @@ MonoBehaviour:
   jumpJumpForce: 10
   body: {fileID: 748162646908231712}
   topSpeed: 25
+  drag: 1
+  slideModifier: 0.5
+  keep_velocity: 1
+  framecount: 0
   aimSmooth: 0.25
   aimPivot: {fileID: 2718559642855813903}

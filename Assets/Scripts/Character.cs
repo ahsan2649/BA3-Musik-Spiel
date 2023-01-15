@@ -120,7 +120,7 @@ public class Character : MonoBehaviour
         body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -gravityDirection), 0.25f);
 
 
-        if (kick && grounded)
+        if (kick && grounded && GameManager.instance.canKick)
         {
             kick = false;
             if (aimDir == AimDirection.inside)
@@ -271,7 +271,7 @@ public class Character : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.tag == "Weapon")
+        if (collision.tag == "Weapon" && gun == null)
         {
             Debug.Log("Weapon");
             gun = collision.GetComponent<Gun>();

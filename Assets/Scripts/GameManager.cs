@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     [Serializable]
     class TimelineInfo
     {
@@ -16,6 +18,9 @@ public class GameManager : MonoBehaviour
         public float tempo;
         public string currentMarker;
         public string lastMarker;
+        public float beatInterval;
+        public float timeUntilNextBeat;
+        public float timeAfterPrevBeat;
         public List<Gun> guns;
 
         public void Shoot(string marker)
@@ -32,6 +37,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] FMODUnity.EventReference song;
     [SerializeField] TimelineInfo timelineInfo;
+    [SerializeField][Range(0,1)] float KickMargin;
+
+    float KickMarginValue;
+
     GCHandle timelineHandle;
 
     List<Character> characters= new List<Character>();
@@ -41,7 +50,20 @@ public class GameManager : MonoBehaviour
     FMOD.Studio.EVENT_CALLBACK shootCallback;
     FMOD.Studio.EventInstance songInstance;
 
+    public bool canKick;
 
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +97,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timelineInfo.timeAfterPrevBeat += Time.deltaTime;
+        timelineInfo.timeUntilNextBeat -= Time.deltaTime;
+
+        KickMarginValue = Mathf.Lerp(0, timelineInfo.beatInterval, KickMargin);
+
+        if (timelineInfo.timeAfterPrevBeat < KickMarginValue || timelineInfo.timeAfterPrevBeat > (timelineInfo.beatInterval - KickMarginValue)) canKick = true;
+        else canKick = false;
+
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             StartSong();
@@ -111,6 +141,9 @@ public class GameManager : MonoBehaviour
                     timelineInfo.CurrentMusicBar = beatParams.bar;
                     timelineInfo.CurrentMusicBeat = beatParams.beat;
                     timelineInfo.tempo = beatParams.tempo;
+                    timelineInfo.beatInterval = 60 / timelineInfo.tempo;
+                    timelineInfo.timeUntilNextBeat = timelineInfo.beatInterval;
+                    timelineInfo.timeAfterPrevBeat = 0;
                     break;
             }
         }
