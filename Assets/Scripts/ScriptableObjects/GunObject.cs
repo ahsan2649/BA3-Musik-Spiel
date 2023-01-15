@@ -10,4 +10,5 @@ public class GunObject : ScriptableObject
     public float bulletSpeed;
     public float damage;
     public string instrument;
+    public GameObject bulletPrefab;
 }
