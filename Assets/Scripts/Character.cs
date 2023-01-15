@@ -138,6 +138,7 @@ public class Character : MonoBehaviour
                 rb.AddForce(body.transform.up * jumpForce);
                 grounded = false;
                 ani.SetBool("OnGround", false);
+                ani.SetTrigger("Jump");
                 gravity = airGravity;
                 //Debug.Log("Jump " + framecount.ToString());
             }
@@ -189,6 +190,7 @@ public class Character : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
                 constantVelocity = 0;
+                ani.SetTrigger("Brake");
             }
         }
 
