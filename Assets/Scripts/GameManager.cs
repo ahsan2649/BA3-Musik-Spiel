@@ -37,20 +37,23 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] FMODUnity.EventReference song;
     [SerializeField] TimelineInfo timelineInfo;
+    [SerializeField] List<Transform> spawnPoints;
     [SerializeField][Range(0,1)] float KickMargin;
+    [SerializeField] GameObject playerPrefab;
 
-    float KickMarginValue;
-
-    GCHandle timelineHandle;
-
+    int playerCount = 0;
     List<Character> characters= new List<Character>();
     List<Gun> guns= new List<Gun>();
+    float KickMarginValue;
+
+    PlayerInputManager playerManager;
 
     FMODUnity.StudioEventEmitter emitter;
     FMOD.Studio.EVENT_CALLBACK shootCallback;
     FMOD.Studio.EventInstance songInstance;
+    GCHandle timelineHandle;
 
-    public bool canKick;
+    [HideInInspector] public bool canKick;
 
 
     private void Awake()
@@ -68,11 +71,21 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerManager = GetComponent<PlayerInputManager>();
+        playerManager.playerPrefab = playerPrefab;
+        foreach (var gamePad in Gamepad.all)
+        {
+            Debug.Log(gamePad);
+            playerManager.JoinPlayer(playerCount, -1, null, gamePad);
+            playerCount++;
+        }
+
         characters = FindObjectsOfType<Character>().ToList();
         guns = FindObjectsOfType<Gun>().ToList();
         emitter = GetComponent<FMODUnity.StudioEventEmitter>();
         timelineInfo = new TimelineInfo();
         timelineInfo.guns = guns;
+        timelineHandle = GCHandle.Alloc(timelineInfo);
         emitter.EventReference = song;
         shootCallback = new FMOD.Studio.EVENT_CALLBACK(ShootCallback);
     }
@@ -82,14 +95,13 @@ public class GameManager : MonoBehaviour
         songInstance.setUserData(IntPtr.Zero);
         emitter.Stop();
         songInstance.release();
-        timelineHandle.Free();
+        if(timelineHandle != null) timelineHandle.Free();
     }
 
     public void StartSong()
     {
         emitter.Play();
         songInstance = emitter.EventInstance;
-        timelineHandle = GCHandle.Alloc(timelineInfo);
         songInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
         songInstance.setCallback(shootCallback, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER);
     }
@@ -105,11 +117,12 @@ public class GameManager : MonoBehaviour
         if (timelineInfo.timeAfterPrevBeat < KickMarginValue || timelineInfo.timeAfterPrevBeat > (timelineInfo.beatInterval - KickMarginValue)) canKick = true;
         else canKick = false;
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.pKey.wasPressedThisFrame)
         {
             StartSong();
         }
     }
+
 
     #region BeatsAndMarkers
     [AOT.MonoPInvokeCallback(typeof(FMOD.Studio.EVENT_CALLBACK))]
