@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - Jump
   - Bullet
+  - Coin
   layers:
   - Default
   - TransparentFX
