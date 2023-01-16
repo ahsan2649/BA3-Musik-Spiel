@@ -655,7 +655,7 @@
 	</object>
 	<object class="NamedMarker" id="{24be63c6-fce4-4a72-87da-578ef402c2de}">
 		<property name="position">
-			<value>10.153839743589744</value>
+			<value>10.153851654599068</value>
 		</property>
 		<property name="name">
 			<value>Weapon 2 M</value>
@@ -837,7 +837,7 @@
 	</object>
 	<object class="NamedMarker" id="{736ec389-b5be-4f6b-88af-07e1463fe7df}">
 		<property name="position">
-			<value>6.4615475887605847</value>
+			<value>6.4615439102564096</value>
 		</property>
 		<property name="name">
 			<value>Weapon 1 F</value>
@@ -865,7 +865,7 @@
 	</object>
 	<object class="NamedMarker" id="{8c055309-bbb9-4dd6-afb1-544692072bbd}">
 		<property name="position">
-			<value>6.8077014349144314</value>
+			<value>6.8076977564102563</value>
 		</property>
 		<property name="name">
 			<value>Weapon 1 H</value>
@@ -921,7 +921,7 @@
 	</object>
 	<object class="NamedMarker" id="{5bb9eb05-ab7b-46c5-9f8a-d29868e827fa}">
 		<property name="position">
-			<value>10.500005500752913</value>
+			<value>10.499993589743589</value>
 		</property>
 		<property name="name">
 			<value>Weapon 1 L</value>
@@ -949,7 +949,7 @@
 	</object>
 	<object class="NamedMarker" id="{5ca2f793-5f4a-47ff-a54b-4dfbc996114b}">
 		<property name="position">
-			<value>7.1538408989882507</value>
+			<value>7.1538532051282049</value>
 		</property>
 		<property name="name">
 			<value>Weapon 1 N</value>
@@ -991,7 +991,7 @@
 	</object>
 	<object class="NamedMarker" id="{e2058e4d-b0e0-4848-a2f4-e4ff1d4e5e8c}">
 		<property name="position">
-			<value>13.846148634732788</value>
+			<value>13.846154487179486</value>
 		</property>
 		<property name="name">
 			<value>Weapon 1 Q</value>
@@ -1019,7 +1019,7 @@
 	</object>
 	<object class="NamedMarker" id="{72008a93-019b-4d09-b600-9e6631f7d418}">
 		<property name="position">
-			<value>14.192302480886635</value>
+			<value>14.192308333333333</value>
 		</property>
 		<property name="name">
 			<value>Weapon 1 S</value>
@@ -1047,7 +1047,7 @@
 	</object>
 	<object class="NamedMarker" id="{14ea7e0f-8b73-4871-afea-190ca8eb373c}">
 		<property name="position">
-			<value>14.538441944960454</value>
+			<value>14.538463782051281</value>
 		</property>
 		<property name="name">
 			<value>Weapon 1 U</value>
@@ -1201,7 +1201,7 @@
 	</object>
 	<object class="NamedMarker" id="{e8ff230a-240c-4f01-bb51-5c36f1d7fa5c}">
 		<property name="position">
-			<value>1.269225</value>
+			<value>1.2692307692307694</value>
 		</property>
 		<property name="name">
 			<value>Weapon 3 E</value>
@@ -1229,7 +1229,7 @@
 	</object>
 	<object class="NamedMarker" id="{377ec852-290f-4bb4-a319-705b7a1ace0e}">
 		<property name="position">
-			<value>1.6153875</value>
+			<value>1.6153846153846154</value>
 		</property>
 		<property name="name">
 			<value>Weapon 3 G</value>

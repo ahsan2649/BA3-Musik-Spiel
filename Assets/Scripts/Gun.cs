@@ -5,23 +5,29 @@ using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] float bulletSpeed;
-    [SerializeField] float damage;
+    [SerializeField] GunObject gunObject;
+    [HideInInspector] public string instrument;
+    GameObject bulletPrefab;
+    float bulletSpeed;
+    float damage;
     public Character owner;
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        instrument = gunObject.instrument;
+        bulletSpeed = gunObject.bulletSpeed;
+        damage = gunObject.damage;
+        bulletPrefab= gunObject.bulletPrefab;
+        if (GetComponent<SpriteRenderer>() != null)
+        {
+            GetComponent<SpriteRenderer>().color = gunObject.color;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Keyboard.current.spaceKey.wasPressedThisFrame)Shoot();
+        
     }
 
     public void Shoot()
