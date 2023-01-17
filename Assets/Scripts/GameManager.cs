@@ -114,10 +114,16 @@ public class GameManager : MonoBehaviour
 
         KickMarginValue = Mathf.Lerp(0, timelineInfo.beatInterval, KickMargin);
 
-        if (timelineInfo.timeAfterPrevBeat < KickMarginValue || timelineInfo.timeAfterPrevBeat > (timelineInfo.beatInterval - KickMarginValue)) canKick = true;
+        if ((timelineInfo.CurrentMusicBeat % 2 == 0 && timelineInfo.timeAfterPrevBeat < KickMarginValue) ||
+           (timelineInfo.CurrentMusicBeat % 2 != 0 && timelineInfo.timeUntilNextBeat < KickMarginValue)) canKick = true;
         else canKick = false;
 
         if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            StartSong();
+        }
+         
+        if (guns.All(gun => gun.owner != null) && !emitter.IsPlaying())
         {
             StartSong();
         }
