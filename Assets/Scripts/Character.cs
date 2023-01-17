@@ -114,11 +114,11 @@ public class Character : MonoBehaviour
 
         if (constantVelocity > min_velocity_to_start_skate)
         {
-            ani.SetBool("HasMomentum", true);
+            if (ani != null) ani.SetBool("HasMomentum", true);
         }
         else
         {
-            ani.SetBool("HasMomentum", false);
+            if (ani != null) ani.SetBool("HasMomentum", false);
         }
 
 
@@ -137,8 +137,8 @@ public class Character : MonoBehaviour
             {
                 rb.AddForce(body.transform.up * jumpForce);
                 grounded = false;
-                ani.SetBool("OnGround", false);
-                ani.SetTrigger("Jump");
+                if (ani != null) ani.SetBool("OnGround", false);
+                if (ani != null) ani.SetTrigger("Jump");
                 gravity = airGravity;
                 //Debug.Log("Jump " + framecount.ToString());
             }
@@ -152,15 +152,18 @@ public class Character : MonoBehaviour
                 else if (!isSliding)
                 {
                     isSliding = true;
-                    ani.SetBool("Sliding", true);
-                    ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                    ani.SetTrigger("Kick");
+                    if (ani != null) ani.SetBool("Sliding", true);
+                    if (ani != null)
+                        ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                    if (ani != null)
+                        ani.SetTrigger("Kick");
                     constantVelocity *= slideModifier;
                 }
                 else
                 {
                     isSliding = false;
-                    ani.SetBool("Sliding", false);
+                    if (ani != null)
+                        ani.SetBool("Sliding", false);
                     constantVelocity /= slideModifier;
                     rb.velocity = -rb.velocity.normalized * constantVelocity;
                 }
@@ -170,9 +173,12 @@ public class Character : MonoBehaviour
                 if (isSliding)
                 {
                     isSliding = false;
-                    ani.SetBool("Sliding", false);
-                    ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                    ani.SetTrigger("Kick");
+                    if (ani != null)
+                        ani.SetBool("Sliding", false);
+                    if (ani != null)
+                        ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                    if (ani != null)
+                            ani.SetTrigger("Kick");
                     constantVelocity /= slideModifier;
                     rb.velocity = rb.velocity.normalized * constantVelocity;
                 }
@@ -181,8 +187,10 @@ public class Character : MonoBehaviour
                     rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
                     constantVelocity += kickForce;
                     
-                    ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                    ani.SetTrigger("Kick");
+                    if (ani != null)
+                        ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                    if (ani != null)
+                        ani.SetTrigger("Kick");
                 }
 
             }
@@ -190,7 +198,8 @@ public class Character : MonoBehaviour
             {
                 rb.velocity = Vector2.zero;
                 constantVelocity = 0;
-                ani.SetTrigger("Brake");
+                if (ani != null)
+                    ani.SetTrigger("Brake");
             }
         }
 
@@ -265,7 +274,8 @@ public class Character : MonoBehaviour
         if (collision.gameObject.tag == "Surface")
         {
             grounded = true;
-            ani.SetBool("OnGround", true);
+            if (ani != null)
+                ani.SetBool("OnGround", true);
             gravityDirection = -collision.GetContact(0).normal;
         }
     }
@@ -286,7 +296,8 @@ public class Character : MonoBehaviour
         if (collision.gameObject.tag == "Surface")
         {
             grounded = false;
-            ani.SetBool("OnGround", false);
+            if (ani != null)
+                ani.SetBool("OnGround", false);
             gravityDirection = Vector2.down;
             //Debug.Log("Exit " + framecount.ToString());
         }
