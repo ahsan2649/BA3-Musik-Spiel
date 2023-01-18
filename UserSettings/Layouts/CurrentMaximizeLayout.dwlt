@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 22512
+  controlID: 23851
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 22513
+  controlID: 23852
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 22471
+  controlID: 23853
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 356
     height: 621
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -226,7 +226,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2af2ffff34f2ffff5cf3ffff18f5ffff40f6ffffaef6ffffd6f7ffff48f8ffff74f9ffff26fbffff806b0000
+      m_ExpandedIDs: cab4feff16b6feff84b6feffa8b7feff16b8feff2af2ffff34f2ffff5cf3ffff18f5ffff40f6ffffaef6ffffd6f7ffff48f8ffff74f9ffff26fbffff806b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -774,8 +774,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 2af2ffff
-    m_LastClickedInstanceID: -3542
+    m_SelectedInstanceIDs: 82680000
+    m_LastClickedInstanceID: 26754
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300002a66000000000000
     m_RenameOverlay:
@@ -863,7 +863,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 27542
+  m_LastSelectedObjectID: -3542
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -918,16 +918,17 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  m_ObjectsLockedBeforeSerialization: []
+  m_ObjectsLockedBeforeSerialization:
+  - {fileID: 1244708918076454353, guid: 9bf5b3df00b2e04478751ca27b6b80e7, type: 3}
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
     m_CachedPref: -171
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -3542
-  m_LastVerticalScrollValue: 0
+  m_LastInspectedObjectInstanceID: 26084
+  m_LastVerticalScrollValue: 455
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
-    m_IsLocked: 0
+    m_IsLocked: 1
   m_PreviewWindow: {fileID: 0}

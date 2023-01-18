@@ -134,6 +134,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ani: {fileID: 3567991270904077931}
   min_velocity_to_start_skate: 0
+  MissParticle: {fileID: 5593275954400829785, guid: e9e7503a52a039a4ca989fce3eb5aaa6, type: 3}
+  RotationReady: 0
+  KickReady: 0
   gun: {fileID: 0}
   airGravity: 15
   jumpGravity: 10
