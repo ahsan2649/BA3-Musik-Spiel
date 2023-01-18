@@ -22,6 +22,9 @@ public class Character : MonoBehaviour
     bool grounded;
     bool jumpRegion;
 
+    public bool RotationReady = false;
+    public bool KickReady = false;
+
     public Gun gun;
 
     [Header("Gravity")]
@@ -92,8 +95,6 @@ public class Character : MonoBehaviour
 
         if (grounded)
         {
-            
-
             if (!jumpRegion)
             {
                 jumpForce = baseJumpForce;
@@ -129,77 +130,96 @@ public class Character : MonoBehaviour
     {
         body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -gravityDirection), 0.25f);
 
-
-        if (kick && grounded && GameManager.instance.canKick)
+        if (GameManager.instance.phase == GameManager.Phase.Starting)
         {
-            kick = false;
-            if (aimDir == AimDirection.inside)
+            if (kick && GameManager.instance.canKick)
             {
-                rb.AddForce(body.transform.up * jumpForce);
-                grounded = false;
-                if (ani != null) ani.SetBool("OnGround", false);
-                if (ani != null) ani.SetTrigger("Jump");
-                gravity = airGravity;
-                //Debug.Log("Jump " + framecount.ToString());
+                KickReady = true;
             }
 
-            if (aimDir == AimDirection.back)
+            if (stickValue.magnitude != 0)
             {
-                if (constantVelocity == 0)
-                {
-                    antiClockFace = !antiClockFace;
-                }
-                else if (!isSliding)
-                {
-                    isSliding = true;
-                    if (ani != null) ani.SetBool("Sliding", true);
-                    if (ani != null)
-                        ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                    if (ani != null)
-                        ani.SetTrigger("Kick");
-                    constantVelocity *= slideModifier;
-                }
-                else
-                {
-                    isSliding = false;
-                    if (ani != null)
-                        ani.SetBool("Sliding", false);
-                    constantVelocity /= slideModifier;
-                    rb.velocity = -rb.velocity.normalized * constantVelocity;
-                }
+                RotationReady= true;
             }
-            if (aimDir == AimDirection.front)
+
+
+        }
+
+        if (GameManager.instance.phase == GameManager.Phase.Playing)
+        {
+
+
+            if (kick && grounded && GameManager.instance.canKick)
             {
-                if (isSliding)
+                kick = false;
+                if (aimDir == AimDirection.inside)
                 {
-                    isSliding = false;
-                    if (ani != null)
-                        ani.SetBool("Sliding", false);
-                    if (ani != null)
-                        ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                    if (ani != null)
+                    rb.AddForce(body.transform.up * jumpForce);
+                    grounded = false;
+                    if (ani != null) ani.SetBool("OnGround", false);
+                    if (ani != null) ani.SetTrigger("Jump");
+                    gravity = airGravity;
+                    //Debug.Log("Jump " + framecount.ToString());
+                }
+
+                if (aimDir == AimDirection.back)
+                {
+                    if (constantVelocity == 0)
+                    {
+                        antiClockFace = !antiClockFace;
+                    }
+                    else if (!isSliding)
+                    {
+                        isSliding = true;
+                        if (ani != null) ani.SetBool("Sliding", true);
+                        if (ani != null)
+                            ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                        if (ani != null)
                             ani.SetTrigger("Kick");
-                    constantVelocity /= slideModifier;
-                    rb.velocity = rb.velocity.normalized * constantVelocity;
+                        constantVelocity *= slideModifier;
+                    }
+                    else
+                    {
+                        isSliding = false;
+                        if (ani != null)
+                            ani.SetBool("Sliding", false);
+                        constantVelocity /= slideModifier;
+                        rb.velocity = -rb.velocity.normalized * constantVelocity;
+                    }
                 }
-                else
+                if (aimDir == AimDirection.front)
                 {
-                    rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
-                    constantVelocity += kickForce;
-                    
-                    if (ani != null)
-                        ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                    if (ani != null)
-                        ani.SetTrigger("Kick");
-                }
+                    if (isSliding)
+                    {
+                        isSliding = false;
+                        if (ani != null)
+                            ani.SetBool("Sliding", false);
+                        if (ani != null)
+                            ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                        if (ani != null)
+                            ani.SetTrigger("Kick");
+                        constantVelocity /= slideModifier;
+                        rb.velocity = rb.velocity.normalized * constantVelocity;
+                    }
+                    else
+                    {
+                        rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+                        constantVelocity += kickForce;
 
-            }
-            if (aimDir == AimDirection.outside)
-            {
-                rb.velocity = Vector2.zero;
-                constantVelocity = 0;
-                if (ani != null)
-                    ani.SetTrigger("Brake");
+                        if (ani != null)
+                            ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                        if (ani != null)
+                            ani.SetTrigger("Kick");
+                    }
+
+                }
+                if (aimDir == AimDirection.outside)
+                {
+                    rb.velocity = Vector2.zero;
+                    constantVelocity = 0;
+                    if (ani != null)
+                        ani.SetTrigger("Brake");
+                }
             }
         }
 
