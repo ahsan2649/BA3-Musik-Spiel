@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     
     [SerializeField] Animator ani;
     [SerializeField] float min_velocity_to_start_skate;
+    [SerializeField] GameObject MissParticle;
 
     float health = 100;
     float jumpForce;
@@ -201,6 +202,12 @@ public class Character : MonoBehaviour
                 if (ani != null)
                     ani.SetTrigger("Brake");
             }
+        }
+
+        if (kick && grounded && !GameManager.instance.canKick)
+        {
+            Instantiate(MissParticle, transform.position, Quaternion.identity);
+            Debug.Log("Spawn");
         }
 
         if (grounded) //second check is here so that after a jump the velocity is not checked
