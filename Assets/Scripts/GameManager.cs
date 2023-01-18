@@ -10,6 +10,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+
+    public enum Phase
+    {
+        Starting, Playing
+    };
+
+    public Phase phase = Phase.Starting;
+
+
+
     [Serializable]
     class TimelineInfo
     {
@@ -22,6 +32,9 @@ public class GameManager : MonoBehaviour
         public float timeUntilNextBeat;
         public float timeAfterPrevBeat;
         public List<Gun> guns;
+
+
+
 
         public void Shoot(string marker)
         {
@@ -109,24 +122,25 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!emitter.IsPlaying())
+        {
+        StartSong();
+
+        }
+
+        if (phase==Phase.Starting)
+        {
+            if (characters.All(character => character.RotationReady && character.KickReady)) phase = Phase.Playing;
+        }
         timelineInfo.timeAfterPrevBeat += Time.deltaTime;
         timelineInfo.timeUntilNextBeat -= Time.deltaTime;
 
         KickMarginValue = Mathf.Lerp(0, timelineInfo.beatInterval, KickMargin);
 
-        if ((timelineInfo.CurrentMusicBeat % 2 == 0 && timelineInfo.timeAfterPrevBeat < KickMarginValue) ||
-           (timelineInfo.CurrentMusicBeat % 2 != 0 && timelineInfo.timeUntilNextBeat < KickMarginValue)) canKick = true;
+        if ((timelineInfo.CurrentMusicBeat % 2 == 0 && timelineInfo.timeUntilNextBeat < KickMarginValue) ||
+           (timelineInfo.CurrentMusicBeat % 2 != 0 && timelineInfo.timeAfterPrevBeat < KickMarginValue)) canKick = true;
         else canKick = false;
-
-        if (Keyboard.current.pKey.wasPressedThisFrame)
-        {
-            StartSong();
-        }
          
-        if (guns.All(gun => gun.owner != null) && !emitter.IsPlaying())
-        {
-            StartSong();
-        }
     }
 
 
