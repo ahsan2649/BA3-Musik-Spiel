@@ -173,6 +173,7 @@ public class Character : MonoBehaviour
                     {
                         isSliding = true;
                         if (ani != null) ani.SetBool("Sliding", true);
+                            ani.SetTrigger("SlidingTrigger");
                         if (ani != null)
                             ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
                         if (ani != null)
@@ -226,8 +227,8 @@ public class Character : MonoBehaviour
 
         if (kick && grounded && !GameManager.instance.canKick)
         {
-            Instantiate(MissParticle, transform.position, Quaternion.identity);
-            Debug.Log("Spawn");
+            Instantiate(MissParticle, transform);
+            Debug.Log(transform.position);
         }
 
         if (grounded) //second check is here so that after a jump the velocity is not checked
