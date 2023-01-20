@@ -16,6 +16,13 @@ public class GameManager : MonoBehaviour
         Starting, Playing
     };
 
+    enum Beat
+    {
+        One_Three, Two_Four
+    };
+
+    [SerializeField] Beat KickBeat;
+
     public Phase phase = Phase.Starting;
 
 
@@ -137,10 +144,25 @@ public class GameManager : MonoBehaviour
 
         KickMarginValue = Mathf.Lerp(0, timelineInfo.beatInterval, KickMargin);
 
-        if ((timelineInfo.CurrentMusicBeat % 2 == 0 && timelineInfo.timeUntilNextBeat < KickMarginValue) ||
-           (timelineInfo.CurrentMusicBeat % 2 != 0 && timelineInfo.timeAfterPrevBeat < KickMarginValue)) canKick = true;
-        else canKick = false;
+        if (KickBeat == Beat.One_Three)
+        {
+            if ((timelineInfo.CurrentMusicBeat % 2 == 0 && timelineInfo.timeUntilNextBeat < KickMarginValue) ||
+                (timelineInfo.CurrentMusicBeat % 2 != 0 && timelineInfo.timeAfterPrevBeat < KickMarginValue)) canKick = true;
+            else canKick = false;
+        }
+        if (KickBeat == Beat.Two_Four)
+        {
+            if ((timelineInfo.CurrentMusicBeat % 2 != 0 && timelineInfo.timeUntilNextBeat < KickMarginValue) ||
+                (timelineInfo.CurrentMusicBeat % 2 == 0 && timelineInfo.timeAfterPrevBeat < KickMarginValue)) canKick = true;
+            else canKick = false;
+        }
+
          
+    }
+
+    void OnPlayerJoined(PlayerInput playerInput)
+    {
+        playerInput.GetComponent<Character>().spawnPoint = spawnPoints[playerInput.playerIndex];
     }
 
 

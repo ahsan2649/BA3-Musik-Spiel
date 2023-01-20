@@ -49,6 +49,7 @@ public class Character : MonoBehaviour
 
 
     [SerializeField] GameObject body;
+    [HideInInspector] public Transform spawnPoint;
 
     [Tooltip("The speed limit for the character")]
     [SerializeField] float topSpeed;
@@ -68,6 +69,7 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = spawnPoint.position;
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
 
@@ -167,6 +169,13 @@ public class Character : MonoBehaviour
                     if (constantVelocity == 0)
                     {
                         antiClockFace = !antiClockFace;
+                        rb.AddForce((antiClockFace ? body.transform.right : -body.transform.right) * kickForce);
+                        constantVelocity += kickForce;
+
+                        if (ani != null)
+                            ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                        if (ani != null)
+                            ani.SetTrigger("Kick");
                     }
                     else if (!isSliding)
                     {
@@ -329,8 +338,9 @@ public class Character : MonoBehaviour
         switch (collision.tag)
         {
             case "Weapon":
-                Debug.Log("Weapon");
                 gun = collision.GetComponent<Gun>();
+                if (gun.owner != null) break;
+                Debug.Log("Weapon");
                 gun.owner = this;
                 gun.transform.parent = aimPivot.transform;
                 gun.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
@@ -341,7 +351,9 @@ public class Character : MonoBehaviour
             case "Bullet":
                 if (collision.GetComponent<Bullet>().shooter != this)
                 {
+                    Destroy(collision.gameObject);
                     health -= collision.GetComponent<Bullet>().damage;
+                    
                 }
                 break;
             case "Coin":
