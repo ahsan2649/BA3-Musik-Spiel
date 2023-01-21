@@ -346,17 +346,19 @@ public class Character : MonoBehaviour
         switch (collision.tag)
         {
             case "Weapon":
-                gun = collision.GetComponent<Gun>();
-                if (gun.owner != null)
+                var weapon = collision.GetComponent<Gun>();
+                if (weapon.owner == null && gun == null)
                 {
-                    break;
+                    Debug.Log("Weapon");
+                    gun = weapon;
+                    weapon.owner = this;
+                    weapon.transform.parent = aimPivot.transform;
+                    weapon.transform.localRotation = Quaternion.identity;
+                    weapon.transform.localPosition = new Vector3(0.8f, 0, 0);
                 }
                 else
                 {
-                    Debug.Log("Weapon");
-                    gun.owner = this;
-                    gun.transform.parent = aimPivot.transform;
-                    gun.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
+                    break;
                 }
                 break;
             case "Jump":
