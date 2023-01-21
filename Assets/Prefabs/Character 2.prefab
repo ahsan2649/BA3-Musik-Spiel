@@ -557,22 +557,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b847eec5b099a5e48b900f9d02d413a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ani: {fileID: 0}
+  ani: {fileID: 3238740592835711743}
   min_velocity_to_start_skate: 0
   MissParticle: {fileID: 5593275954400829785, guid: e9e7503a52a039a4ca989fce3eb5aaa6, type: 3}
   RotationReady: 0
   KickReady: 0
   gun: {fileID: 0}
-  airGravity: 100
+  airGravity: 15
   jumpGravity: 10
   baseGravity: 500
-  baseKickForce: 7.5
-  jumpKickForce: 0
+  baseKickForce: 5
+  jumpKickForce: 5
   baseJumpForce: 25
   jumpJumpForce: 10
   body: {fileID: 748162646908231712}
   spawnPoint: {fileID: 0}
-  topSpeed: 25
+  topSpeed: 12
   drag: 1
   slideModifier: 0.5
   keep_velocity: 1
@@ -992,6 +992,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b35f03d5b41d312409058c646e0de522, type: 3}
+--- !u!95 &3238740592835711743 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1990926938, guid: b35f03d5b41d312409058c646e0de522, type: 3}
+  m_PrefabInstance: {fileID: 3238740592057348261}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8015644337947458427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4886154246359993310, guid: b35f03d5b41d312409058c646e0de522, type: 3}
