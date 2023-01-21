@@ -347,11 +347,17 @@ public class Character : MonoBehaviour
         {
             case "Weapon":
                 gun = collision.GetComponent<Gun>();
-                if (gun.owner != null) break;
-                Debug.Log("Weapon");
-                gun.owner = this;
-                gun.transform.parent = aimPivot.transform;
-                gun.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
+                if (gun.owner != null)
+                {
+                    break;
+                }
+                else
+                {
+                    Debug.Log("Weapon");
+                    gun.owner = this;
+                    gun.transform.parent = aimPivot.transform;
+                    gun.transform.position = aimPivot.transform.position + new Vector3(0.8f, 0, 0);
+                }
                 break;
             case "Jump":
                 jumpRegion = true;
