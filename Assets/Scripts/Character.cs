@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     [SerializeField] float min_velocity_to_start_skate;
     [SerializeField] GameObject MissParticle;
 
-    float health = 100;
+    public float health = 100;
     float jumpForce;
     float kickForce;
     float gravity;
@@ -29,7 +29,6 @@ public class Character : MonoBehaviour
     public Gun gun;
 
     [Header("Gravity")]
-    [Tooltip("Gravity when not touching the surface")]
     [SerializeField] float airGravity;
     [Tooltip("Gravity when in a trigger tagged 'Jump'")]
     [SerializeField] float jumpGravity;
@@ -56,11 +55,11 @@ public class Character : MonoBehaviour
     [SerializeField] float topSpeed;
 
     [SerializeField] float drag = 1;
+    [SerializeField] float slideModifier = 0.5f;
 
     float constantVelocity = 0;
     bool kick;
     bool isSliding;
-    [SerializeField] float slideModifier = 0.5f;
 
     public bool keep_velocity = true;
     public int framecount = 0;
@@ -78,43 +77,13 @@ public class Character : MonoBehaviour
         gravityDirection = Vector2.down;
     }
 
-    public void Stick(InputAction.CallbackContext ctx)
-    {
-        stickValue = ctx.ReadValue<Vector2>();
-    }
-
-    public void Kick(InputAction.CallbackContext ctx)
-    {
-        kick = ctx.ReadValueAsButton();
-    }
     // Update is called once per frame
     void Update()
     {
         ToggleFace();
         GetStickInput();
         CalculateAim();
-
-        //kick = playerInput.actions.FindAction("Kick").WasPerformedThisFrame();
-
-        if (grounded)
-        {
-            if (!jumpRegion)
-            {
-                jumpForce = baseJumpForce;
-                kickForce = baseKickForce;
-                gravity = baseGravity;
-            }
-            else
-            {
-                jumpForce = jumpJumpForce;
-                kickForce = jumpKickForce;
-                gravity = jumpGravity;
-            }
-        }
-        else
-        {
-            gravity = airGravity;
-        }
+        SetForceValues();
 
         if (constantVelocity > min_velocity_to_start_skate)
         {
@@ -128,6 +97,7 @@ public class Character : MonoBehaviour
 
         Debug.DrawRay(transform.position, rb.velocity.normalized * 2f, Color.green);
     }
+
 
     private void FixedUpdate()
     {
@@ -144,14 +114,10 @@ public class Character : MonoBehaviour
             {
                 RotationReady= true;
             }
-
-
         }
 
         if (GameManager.instance.phase == GameManager.Phase.Playing)
         {
-
-
             if (kick && grounded && GameManager.instance.canKick)
             {
                 kick = false;
@@ -159,12 +125,14 @@ public class Character : MonoBehaviour
                 {
                     rb.AddForce(body.transform.up * jumpForce);
                     grounded = false;
-                    if (ani != null) ani.SetBool("OnGround", false);
-                    if (ani != null) ani.SetTrigger("Jump");
+                    if (ani != null)
+                    {
+                        ani.SetBool("OnGround", false);
+                        ani.SetTrigger("Jump");
+                    }
                     gravity = airGravity;
                     //Debug.Log("Jump " + framecount.ToString());
                 }
-
                 if (aimDir == AimDirection.back)
                 {
                     if (constantVelocity == 0)
@@ -174,28 +142,29 @@ public class Character : MonoBehaviour
                         constantVelocity += kickForce;
 
                         if (ani != null)
+                        {
                             ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                        if (ani != null)
                             ani.SetTrigger("Kick");
+                        }
                     }
                     else if (!isSliding)
                     {
                         isSliding = true;
-                        if (ani != null) ani.SetBool("Sliding", true);
-                            ani.SetTrigger("SlidingTrigger");
-                        if (ani != null)
-                            ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                        if (ani != null)
-                            ani.SetTrigger("Kick");
                         constantVelocity *= slideModifier;
+                        if (ani != null)
+                        {
+                            ani.SetBool("Sliding", true);
+                            ani.SetTrigger("SlidingTrigger");
+                            ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                            ani.SetTrigger("Kick");
+                        }
                     }
                     else
                     {
                         isSliding = false;
-                        if (ani != null)
-                            ani.SetBool("Sliding", false);
                         constantVelocity /= slideModifier;
                         rb.velocity = -rb.velocity.normalized * constantVelocity;
+                        if (ani != null) ani.SetBool("Sliding", false);
                     }
                 }
                 if (aimDir == AimDirection.front)
@@ -203,14 +172,14 @@ public class Character : MonoBehaviour
                     if (isSliding)
                     {
                         isSliding = false;
-                        if (ani != null)
-                            ani.SetBool("Sliding", false);
-                        if (ani != null)
-                            ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                        if (ani != null)
-                            ani.SetTrigger("Kick");
                         constantVelocity /= slideModifier;
                         rb.velocity = rb.velocity.normalized * constantVelocity;
+                        if (ani != null)
+                        {
+                            ani.SetBool("Sliding", false);
+                            ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                            ani.SetTrigger("Kick");
+                        }
                     }
                     else
                     {
@@ -218,9 +187,10 @@ public class Character : MonoBehaviour
                         constantVelocity += kickForce;
 
                         if (ani != null)
+                        {
                             ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                        if (ani != null)
                             ani.SetTrigger("Kick");
+                        }
                     }
 
                 }
@@ -228,15 +198,14 @@ public class Character : MonoBehaviour
                 {
                     rb.velocity = Vector2.zero;
                     constantVelocity = 0;
-                    if (ani != null)
-                        ani.SetTrigger("Brake");
+                    if (ani != null) ani.SetTrigger("Brake");
                 }
             }
         }
 
         if (kick && grounded && !GameManager.instance.canKick)
         {
-            Instantiate(MissParticle, transform);
+            if (MissParticle != null) Instantiate(MissParticle, transform);
             Debug.Log(transform.position);
         }
 
@@ -300,11 +269,44 @@ public class Character : MonoBehaviour
 
     #endregion
 
+
+    public void Stick(InputAction.CallbackContext ctx)
+    {
+        stickValue = ctx.ReadValue<Vector2>();
+    }
+
+    public void Kick(InputAction.CallbackContext ctx)
+    {
+        kick = ctx.ReadValueAsButton();
+    }
+
+    private void SetForceValues()
+    {
+        if (jumpRegion)
+        {
+            jumpForce = jumpJumpForce;
+            kickForce = jumpKickForce;
+            gravity = jumpGravity;
+        }
+        else if (grounded)
+        {
+            jumpForce = baseJumpForce;
+            kickForce = baseKickForce;
+            gravity = baseGravity;
+        }
+        else
+        {
+            gravity = airGravity;
+        }
+    }
+
     void ToggleFace()
     {
         if (constantVelocity != 0) antiClockFace = Vector2.SignedAngle(body.transform.up, rb.velocity) < 0 ? true : false;
         body.transform.localScale = new Vector3(antiClockFace ? 1 : -1, 1, 1);
     }
+
+    #region CollisionStuff
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -338,9 +340,10 @@ public class Character : MonoBehaviour
             gravityDirection = Vector2.down;
             //Debug.Log("Exit " + framecount.ToString());
         }
-        
     }
+    #endregion
 
+    #region TriggerStuff
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.tag)
@@ -364,14 +367,6 @@ public class Character : MonoBehaviour
             case "Jump":
                 jumpRegion = true;
                 break;
-            case "Bullet":
-                if (collision.GetComponent<Bullet>().shooter != this)
-                {
-                    Destroy(collision.gameObject);
-                    health -= collision.GetComponent<Bullet>().damage;
-                    
-                }
-                break;
             case "Coin":
                 Destroy(collision.gameObject);
                 break;
@@ -387,4 +382,5 @@ public class Character : MonoBehaviour
             jumpRegion = false;
         }
     }
+    #endregion
 }

@@ -19,5 +19,18 @@ public class Bullet : MonoBehaviour
         transform.position += transform.right * bulletSpeed * Time.deltaTime;
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Character")
+        {
+            collision.GetComponentInParent<Character>().health -= damage;
+            Destroy(gameObject);
+        }
+
+        if (collision.tag == "Wall")
+        {
+            Debug.Log("Wall");
+            Destroy(gameObject);
+        }
+    }
 }

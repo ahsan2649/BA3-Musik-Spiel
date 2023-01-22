@@ -9,6 +9,8 @@ TagManager:
   - Jump
   - Bullet
   - Coin
+  - Wall
+  - Character
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Bullet
   - SOLO
   - 
   - 
