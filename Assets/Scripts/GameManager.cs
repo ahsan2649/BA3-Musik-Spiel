@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
 
         if (phase==Phase.Starting)
         {
-            if (characters.All(character => character.RotationReady && character.KickReady)) phase = Phase.Playing;
+            if (characters.All(character => character.RotationReady && character.kick) && canKick) phase = Phase.Playing;
         }
         timelineInfo.timeAfterPrevBeat += Time.deltaTime;
         timelineInfo.timeUntilNextBeat -= Time.deltaTime;

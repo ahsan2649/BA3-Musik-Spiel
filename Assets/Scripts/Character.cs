@@ -24,7 +24,6 @@ public class Character : MonoBehaviour
     bool jumpRegion;
 
     public bool RotationReady = false;
-    public bool KickReady = false;
 
     public Gun gun;
 
@@ -58,7 +57,7 @@ public class Character : MonoBehaviour
     [SerializeField] float slideModifier = 0.5f;
 
     float constantVelocity = 0;
-    bool kick;
+    public bool kick;
     bool isSliding;
 
     public bool keep_velocity = true;
@@ -105,10 +104,6 @@ public class Character : MonoBehaviour
 
         if (GameManager.instance.phase == GameManager.Phase.Starting)
         {
-            if (kick && GameManager.instance.canKick)
-            {
-                KickReady = true;
-            }
 
             if (stickValue.magnitude != 0)
             {
