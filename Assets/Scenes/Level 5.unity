@@ -3873,6 +3873,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 78839219, guid: e1dbca42fb2d9f143b4ac34ebb6c8c61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.0599995
+      objectReference: {fileID: 0}
+    - target: {fileID: 228700853, guid: e1dbca42fb2d9f143b4ac34ebb6c8c61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111311094, guid: e1dbca42fb2d9f143b4ac34ebb6c8c61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.7799997
+      objectReference: {fileID: 0}
     - target: {fileID: 5907919122569566405, guid: e1dbca42fb2d9f143b4ac34ebb6c8c61, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3922,9 +3934,13 @@ PrefabInstance:
       value: Game Manager
       objectReference: {fileID: 0}
     - target: {fileID: 5907919122569566408, guid: e1dbca42fb2d9f143b4ac34ebb6c8c61, type: 3}
+      propertyPath: KickBeat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907919122569566408, guid: e1dbca42fb2d9f143b4ac34ebb6c8c61, type: 3}
       propertyPath: playerPrefab
       value: 
-      objectReference: {fileID: 1244708918076454353, guid: 9bf5b3df00b2e04478751ca27b6b80e7, type: 3}
+      objectReference: {fileID: 8950715888965338946, guid: 8e078c0c1b0a5c74283885b008b63d4e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1dbca42fb2d9f143b4ac34ebb6c8c61, type: 3}
 --- !u!1 &1533742577
@@ -4122,7 +4138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754069541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.39, y: -7.86, z: -0.15917969}
+  m_LocalPosition: {x: 0.39, y: -7.28, z: -0.15917969}
   m_LocalScale: {x: 3.821664, y: 3.821664, z: 3.821664}
   m_ConstrainProportionsScale: 0
   m_Children: []
