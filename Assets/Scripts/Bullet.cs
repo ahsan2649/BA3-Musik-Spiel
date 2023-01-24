@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.tag == "Wall")
         {
-            Debug.Log("Wall");
+            //Debug.Log("Wall");
             Destroy(gameObject);
         }
     }

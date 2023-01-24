@@ -313,6 +313,7 @@ public class Character : MonoBehaviour
             if (ani != null)
                 ani.SetBool("OnGround", true);
             gravityDirection = -collision.GetContact(0).normal;
+            Debug.Log("Enter");
         }
     }
 
@@ -321,8 +322,10 @@ public class Character : MonoBehaviour
         if (collision.gameObject.tag == "Surface")
         {
             //grounded = true;
-
-            gravityDirection = -collision.GetContact(0).normal;
+            if (grounded)
+            {
+                gravityDirection = -collision.GetContact(0).normal;
+            }
         }
 
     }
@@ -336,6 +339,7 @@ public class Character : MonoBehaviour
                 ani.SetBool("OnGround", false);
             gravityDirection = Vector2.down;
             //Debug.Log("Exit " + framecount.ToString());
+            Debug.Log("Exit");
         }
     }
     #endregion
@@ -363,6 +367,7 @@ public class Character : MonoBehaviour
                 break;
             case "Jump":
                 jumpRegion = true;
+                Debug.Log("Jump In");
                 break;
             case "Coin":
                 Destroy(collision.gameObject);
@@ -377,6 +382,7 @@ public class Character : MonoBehaviour
         if (collision.tag == "Jump")
         {
             jumpRegion = false;
+            Debug.Log("Jump Out");
         }
     }
     #endregion
