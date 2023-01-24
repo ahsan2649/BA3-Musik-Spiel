@@ -564,7 +564,7 @@ MonoBehaviour:
   RotationReady: 0
   gun: {fileID: 0}
   airGravity: 15
-  jumpGravity: 0
+  jumpGravity: 10
   baseGravity: 500
   baseKickForce: 6.5
   jumpKickForce: 5
