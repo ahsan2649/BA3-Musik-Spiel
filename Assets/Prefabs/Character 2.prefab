@@ -566,14 +566,14 @@ MonoBehaviour:
   airGravity: 15
   jumpGravity: 0
   baseGravity: 500
-  baseKickForce: 5
+  baseKickForce: 6.5
   jumpKickForce: 5
   baseJumpForce: 25
   jumpJumpForce: 10
   body: {fileID: 748162646908231712}
   spawnPoint: {fileID: 0}
   topSpeed: 15
-  drag: 2
+  drag: 2.5
   slideModifier: 0.5
   kick: 0
   keep_velocity: 1
