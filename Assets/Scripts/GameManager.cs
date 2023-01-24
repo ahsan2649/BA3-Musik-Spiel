@@ -122,6 +122,14 @@ public class GameManager : MonoBehaviour
 
         CalculateKick();
 
+        foreach (var character in characters)
+        {
+            if(character.health <= 0)
+            {
+                characters .Remove(character);
+                Destroy(character.gameObject);
+            }
+        }
          
     }
 

@@ -116,6 +116,8 @@ public class Character : MonoBehaviour
             if (kick && grounded && GameManager.instance.canKick)
             {
                 kick = false;
+                
+
                 if (aimDir == AimDirection.inside)
                 {
                     rb.AddForce(body.transform.up * jumpForce);
