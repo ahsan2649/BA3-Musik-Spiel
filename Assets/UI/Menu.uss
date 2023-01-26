@@ -1,0 +1,69 @@
+.MenuButton {
+    width: 35%;
+    height: 10%;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 7.5px;
+    margin-bottom: 7.5px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: rgb(255, 219, 61);
+    -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#Arial');
+    -unity-font-style: bold;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-color: rgb(238, 221, 15);
+    border-right-color: rgb(238, 221, 15);
+    border-top-color: rgb(238, 221, 15);
+    border-bottom-color: rgb(238, 221, 15);
+}
+
+.MenuButton:hover {
+    background-color: rgb(233, 167, 43);
+}
+
+.MenuButton:focus {
+    background-color: rgb(233, 167, 43);
+}
+
+.MenuButton:active {
+    background-color: rgb(214, 224, 35);
+}
+
+.MainMenu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition-property: translate;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.75s;
+    transition-delay: 150ms;
+}
+
+.MainMenu:selection {
+    translate: -50% 0;
+    position: absolute;
+}
+
+.CharacterSelector {
+    width: 50%;
+    height: 50%;
+    border-left-color: rgba(0, 0, 0, 255);
+    border-right-color: rgba(0, 0, 0, 255);
+    border-top-color: rgba(0, 0, 0, 255);
+    border-bottom-color: rgba(0, 0, 0, 255);
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+}

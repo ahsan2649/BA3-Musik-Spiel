@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Menu.uss?fileID=7433441132597879392&amp;guid=3ad23fed398ac9f4cadb182b7e737186&amp;type=3#Menu" />
+    <ui:VisualElement name="Background" style="-unity-background-scale-mode: stretch-to-fill; width: 100%; height: 100%; position: relative; background-image: url(&apos;project://database/Assets/UI/background.png?fileID=2800000&amp;guid=7800d1a3860c82145af50255b7e22925&amp;type=3#background&apos;); align-items: flex-end; justify-content: flex-end; flex-direction: row-reverse;">
+        <ui:VisualElement name="Graphic" style="height: 100%; width: 75%; right: auto; position: relative; justify-content: flex-start; align-items: center; left: auto; flex-grow: 1; flex-wrap: nowrap; flex-direction: column;">
+            <ui:VisualElement name="DiscoBall" style="-unity-background-scale-mode: scale-and-crop; width: 100%; height: 100%; position: absolute; background-image: url(&apos;project://database/Assets/UI/disco_ball.png?fileID=2800000&amp;guid=8b98db0db46c86d4782d23a520ec1a6d&amp;type=3#disco_ball&apos;); align-items: center; max-height: 100%; top: 0; left: auto; transform-origin: top; right: auto; -unity-slice-top: 0;" />
+            <ui:VisualElement name="Title" style="-unity-background-scale-mode: scale-and-crop; width: 100%; height: 100%; position: absolute; background-image: url(&apos;project://database/Assets/UI/title_name.png?fileID=2800000&amp;guid=8e7c7b01782a1744989bdffc7c9c5256&amp;type=3#title_name&apos;); max-height: 100%; top: 0; left: auto; right: auto; transform-origin: top;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Menus" focusable="true" style="width: 50%; height: 100%; align-items: center; justify-content: center;">
+            <ui:Button text="Start" display-tooltip-when-elided="true" name="Start" class="MenuButton" />
+            <ui:Button text="Settings" display-tooltip-when-elided="true" name="Settings" class="MenuButton" />
+            <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="MenuButton" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

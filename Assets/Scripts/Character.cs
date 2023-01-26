@@ -120,8 +120,8 @@ public class Character : MonoBehaviour
 
                 if (aimDir == AimDirection.inside)
                 {
-                    rb.AddForce(body.transform.up * jumpForce);
                     grounded = false;
+                    rb.AddForce(body.transform.up * jumpForce * rb.mass);
                     if (ani != null)
                     {
                         ani.SetBool("OnGround", false);

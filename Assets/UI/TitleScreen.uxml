@@ -1,0 +1,26 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Menu.uss?fileID=7433441132597879392&amp;guid=3ad23fed398ac9f4cadb182b7e737186&amp;type=3#Menu" />
+    <ui:VisualElement name="Background" style="-unity-background-scale-mode: stretch-to-fill; width: 100%; height: 100%; position: relative; background-image: url(&apos;project://database/Assets/UI/background.png?fileID=2800000&amp;guid=7800d1a3860c82145af50255b7e22925&amp;type=3#background&apos;);">
+        <ui:VisualElement name="DiscoBall" style="-unity-background-scale-mode: scale-and-crop; width: 100%; height: 100%; position: absolute; background-image: url(&apos;project://database/Assets/UI/disco_ball.png?fileID=2800000&amp;guid=8b98db0db46c86d4782d23a520ec1a6d&amp;type=3#disco_ball&apos;); align-items: center; max-height: 100%; top: 0;" />
+        <ui:VisualElement name="Menu" class="MainMenu" style="flex-direction: row; width: 200%;">
+            <ui:VisualElement name="Main" style="-unity-background-scale-mode: scale-and-crop; width: 100%; height: 100%; position: relative; background-image: url(&apos;project://database/Assets/UI/title_name.png?fileID=2800000&amp;guid=8e7c7b01782a1744989bdffc7c9c5256&amp;type=3#title_name&apos;); max-height: 100%; top: 0; max-width: 100%; min-width: 50%; min-height: 50%;">
+                <ui:VisualElement name="StartText" style="-unity-background-scale-mode: scale-and-crop; width: 100%; height: 100%; position: relative; background-image: url(&apos;project://database/Assets/UI/press_start.png?fileID=2800000&amp;guid=6b0867ce6cf8f6547ad01cb499657c9c&amp;type=3#press_start&apos;); max-height: 100%; top: auto; left: auto; justify-content: flex-end; transform-origin: bottom; align-items: flex-end; bottom: 0; max-width: 100%; min-width: 50%; min-height: 50%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="CharacterSelection" style="-unity-background-scale-mode: scale-and-crop; width: 100%; height: 100%; position: relative; background-image: none; max-height: 100%; top: 0; max-width: 100%; min-width: 50%; min-height: 50%;">
+                <ui:Label text="Choose Your Character" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; font-size: 56px; -unity-font-style: normal; -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;); color: rgb(255, 237, 0);" />
+                <ui:VisualElement name="CharacterPreview" style="height: 100%; flex-wrap: wrap; flex-direction: row;">
+                    <ui:VisualElement name="Player1" style="width: 50%; height: 50%;" />
+                    <ui:VisualElement name="Player2" style="width: 50%; height: 50%;" />
+                    <ui:VisualElement name="Player3" style="width: 50%; height: 50%;" />
+                    <ui:VisualElement name="Player4" style="width: 50%; height: 50%;" />
+                    <ui:VisualElement name="Selector" style="position: absolute; width: 25%; height: 50%; top: 97px; left: 378px; background-color: rgba(206, 243, 255, 255); flex-wrap: wrap; flex-direction: row;">
+                        <ui:VisualElement name="Slot1" class="CharacterSelector" />
+                        <ui:VisualElement name="Slot2" class="CharacterSelector" style="width: 50%; height: 50%;" />
+                        <ui:VisualElement name="Slot3" class="CharacterSelector" style="width: 50%; height: 50%;" />
+                        <ui:VisualElement name="Slot4" class="CharacterSelector" style="width: 50%; height: 50%;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
