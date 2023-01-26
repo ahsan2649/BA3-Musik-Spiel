@@ -95,6 +95,7 @@ public class Character : MonoBehaviour
 
 
         Debug.DrawRay(transform.position, rb.velocity.normalized * 2f, Color.green);
+        Debug.Log(constantVelocity.ToString());
     }
 
 
