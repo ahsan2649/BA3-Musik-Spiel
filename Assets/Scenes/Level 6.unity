@@ -15409,7 +15409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5907919122569566408, guid: e1dbca42fb2d9f143b4ac34ebb6c8c61, type: 3}
       propertyPath: phase
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5907919122569566408, guid: e1dbca42fb2d9f143b4ac34ebb6c8c61, type: 3}
       propertyPath: KickBeat
