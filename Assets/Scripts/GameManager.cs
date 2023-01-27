@@ -3,8 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     public enum Phase
     {
-        Starting, Playing
+        Starting, Playing, Result
     };
 
     enum Beat
@@ -77,6 +80,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        DontDestroyOnLoad(gameObject);
+
     }
 
     // Start is called before the first frame update
@@ -102,18 +107,16 @@ public class GameManager : MonoBehaviour
         timelineInfo.guns = guns;
         timelineHandle = GCHandle.Alloc(timelineInfo);
         shootCallback = new FMOD.Studio.EVENT_CALLBACK(ShootCallback);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!emitter.IsPlaying())
-        {
-            StartSong();
-        }
 
         if (phase==Phase.Starting)
         {
+            if (!emitter.IsPlaying()) StartSong();
             if (characters.All(character => character.RotationReady && character.kick) && canKick) phase = Phase.Playing;
         }
         timelineInfo.timeAfterPrevBeat += Time.deltaTime;
@@ -122,15 +125,33 @@ public class GameManager : MonoBehaviour
 
         CalculateKick();
 
-        foreach (var character in characters)
+        if(phase == Phase.Playing) 
+            foreach (var character in characters) 
+                if (character.health <= 0 && character.gameObject.activeSelf) 
+                    character.gameObject.SetActive(false); 
+        
+
+        if(phase == Phase.Playing && characters.Count(character => character.gameObject.activeSelf == false) == 1)
         {
-            if(character.health <= 0)
+            phase = Phase.Result;
+            StopSong();
+            SceneManager.LoadScene("ResultScreen");
+            foreach (var character in characters)
             {
-                characters .Remove(character);
-                Destroy(character.gameObject);
+                character.GetComponent<Rigidbody2D>().isKinematic = true;
+                
             }
         }
-         
+
+        if(phase == Phase.Result)
+        {
+            characters.Find(character => character.gameObject.activeSelf == true).transform.position = new Vector3(0,0,0);
+            foreach (var character in characters)
+            {
+                if (character.gameObject.activeSelf == false) character.gameObject.SetActive(true);
+                
+            }
+        }
     }
 
     private void OnDestroy()
@@ -169,7 +190,7 @@ public class GameManager : MonoBehaviour
         songInstance.setUserData(IntPtr.Zero);
         emitter.Stop();
         songInstance.release();
-        if (timelineHandle != null) timelineHandle.Free();
+        if (timelineHandle.IsAllocated) timelineHandle.Free();
     }
 
     void OnPlayerJoined(PlayerInput playerInput)

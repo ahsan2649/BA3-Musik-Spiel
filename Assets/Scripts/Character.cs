@@ -65,9 +65,11 @@ public class Character : MonoBehaviour
 
     Vector2 gravityDirection;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         transform.position = spawnPoint.position;
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
@@ -280,7 +282,7 @@ public class Character : MonoBehaviour
 
     private void SetForceValues()
     {
-        if (jumpRegion)
+        if (jumpRegion && grounded)
         {
             jumpForce = jumpJumpForce;
             kickForce = jumpKickForce;
@@ -357,6 +359,7 @@ public class Character : MonoBehaviour
                     Debug.Log("Weapon");
                     gun = weapon;
                     weapon.owner = this;
+                    weapon.GetComponent<Collider2D>().enabled = false;
                     weapon.transform.parent = aimPivot.transform;
                     weapon.transform.localRotation = Quaternion.identity;
                     weapon.transform.localPosition = new Vector3(0.8f, 0, 0);
