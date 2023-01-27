@@ -890,7 +890,6 @@ GameObject:
   - component: {fileID: 983909420}
   - component: {fileID: 983909422}
   - component: {fileID: 983909421}
-  - component: {fileID: 983909424}
   - component: {fileID: 983909423}
   m_Layer: 5
   m_Name: Shine
@@ -985,20 +984,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &983909424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 983909419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c1b7b04b25ae947bd6fdb61b0c0282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationSpeed: 0
-  animationStartTime: 0
 --- !u!1 &1024638033
 GameObject:
   m_ObjectHideFlags: 0
