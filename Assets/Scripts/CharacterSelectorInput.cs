@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelectorInput : MonoBehaviour
 {
+    [SerializeField] float stickSensitivity = 0.1f;
     CharacterSelecting cs;
 
     public Vector2 stickValue;
@@ -16,7 +17,7 @@ public class CharacterSelectorInput : MonoBehaviour
 
     public bool everyoneReady = false;
 
-    bool firstInput;
+    public bool firstInput = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,19 +34,19 @@ public class CharacterSelectorInput : MonoBehaviour
             if (characterSubmitted) { return; }
             int tempSelect = selectedChar;
             stickValue = context.ReadValue<Vector2>();
-            if (stickValue.x < -0.5f && stickValue.y < -0.5f)
+            if (stickValue.x < -stickSensitivity && stickValue.y < -stickSensitivity)
             {
                 tempSelect = 2;
             }
-            if (stickValue.x > 0.5f && stickValue.y > 0.5f)
+            if (stickValue.x > stickSensitivity && stickValue.y > stickSensitivity)
             {
                 tempSelect = 1;
             }
-            if (stickValue.x < -0.5f && stickValue.y > 0.5f)
+            if (stickValue.x < -stickSensitivity && stickValue.y > stickSensitivity)
             {
                 tempSelect = 0;
             }
-            if (stickValue.x > 0.5f && stickValue.y < -0.5f)
+            if (stickValue.x > stickSensitivity && stickValue.y < -stickSensitivity)
             {
                 tempSelect = 3;
             }
@@ -84,20 +85,21 @@ public class CharacterSelectorInput : MonoBehaviour
 
     public void Back(InputAction.CallbackContext context)
     {
-        if (context.performed && firstInput)
+        if (context.performed)
         {
             if (characterSubmitted && cs != null)
             {
                 characterSubmitted = false;
                 cs.DeselectChar(selectedChar);
             }
-            else
+            else if(firstInput)
             {
                 //Load Title Screen
                 FindObjectOfType<SceneLoader>().LoadLastScene();
             }
+            firstInput = true;
         }
-        firstInput = true;
+        
         
     }
 

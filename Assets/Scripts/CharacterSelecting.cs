@@ -42,7 +42,11 @@ public class CharacterSelecting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool allPlayersSubmitted = true;
+        bool allPlayersSubmitted = false;
+        if (players.Count != 0)
+        {
+            allPlayersSubmitted = true;
+        }
         //Check for all players have character submitted
         foreach (CharacterSelectorInput i in players)
         {
@@ -77,7 +81,6 @@ public class CharacterSelecting : MonoBehaviour
     public int AddPlayer(CharacterSelectorInput player)
     {
         players.Add(player);
-        player.SetFirstInput();
         playerVisualizers.Add(players.IndexOf(player));
         return players.IndexOf(player);
     }
