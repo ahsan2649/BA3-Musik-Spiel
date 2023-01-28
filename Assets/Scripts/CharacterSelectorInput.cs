@@ -53,12 +53,14 @@ public class CharacterSelectorInput : MonoBehaviour
 
             if (tempSelect != selectedChar)
             {
-                cs.RemoveVisualizer(playerNumber, selectedChar);
-                selectedChar = tempSelect;
-                cs.MoveSelector(selectedChar, playerNumber);
+                if (cs != null)
+                {
+                    cs.RemoveVisualizer(playerNumber, selectedChar);
+                    selectedChar = tempSelect;
+                    cs.MoveSelector(selectedChar, playerNumber);
+                }
             }
         }
-        
     }
 
     public void Select(InputAction.CallbackContext context)
