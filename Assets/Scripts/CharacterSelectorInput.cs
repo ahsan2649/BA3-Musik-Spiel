@@ -12,10 +12,11 @@ public class CharacterSelectorInput : MonoBehaviour
     public int selectedChar;
     public int playerNumber;
 
-    public bool characterSubmitted;
+    public bool characterSubmitted = false;
 
     public bool everyoneReady = false;
 
+    bool firstInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -61,7 +62,7 @@ public class CharacterSelectorInput : MonoBehaviour
 
     public void Select(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && firstInput)
         {
             if (!characterSubmitted && cs != null)
             {
@@ -76,13 +77,14 @@ public class CharacterSelectorInput : MonoBehaviour
             }
             
         }
+        firstInput = true;
         
         
     }
 
     public void Back(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && firstInput)
         {
             if (characterSubmitted && cs != null)
             {
@@ -95,6 +97,12 @@ public class CharacterSelectorInput : MonoBehaviour
                 FindObjectOfType<SceneLoader>().LoadLastScene();
             }
         }
+        firstInput = true;
         
+    }
+
+    public void SetFirstInput()
+    {
+        firstInput = true;
     }
 }

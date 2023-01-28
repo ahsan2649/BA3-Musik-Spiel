@@ -42,11 +42,11 @@ public class CharacterSelecting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool allPlayersSubmitted = false;
+        bool allPlayersSubmitted = true;
         //Check for all players have character submitted
         foreach (CharacterSelectorInput i in players)
         {
-            if (i.characterSubmitted)
+            if (i.characterSubmitted && allPlayersSubmitted)
             {
                 allPlayersSubmitted = true;
             }
@@ -77,6 +77,7 @@ public class CharacterSelecting : MonoBehaviour
     public int AddPlayer(CharacterSelectorInput player)
     {
         players.Add(player);
+        player.SetFirstInput();
         playerVisualizers.Add(players.IndexOf(player));
         return players.IndexOf(player);
     }
@@ -101,7 +102,6 @@ public class CharacterSelecting : MonoBehaviour
         if (characterInt == 1) { visualizers = demonPos; }
         if (characterInt == 2) { visualizers = angelPos; }
         if (characterInt == 3) { visualizers = sharkPos; }
-
         //Sets new visualizers
         for (int i = 0; i < 4; i++)
         {
