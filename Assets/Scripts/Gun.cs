@@ -24,17 +24,16 @@ public class Gun : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Shoot()
     {
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        newBullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
-        newBullet.GetComponent<Bullet>().shooter = owner;
-        newBullet.GetComponent<Bullet>().damage = damage;
+        if (newBullet.GetComponent<Bullet>())
+        {
+            newBullet.GetComponent<Bullet>().shooter = owner;
+        }
+        else
+        {
+            newBullet.GetComponent<Shotgun>().SetShooter(owner);
+        }
     }
 }

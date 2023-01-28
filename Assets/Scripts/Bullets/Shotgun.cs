@@ -8,7 +8,7 @@ public class Shotgun : MonoBehaviour
     public Character shooter;
 
     Bullet[] bullets;
-    private void Start()
+    public void SetShooter(Character shooter)
     {
         //forwards shooter to each bullet
         bullets = GetComponentsInChildren<Bullet>();
