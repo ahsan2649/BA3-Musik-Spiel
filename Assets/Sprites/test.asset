@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: test
   m_EditorClassIdentifier: 
   m_Angles:
-  - m_Start: -180
-    m_End: 180
+  - m_Start: -487
+    m_End: -127
     m_Order: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 4a2ae3ba92d69524aa3479ef9a77ae01, type: 3}
-  m_FillTexture: {fileID: 2800000, guid: 96773ad75676b2d49a248728b3cf0e16, type: 3}
+    - {fileID: 21300000, guid: de064d84c4f650e47aa28bda3b893eec, type: 3}
+    - {fileID: 21300000, guid: 6903ddea803109c47990140aac9754d9, type: 3}
+    - {fileID: 0}
+  m_FillTexture: {fileID: 2800000, guid: dd4dbe40c986dfb49bc4ee5043f61d96, type: 3}
   m_CornerSprites:
   - m_CornerType: 0
     m_Sprites:
