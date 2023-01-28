@@ -26,6 +26,10 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        if (owner== null)
+        {
+            return;
+        }
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         if (newBullet.GetComponent<Bullet>())
         {

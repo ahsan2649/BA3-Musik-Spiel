@@ -134,11 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfd383b831e181449c4aabed878b910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 3
+  bulletSpeed: 5
   damage: 15
   shooter: {fileID: 0}
   synth: 1
-  synthSizeFactor: 1.5
+  synthSizeFactor: 1.05
   laser: 0
   laserStop:
     serializedVersion: 2

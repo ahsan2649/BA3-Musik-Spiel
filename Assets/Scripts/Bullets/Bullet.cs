@@ -65,14 +65,10 @@ public class Bullet : MonoBehaviour
         }
 
         //Destroys bullet after some time
-        if (synthSizeFactor > 1)
+        if (synthSizeFactor > 1 && synth)
         {
             synthSizeFactor += Time.deltaTime;
             transform.localScale += new Vector3(synthSizeFactor * Time.deltaTime, synthSizeFactor * Time.deltaTime, synthSizeFactor * Time.deltaTime);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -87,7 +83,7 @@ public class Bullet : MonoBehaviour
             }
         }
 
-        if (collision.tag == "Wall")
+        if (collision.tag == "Surface")
         {
             //Debug.Log("Wall");
             if (!laser)
