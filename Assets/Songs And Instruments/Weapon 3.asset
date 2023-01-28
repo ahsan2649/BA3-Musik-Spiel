@@ -16,4 +16,4 @@ MonoBehaviour:
   bulletSpeed: 25
   damage: 3
   instrument: Weapon 3
-  bulletPrefab: {fileID: 1061205197076478714, guid: ad44072d17073094a804f6d9d802d5ac, type: 3}
+  bulletPrefab: {fileID: 3203100504733436288, guid: 461b32426cdf98d45aa6090060024e7b, type: 3}
