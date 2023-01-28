@@ -137,10 +137,14 @@ MonoBehaviour:
   bulletSpeed: 3
   damage: 15
   shooter: {fileID: 0}
+  synth: 1
+  synthSizeFactor: 1.5
   laser: 0
   laserStop:
     serializedVersion: 2
     m_Bits: 0
+  laserDestroyDelay: 0.2
+  laserLr: []
 --- !u!70 &3203100504733436290
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

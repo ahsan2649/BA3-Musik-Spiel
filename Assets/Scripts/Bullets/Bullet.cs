@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour
     public float damage;
     public Character shooter;
 
+    public bool synth = false;
+    [SerializeField] float synthSizeFactor = 2f;
     public bool laser = false;
     private Vector2 maxLaserLength;
     private Vector2 laserLength;
@@ -61,6 +63,17 @@ public class Bullet : MonoBehaviour
         {
             transform.position += transform.right * bulletSpeed * Time.deltaTime;
         }
+
+        //Destroys bullet after some time
+        if (synthSizeFactor > 1)
+        {
+            synthSizeFactor += Time.deltaTime;
+            transform.localScale += new Vector3(synthSizeFactor * Time.deltaTime, synthSizeFactor * Time.deltaTime, synthSizeFactor * Time.deltaTime);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -68,7 +81,7 @@ public class Bullet : MonoBehaviour
         if (collision.tag == "Character")
         {
             collision.GetComponentInParent<Character>().health -= damage;
-            if (!laser)
+            if (!laser && !synth)
             {
                 Destroy(gameObject);
             }
@@ -81,6 +94,12 @@ public class Bullet : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+
+        if (collision.tag == "SOLO")
+        {
+            //collision.GetComponent<Solo>().Damage(damage, shooter.)
+            if (!laser && !synth) { Destroy(gameObject); }
         }
     }
 
