@@ -26,6 +26,7 @@ public class CharacterSelecting : MonoBehaviour
     public bool[] characters = new bool[3];
     public List<CharacterSelectorInput> players = new List<CharacterSelectorInput>();
 
+    [SerializeField] GameObject readyBanner;
 
     List<int> playerVisualizers = new List<int>();
     Transform[] visualizers;
@@ -41,7 +42,36 @@ public class CharacterSelecting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        bool allPlayersSubmitted = false;
+        //Check for all players have character submitted
+        foreach (CharacterSelectorInput i in players)
+        {
+            if (i.characterSubmitted)
+            {
+                allPlayersSubmitted = true;
+            }
+            else
+            {
+                allPlayersSubmitted = false;
+            }
+        }
+        if (allPlayersSubmitted)
+        {
+            //Activate Banner for ready play
+            readyBanner.SetActive(true);
+            foreach (CharacterSelectorInput i in players)
+            {
+                i.everyoneReady = true;
+            }
+        }
+        else
+        {
+            readyBanner.SetActive(false);
+            foreach (CharacterSelectorInput i in players)
+            {
+                i.everyoneReady = false;
+            }
+        }
     }
 
     public int AddPlayer(CharacterSelectorInput player)
@@ -99,5 +129,16 @@ public class CharacterSelecting : MonoBehaviour
     {
         characters[selectedChar] = false;
         selectedImage[selectedChar].SetActive(false);
+    }
+
+    public void StartGame()
+    {
+        for (int i = 0; i < players.Count; i++)
+        {
+            if (i == 0) { PlayerPrefs.SetInt("Player0Char", players[i].selectedChar); }
+            if (i == 1) { PlayerPrefs.SetInt("Player1Char", players[i].selectedChar); }
+            if (i == 2) { PlayerPrefs.SetInt("Player2Char", players[i].selectedChar); }
+            if (i == 3) { PlayerPrefs.SetInt("Player3Char", players[i].selectedChar); }
+        }
     }
 }

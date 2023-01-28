@@ -13,7 +13,8 @@ public class CharacterSelectorInput : MonoBehaviour
     public int playerNumber;
 
     public bool characterSubmitted;
-    
+
+    public bool everyoneReady = false;
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +70,11 @@ public class CharacterSelectorInput : MonoBehaviour
                     characterSubmitted = true;
                 }
             }
+            else if (everyoneReady) 
+            {
+                //Start Game
+            }
+            
         }
         
         
