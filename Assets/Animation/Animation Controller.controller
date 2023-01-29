@@ -171,9 +171,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Brake
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: HasMomentum
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2347266954980615333}
   m_Solo: 0
@@ -894,9 +891,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Brake
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: HasMomentum
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2347266954980615333}
   m_Solo: 0
@@ -1108,9 +1102,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: Brake
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: HasMomentum
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2347266954980615333}
