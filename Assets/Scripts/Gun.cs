@@ -5,12 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] GunObject gunObject;
+    [SerializeField] public GunObject gunObject;
     [HideInInspector] public string instrument;
     GameObject bulletPrefab;
     float bulletSpeed;
     float damage;
     public Character owner;
+    public Player shooter;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        if (owner == null) return;
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         newBullet.GetComponent<Bullet>().bulletSpeed = bulletSpeed;
         newBullet.GetComponent<Bullet>().shooter = owner;

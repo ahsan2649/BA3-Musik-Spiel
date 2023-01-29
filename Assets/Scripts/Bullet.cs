@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Character")
+        if (collision.tag == "Character" && collision.GetComponentInParent<Character>() != shooter)
         {
             collision.GetComponentInParent<Character>().health -= damage;
             Destroy(gameObject);
