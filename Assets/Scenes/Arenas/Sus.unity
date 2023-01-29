@@ -4425,42 +4425,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
-    - target: {fileID: 2080650304025198756, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_Color.a
-      value: 0.30588236
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080650304025198756, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_Color.b
-      value: 0.6185475
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080650304025198756, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_Color.g
-      value: 0.6185475
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080650304025198756, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_Color.r
-      value: 0.9433962
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080650304025198756, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_SortingLayer
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080650304025198756, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_SortingOrder
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2080650304025198756, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 2136485071
-      objectReference: {fileID: 0}
-    - target: {fileID: 7028298547711564627, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8050438523534705331, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
 --- !u!1 &1539292424
