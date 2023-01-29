@@ -154,8 +154,6 @@ public class Character : MonoBehaviour
                         {
                             ani.SetBool("Sliding", true);
                             ani.SetTrigger("SlidingTrigger");
-                            ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
-                            ani.SetTrigger("Kick");
                         }
                     }
                     else
@@ -164,6 +162,8 @@ public class Character : MonoBehaviour
                         constantVelocity /= slideModifier;
                         rb.velocity = -rb.velocity.normalized * constantVelocity;
                         if (ani != null) ani.SetBool("Sliding", false);
+                        ani.SetBool("DashSwitch", !ani.GetBool("DashSwitch"));
+                        ani.SetTrigger("Kick");
                     }
                 }
                 if (aimDir == AimDirection.front)
