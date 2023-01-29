@@ -26,6 +26,7 @@ public class PlayerManager : MonoBehaviour
         foreach (var player in players)
         {
             player.rb = player.GetComponent<Rigidbody2D>();
+            player.gravityDirection = Vector2.down;
         }
     }
     // Update is called once per frame
@@ -49,6 +50,17 @@ public class PlayerManager : MonoBehaviour
             HandleVelocity(player);
 
             player.rb.AddForce(player.gravityDirection * player.rb.mass * (!player.grounded ? AirGravity : player.jumpRegion ? RegionGravity : BaseGravity));
+        }
+    }
+
+    private void LateUpdate()
+    {
+        foreach (var player in players)
+        {
+            if (player.grounded)
+            {
+                player.rb.velocity = player.rb.velocity.normalized * player.constantVelocity;
+            }
         }
     }
 
