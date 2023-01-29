@@ -293,7 +293,7 @@ AnimatorStateTransition:
   m_ExitTime: 0.95526224
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 2
+  m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &-4201051397569589798
@@ -439,21 +439,18 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: HasMomentum
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Sliding
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1387534374444676922}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.39251518
+  m_TransitionDuration: 0.13066459
   m_TransitionOffset: 0
   m_ExitTime: 0.9830603
-  m_HasExitTime: 0
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
-  m_InterruptionSource: 1
+  m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &-128903048401212441
