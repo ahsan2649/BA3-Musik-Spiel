@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{606701c0-fd7b-4823-aba5-1979c4693350}">
 		<property name="assetPath">
-			<value>71-3.2 wierd perc.wav</value>
+			<value>Music Old/71-3.2 wierd perc.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

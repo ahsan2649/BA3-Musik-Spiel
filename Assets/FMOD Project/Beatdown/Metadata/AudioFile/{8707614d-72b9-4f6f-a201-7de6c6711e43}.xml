@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{8707614d-72b9-4f6f-a201-7de6c6711e43}">
 		<property name="assetPath">
-			<value>71-3.2 funky vocals.wav</value>
+			<value>Music Old/71-3.2 funky vocals.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
