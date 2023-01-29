@@ -5,12 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
 {
-    [SerializeField] GunObject gunObject;
+    [SerializeField] public GunObject gunObject;
     [HideInInspector] public string instrument;
     GameObject bulletPrefab;
     float bulletSpeed;
     float damage;
     public Character owner;
+    public Player shooter;
 
     private void Start()
     {
