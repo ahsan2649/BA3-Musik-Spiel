@@ -18,6 +18,8 @@ public class CharacterSelectorInput : MonoBehaviour
     public bool everyoneReady = false;
 
     public bool firstInput = false;
+
+    public int gamepadID;
     // Start is called before the first frame update
     void Start()
     {
@@ -100,9 +102,8 @@ public class CharacterSelectorInput : MonoBehaviour
                 FindObjectOfType<SceneLoader>().LoadLastScene();
             }
             firstInput = true;
+            gamepadID = GetComponent<PlayerInput>().devices[0].deviceId;
         }
-        
-        
     }
 
     public void SetFirstInput()

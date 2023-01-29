@@ -30,7 +30,7 @@ public class CharacterSelecting : MonoBehaviour
 
     List<int> playerVisualizers = new List<int>();
     Transform[] visualizers;
-    // Start is called before the first frame update
+
     void Start()
     {
         PlayerPrefs.SetInt("Player1Char", 0);
@@ -39,7 +39,6 @@ public class CharacterSelecting : MonoBehaviour
         PlayerPrefs.SetInt("Player4Char", 3);
     }
 
-    // Update is called once per frame
     void Update()
     {
         bool allPlayersSubmitted = false;
@@ -142,6 +141,13 @@ public class CharacterSelecting : MonoBehaviour
             if (i == 1) { PlayerPrefs.SetInt("Player1Char", players[i].selectedChar); }
             if (i == 2) { PlayerPrefs.SetInt("Player2Char", players[i].selectedChar); }
             if (i == 3) { PlayerPrefs.SetInt("Player3Char", players[i].selectedChar); }
+
+            if (i == 0) { PlayerPrefs.SetInt("Player0Gamepad", players[i].gamepadID); }
+            if (i == 1) { PlayerPrefs.SetInt("Player1Gamepad", players[i].gamepadID); }
+            if (i == 2) { PlayerPrefs.SetInt("Player2Gamepad", players[i].gamepadID); }
+            if (i == 3) { PlayerPrefs.SetInt("Player3Gamepad", players[i].gamepadID); }
         }
+
+        //LOAD NEXT SCENE HERE
     }
 }

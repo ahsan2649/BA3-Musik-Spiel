@@ -21,6 +21,6 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadRandomArena()
     {
-
+        //Do the randomization here?
     }
 }

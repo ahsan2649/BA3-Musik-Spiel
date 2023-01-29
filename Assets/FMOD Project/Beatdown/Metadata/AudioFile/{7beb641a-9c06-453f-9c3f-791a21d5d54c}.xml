@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{7beb641a-9c06-453f-9c3f-791a21d5d54c}">
 		<property name="assetPath">
-			<value>71-3.2 kick beat (kick+claps+bass).wav</value>
+			<value>Music Old/71-3.2 kick beat (kick+claps+bass).wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

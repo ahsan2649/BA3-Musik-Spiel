@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{79b44e98-afa6-43f0-9d4a-b3df5f7661c8}">
 		<property name="assetPath">
-			<value>71-3.2 snare loop.wav</value>
+			<value>Music Old/71-3.2 snare loop.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{bf7978f2-9616-473c-ada3-1e7d10ef8e7e}">
 		<property name="assetPath">
-			<value>71-3.2 electronic bongos.wav</value>
+			<value>Music Old/71-3.2 electronic bongos.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>
