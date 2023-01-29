@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{bc8e5383-d9e5-4dca-8758-49036a849e72}">
 		<property name="assetPath">
-			<value>71-3.2 hihat-2.wav</value>
+			<value>Music Old/71-3.2 hihat-2.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

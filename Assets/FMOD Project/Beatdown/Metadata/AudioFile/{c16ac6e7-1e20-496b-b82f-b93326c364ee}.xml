@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{c16ac6e7-1e20-496b-b82f-b93326c364ee}">
+		<property name="assetPath">
+			<value>SFX Raw/yamahapsre313rocksnare1-101016.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.79200000000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a55eb3cd-63ea-4179-8e00-4a3bdcb420ed}</destination>
+		</relationship>
+	</object>
+</objects>

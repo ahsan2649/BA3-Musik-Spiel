@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{db319978-b90f-495f-9396-138eb8929976}">
+		<property name="assetPath">
+			<value>SFX Raw/record-scratches-31350.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>20.423999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a55eb3cd-63ea-4179-8e00-4a3bdcb420ed}</destination>
+		</relationship>
+	</object>
+</objects>
