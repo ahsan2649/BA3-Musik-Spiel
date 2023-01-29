@@ -86,16 +86,6 @@ public class Character : MonoBehaviour
         CalculateAim();
         SetForceValues();
 
-        if (constantVelocity > min_velocity_to_start_skate)
-        {
-            if (ani != null) ani.SetBool("HasMomentum", true);
-        }
-        else
-        {
-            if (ani != null) ani.SetBool("HasMomentum", false);
-        }
-
-
         Debug.DrawRay(transform.position, rb.velocity.normalized * 2f, Color.green);
         Debug.Log(constantVelocity.ToString());
     }
@@ -104,6 +94,15 @@ public class Character : MonoBehaviour
     private void FixedUpdate()
     {
         body.transform.rotation = Quaternion.Lerp(body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -gravityDirection), 0.25f);
+
+        if (constantVelocity > min_velocity_to_start_skate)
+        {
+            if (ani != null) ani.SetBool("HasMomentum", true);
+        }
+        else
+        {
+            if (ani != null) ani.SetBool("HasMomentum", false);
+        }
 
         if (GameManager.instance.phase == GameManager.Phase.Starting)
         {
@@ -225,7 +224,7 @@ public class Character : MonoBehaviour
             }
 
         }
-        
+
         rb.AddForce(gravityDirection * rb.mass * gravity);
         framecount += 1;
     }
