@@ -16,6 +16,7 @@ public class Solo : MonoBehaviour
 
     //State
     public int currentHealth;
+    public bool activated = true;
     int currentMaxDmgPlayer;
     int currentMovePoint;
     List<int> damageList = new List<int>();

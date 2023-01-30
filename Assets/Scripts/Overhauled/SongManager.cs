@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SongManager : MonoBehaviour
 {
@@ -38,15 +39,15 @@ public class SongManager : MonoBehaviour
         {
             if (firstcolor)
             {
-                sr1.color = Color11;
-                sr2.color = Color21;
+                if(sr1 != null) sr1.color = Color11;
+                if(sr2 != null) sr2.color = Color21;
                 firstcolor = !firstcolor;
-                Debug.Log(sr2.ToString());
+                //Debug.Log(sr2.ToString());
             }
             else
             {
-                sr1.color = Color12;
-                sr2.color = Color22;
+                if(sr1 != null) sr1.color = Color12;
+                if(sr2 != null) sr2.color = Color22;
                 firstcolor = !firstcolor;
             }
             Debug.Log("Beat");
@@ -59,7 +60,9 @@ public class SongManager : MonoBehaviour
     };
     [SerializeField] Beat KickBeat;
 
-    [SerializeField] FMODUnity.EventReference song;
+    [SerializeField] FMODUnity.EventReference MainSong;
+    [SerializeField] FMODUnity.EventReference StartingSequenceSong;
+
     [SerializeField] public TimelineInfo timelineInfo;
     [SerializeField][Range(0, 1)] float KickMargin;
     float KickMarginValue;
@@ -86,13 +89,13 @@ public class SongManager : MonoBehaviour
     void Start()
     {
         emitter = GetComponent<FMODUnity.StudioEventEmitter>();
-        emitter.EventReference = song;
+        
 
         timelineInfo = new TimelineInfo();
         timelineInfo.gunManager = FindObjectOfType<GunManager>();
 
-        timelineInfo.sr1 = Light1.GetComponent<SpriteRenderer>();
-        timelineInfo.sr2 = Light2.GetComponent<SpriteRenderer>();
+        if(Light1 != null)timelineInfo.sr1 = Light1.GetComponent<SpriteRenderer>();
+        if(Light2 != null)timelineInfo.sr2 = Light2.GetComponent<SpriteRenderer>();
         timelineInfo.Color11 = Color11;
         timelineInfo.Color12 = Color12;
         timelineInfo.Color21 = Color21;
@@ -101,12 +104,20 @@ public class SongManager : MonoBehaviour
         timelineHandle = GCHandle.Alloc(timelineInfo);
         shootCallback = new FMOD.Studio.EVENT_CALLBACK(ShootCallback);
 
-        StartSong();
+        Debug.Log("Starting here");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            StartSong(MainSong);
+        }
+        if (LevelManager.levelManager.phase == LevelManager.Phase.Playing)
+        {
+        }
+
         if (emitter.IsPlaying())
         {
             timelineInfo.timeAfterPrevBeat += Time.deltaTime;
@@ -143,8 +154,14 @@ public class SongManager : MonoBehaviour
 
     #region StartStopSong
 
-    public void StartSong()
+    public void StartSong(FMODUnity.EventReference song)
     {
+        Debug.Log("Starting");
+        if (emitter.IsPlaying())
+        {
+            StopSong();
+        }
+        emitter.EventReference = song;
         emitter.Play();
         songInstance = emitter.EventInstance;
         songInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
