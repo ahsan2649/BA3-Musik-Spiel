@@ -5,10 +5,10 @@ using UnityEngine;
 public class Shotgun : MonoBehaviour
 {
     [SerializeField] float lifeTime = 1f;
-    public Character shooter;
+    public Player shooter;
 
     Bullet[] bullets;
-    public void SetShooter(Character shooter)
+    public void SetShooter(Player shooter)
     {
         //forwards shooter to each bullet
         bullets = GetComponentsInChildren<Bullet>();

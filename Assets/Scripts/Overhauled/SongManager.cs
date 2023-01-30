@@ -202,6 +202,7 @@ public class SongManager : MonoBehaviour
                     var markerParams = (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES));
                     timelineInfo.gunManager.Shoot((string)markerParams.name);
                     timelineInfo.currentMarker = (string)markerParams.name;
+                    if (markerParams.name == "End") LevelManager.levelManager.phase = LevelManager.Phase.Result;
                     break;
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                     var beatParams = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
