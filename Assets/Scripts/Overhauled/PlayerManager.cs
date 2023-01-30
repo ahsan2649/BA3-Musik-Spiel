@@ -127,13 +127,13 @@ public class PlayerManager : MonoBehaviour
                     {
                         player.ani.SetBool("Sliding", true);
                         player.ani.SetTrigger("SlidingTrigger");
-                        player.ani.SetBool("DashSwitch", !player.ani.GetBool("DashSwitch"));
-                        player.ani.SetTrigger("Kick");
                     }
                 }
                 else
                 {
                     if (player.ani != null) player.ani.SetBool("Sliding", false);
+                    player.ani.SetBool("DashSwitch", !player.ani.GetBool("DashSwitch"));
+                    player.ani.SetTrigger("Kick");
                 }
                 break;
             case Player.AimDirection.none:
