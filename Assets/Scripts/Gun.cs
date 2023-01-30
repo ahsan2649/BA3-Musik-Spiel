@@ -10,7 +10,6 @@ public class Gun : MonoBehaviour
     GameObject bulletPrefab;
     float bulletSpeed;
     float damage;
-    public Character owner;
     public Player shooter;
 
     private void Start()
@@ -27,18 +26,18 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if (owner== null)
+        if (shooter == null)
         {
             return;
         }
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         if (newBullet.GetComponent<Bullet>())
         {
-            newBullet.GetComponent<Bullet>().shooter = owner;
+            newBullet.GetComponent<Bullet>().shooter = shooter;
         }
         else
         {
-            newBullet.GetComponent<Shotgun>().SetShooter(owner);
+            newBullet.GetComponent<Shotgun>().SetShooter(shooter);
         }
     }
 }

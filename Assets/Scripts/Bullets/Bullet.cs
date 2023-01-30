@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float bulletSpeed;
     public float damage;
-    public Character shooter;
+    public Player shooter;
 
     public bool synth = false;
     [SerializeField] float synthSizeFactor = 2f;
@@ -74,9 +74,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Character")
+        if (collision.tag == "Player")
         {
-            collision.GetComponentInParent<Character>().health -= damage;
+            collision.GetComponentInParent<Player>().health -= damage;
             if (!laser && !synth)
             {
                 Destroy(gameObject);

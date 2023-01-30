@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public float health;
     public bool kick;
     public bool grounded;
     public bool jumpRegion;
