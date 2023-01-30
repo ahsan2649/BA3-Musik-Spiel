@@ -60,8 +60,7 @@ public class SongManager : MonoBehaviour
     };
     [SerializeField] Beat KickBeat;
 
-    [SerializeField] FMODUnity.EventReference MainSong;
-    [SerializeField] FMODUnity.EventReference StartingSequenceSong;
+    [SerializeField] FMODUnity.EventReference Song;
 
     [SerializeField] public TimelineInfo timelineInfo;
     [SerializeField][Range(0, 1)] float KickMargin;
@@ -89,7 +88,8 @@ public class SongManager : MonoBehaviour
     void Start()
     {
         emitter = GetComponent<FMODUnity.StudioEventEmitter>();
-        
+        emitter.EventReference = Song;
+
 
         timelineInfo = new TimelineInfo();
         timelineInfo.gunManager = FindObjectOfType<GunManager>();
@@ -104,6 +104,7 @@ public class SongManager : MonoBehaviour
         timelineHandle = GCHandle.Alloc(timelineInfo);
         shootCallback = new FMOD.Studio.EVENT_CALLBACK(ShootCallback);
 
+        StartSong();
         Debug.Log("Starting here");
     }
 
@@ -112,10 +113,11 @@ public class SongManager : MonoBehaviour
     {
         if (Keyboard.current.anyKey.wasPressedThisFrame)
         {
-            StartSong(MainSong);
+            StartSong();
         }
         if (LevelManager.levelManager.phase == LevelManager.Phase.Playing)
         {
+            emitter.SetParameter("sequence_end", 1);
         }
 
         if (emitter.IsPlaying())
@@ -154,14 +156,13 @@ public class SongManager : MonoBehaviour
 
     #region StartStopSong
 
-    public void StartSong(FMODUnity.EventReference song)
+    public void StartSong()
     {
         Debug.Log("Starting");
         if (emitter.IsPlaying())
         {
             StopSong();
         }
-        emitter.EventReference = song;
         emitter.Play();
         songInstance = emitter.EventInstance;
         songInstance.setUserData(GCHandle.ToIntPtr(timelineHandle));
