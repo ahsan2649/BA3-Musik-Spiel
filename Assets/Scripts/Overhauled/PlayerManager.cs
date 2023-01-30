@@ -24,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float health;
     [SerializeField] GameObject missParticle;
     [SerializeField] float kickPunishment;
+    [SerializeField] float minimunSlidingSpeed = 0;
 
     
     // Start is called before the first frame update
@@ -159,7 +160,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case Player.AimDirection.back:
-                if (player.constantVelocity == 0)
+                if (player.constantVelocity <= minimunSlidingSpeed)
                 {
                     if (player.ani != null)
                     {
@@ -212,6 +213,7 @@ public class PlayerManager : MonoBehaviour
     public void HandleKick(Player player)
     {
         player.kicksHit += 1;
+        player.kick = false;
         switch (player.aimDir)
         {
             case Player.AimDirection.outside:
@@ -237,7 +239,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case Player.AimDirection.back:
-                if (player.constantVelocity == 0)
+                if (player.constantVelocity <= minimunSlidingSpeed)
                 {
                     player.antiClockFace = !player.antiClockFace;
                     player.rb.AddForce((player.antiClockFace ? player.body.transform.right : -player.body.transform.right) * KickForce);
