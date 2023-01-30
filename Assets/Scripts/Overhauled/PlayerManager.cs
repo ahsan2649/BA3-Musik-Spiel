@@ -61,7 +61,7 @@ public class PlayerManager : MonoBehaviour
             {
                 if (player.aimDir != Player.AimDirection.none) player.RotationReady = true;
             }
-            if (players.All(player => player.RotationReady == true && player.kick))
+            if (players.All(player => player.RotationReady == true && player.kick && SongManager.instance.canKick))
             {
                 LevelManager.levelManager.phase = LevelManager.Phase.Playing;
             }
