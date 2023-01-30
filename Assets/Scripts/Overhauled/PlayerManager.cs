@@ -68,7 +68,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
 
-        if (players.Count(player => player.gameObject.activeSelf == true) == 1)
+        if (players.Count > 1 && players.Count(player => player.gameObject.activeSelf == true) == 1)
         {
             LevelManager.levelManager.phase = LevelManager.Phase.Result;
         }
