@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class CharacterSelecting : MonoBehaviour
@@ -33,10 +34,10 @@ public class CharacterSelecting : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetInt("Player1Char", 0);
-        PlayerPrefs.SetInt("Player2Char", 1);
-        PlayerPrefs.SetInt("Player3Char", 2);
-        PlayerPrefs.SetInt("Player4Char", 3);
+        PlayerPrefs.SetInt("Player0Char", 0);
+        PlayerPrefs.SetInt("Player1Char", 1);
+        PlayerPrefs.SetInt("Player2Char", 2);
+        PlayerPrefs.SetInt("Player3Char", 3);
     }
 
     void Update()
@@ -148,6 +149,8 @@ public class CharacterSelecting : MonoBehaviour
             if (i == 3) { PlayerPrefs.SetInt("Player3Gamepad", players[i].gamepadID); }
         }
 
+        PlayerPrefs.SetInt("PlayerCount", players.Count);
         //LOAD NEXT SCENE HERE
+        FindObjectOfType<SceneLoader>().LoadRandomArena();
     }
 }

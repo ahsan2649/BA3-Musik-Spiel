@@ -59,8 +59,6 @@ public class SongManager : MonoBehaviour
         timelineInfo.gunManager = FindObjectOfType<GunManager>();
         timelineHandle = GCHandle.Alloc(timelineInfo);
         shootCallback = new FMOD.Studio.EVENT_CALLBACK(ShootCallback);
-
-        StartSong();
     }
 
     // Update is called once per frame

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +10,7 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] List<Transform> spawnPoints;
     [SerializeField] List<Player> players;
+    [SerializeField] List<GameObject> characters;
     [SerializeField] float slideModifier;
     [SerializeField] float KickForce;
     [SerializeField] float BaseJumpForce;
@@ -23,6 +25,18 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(PlayerPrefs.GetInt("PlayerCount"));
+
+        for (int i = 0; i < PlayerPrefs.GetInt("PlayerCount"); i++)
+        {
+            GetComponent<PlayerInputManager>().playerPrefab = characters[i];
+            var newPlayer = GetComponent<PlayerInputManager>().JoinPlayer(i, -1, null, Gamepad.all.ToList().Find(gp => gp.deviceId == PlayerPrefs.GetInt("Player" + i.ToString() + "Gamepad")));
+            newPlayer.gameObject.transform.position = spawnPoints[i].transform.position;
+            players.Add(newPlayer.GetComponent<Player>());
+        }
+        
+        if (players.Count == 0) return;
+
         foreach (var player in players)
         {
             player.rb = player.GetComponent<Rigidbody2D>();
@@ -37,6 +51,10 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
+
+        if (players.Count == 0) return;
+
         foreach (var player in players)
         {
             player.body.transform.rotation = Quaternion.Lerp(player.body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -player.gravityDirection), 0.25f);
@@ -55,6 +73,8 @@ public class PlayerManager : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (players.Count == 0) return;
+
         foreach (var player in players)
         {
             if (player.grounded)

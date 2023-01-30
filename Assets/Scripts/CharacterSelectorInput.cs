@@ -23,6 +23,7 @@ public class CharacterSelectorInput : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gamepadID = GetComponent<PlayerInput>().devices[0].deviceId;
         cs = FindObjectOfType<CharacterSelecting>();
         playerNumber = cs.AddPlayer(this);
         selectedChar = playerNumber;
@@ -78,7 +79,7 @@ public class CharacterSelectorInput : MonoBehaviour
             }
             else if (everyoneReady) 
             {
-                //Start Game
+                cs.StartGame();
             }
             
         }
@@ -102,7 +103,6 @@ public class CharacterSelectorInput : MonoBehaviour
                 FindObjectOfType<SceneLoader>().LoadLastScene();
             }
             firstInput = true;
-            gamepadID = GetComponent<PlayerInput>().devices[0].deviceId;
         }
     }
 
