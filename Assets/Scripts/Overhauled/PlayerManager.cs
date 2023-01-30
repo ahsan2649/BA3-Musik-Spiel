@@ -25,8 +25,11 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] GameObject missParticle;
     [SerializeField] float kickPunishment;
     [SerializeField] float minimunSlidingSpeed = 0;
+    [SerializeField] float kickCooldown;
 
-    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +93,7 @@ public class PlayerManager : MonoBehaviour
             {
                 if (player.aimDir != Player.AimDirection.none) player.RotationReady = true;
             }
-            if (players.All(player => player.RotationReady == true && player.kick && SongManager.instance.canKick && player.kickPunishment <= 0))
+            if (players.All(player => player.RotationReady == true && player.kick && SongManager.instance.canKick && player.kickPunishment <= 0 && player.kickCooldown <= 0))
             {
                 LevelManager.levelManager.phase = LevelManager.Phase.Playing;
                 backgroundAnimator.Play("Background Opening");
@@ -105,7 +108,7 @@ public class PlayerManager : MonoBehaviour
             {
                 player.body.transform.rotation = Quaternion.Lerp(player.body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -player.gravityDirection), 0.25f);
 
-                if (SongManager.instance.canKick && player.kick && player.aimDir != Player.AimDirection.none && player.grounded && player.kickPunishment <= 0)
+                if (SongManager.instance.canKick && player.kick && player.aimDir != Player.AimDirection.none && player.grounded && player.kickPunishment <= 0 && player.kickCooldown <= 0)
                 {
                     HandleKick(player);
                     HandleAnim(player);
@@ -214,6 +217,7 @@ public class PlayerManager : MonoBehaviour
     {
         player.kicksHit += 1;
         player.kick = false;
+        player.kickCooldown += kickCooldown;
         switch (player.aimDir)
         {
             case Player.AimDirection.outside:

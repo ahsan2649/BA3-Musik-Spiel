@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public Vector2 gravityDirection;
 
     public float kickPunishment = 0;
+    public float kickCooldown = 0;
 
     [SerializeField] float min_velocity_to_start_skate = 0;
 
@@ -52,6 +53,12 @@ public class Player : MonoBehaviour
         CalculateAim();
 
         kickPunishment -= Time.deltaTime;
+        kickCooldown -= Time.deltaTime;
+
+        if (kickPunishment < 0) kickPunishment = 0;
+        if (kickCooldown < 0) kickCooldown= 0;
+
+
 
 
         aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : stickAngle), aimSmooth);
