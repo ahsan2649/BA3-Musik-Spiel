@@ -550,6 +550,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4548549539238490760, guid: efff9fbd3d3651d40af0d21d1c5f0c44, type: 3}
   m_PrefabInstance: {fileID: 507798586}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &665637608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8691994242603797372, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
+  m_PrefabInstance: {fileID: 1366237220}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &791215651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4169,6 +4174,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 701329162005761352, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 701329162005761352, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 701329162005761352, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1997376968467452184, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -4461,6 +4478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5cf252fc1bf4f4c96878f9aab4f93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Light1: {fileID: 665637608}
+  Light2: {fileID: 2145720372}
   KickBeat: 0
   song:
     Guid:
@@ -4477,6 +4496,13 @@ MonoBehaviour:
     timeUntilNextBeat: 0
     timeAfterPrevBeat: 0
     gunManager: {fileID: 0}
+    firstcolor: 1
+    Color11: {r: 1, g: 0, b: 0, a: 0}
+    Color12: {r: 0, g: 0.19188643, b: 1, a: 0}
+    Color21: {r: 0, g: 1, b: 0.03938818, a: 0}
+    Color22: {r: 1, g: 0.80982494, b: 0, a: 0}
+    sr1: {fileID: 0}
+    sr2: {fileID: 0}
   KickMargin: 0.25
   canKick: 0
 --- !u!4 &1554271238
@@ -14461,6 +14487,11 @@ Transform:
   m_Father: {fileID: 1908328106}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2145720372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5252092937676597610, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
+  m_PrefabInstance: {fileID: 1366237220}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &56958476045902759
 PrefabInstance:
   m_ObjectHideFlags: 0

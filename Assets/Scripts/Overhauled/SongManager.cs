@@ -11,6 +11,10 @@ public class SongManager : MonoBehaviour
     [SerializeField] GameObject Light1;
     [SerializeField] GameObject Light2;
 
+    [SerializeField] public Color Color11;
+    [SerializeField] public Color Color12;
+    [SerializeField] public Color Color21;
+    [SerializeField] public Color Color22;
 
     [Serializable]
     public class TimelineInfo
@@ -22,7 +26,7 @@ public class SongManager : MonoBehaviour
         public float timeUntilNextBeat;
         public float timeAfterPrevBeat;
         public GunManager gunManager;
-        public bool firstcolor;
+        public bool firstcolor = true;
 
         [SerializeField] public Color Color11;
         [SerializeField] public Color Color12;
@@ -37,6 +41,7 @@ public class SongManager : MonoBehaviour
                 sr1.color = Color11;
                 sr2.color = Color21;
                 firstcolor = !firstcolor;
+                Debug.Log(sr2.ToString());
             }
             else
             {
@@ -85,11 +90,18 @@ public class SongManager : MonoBehaviour
 
         timelineInfo = new TimelineInfo();
         timelineInfo.gunManager = FindObjectOfType<GunManager>();
-        timelineHandle = GCHandle.Alloc(timelineInfo);
-        shootCallback = new FMOD.Studio.EVENT_CALLBACK(ShootCallback);
 
         timelineInfo.sr1 = Light1.GetComponent<SpriteRenderer>();
         timelineInfo.sr2 = Light2.GetComponent<SpriteRenderer>();
+        timelineInfo.Color11 = Color11;
+        timelineInfo.Color12 = Color12;
+        timelineInfo.Color21 = Color21;
+        timelineInfo.Color22 = Color22;
+
+        timelineHandle = GCHandle.Alloc(timelineInfo);
+        shootCallback = new FMOD.Studio.EVENT_CALLBACK(ShootCallback);
+
+        StartSong();
     }
 
     // Update is called once per frame
