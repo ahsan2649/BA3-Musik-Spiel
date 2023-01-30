@@ -165,6 +165,7 @@ public class PlayerManager : MonoBehaviour
 
     public void HandleKick(Player player)
     {
+        player.kicksHit += 1;
         switch (player.aimDir)
         {
             case Player.AimDirection.outside:

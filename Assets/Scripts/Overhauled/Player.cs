@@ -13,6 +13,14 @@ public class Player : MonoBehaviour
     public bool antiClockFace = true;
     Gun gun;
 
+    public float damageDealt = 0;
+    public int finalBlows = 0;
+    public int kicksMissed = 0;
+    public int kicksHit = 0;
+    public int healthPacksCollected = 0;
+    public float avgSpeed = 0;
+    public bool hasGotTheSolo = false;
+
     public float constantVelocity = 0;
     public float slideModifier = 0.35f;
 
@@ -23,7 +31,7 @@ public class Player : MonoBehaviour
 
     public Vector2 gravityDirection;
 
-    [SerializeField] float min_velocity_to_start_skate;
+    [SerializeField] float min_velocity_to_start_skate = 0;
 
 
     // Start is called before the first frame update
