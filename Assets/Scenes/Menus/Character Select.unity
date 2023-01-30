@@ -3842,6 +3842,10 @@ PrefabInstance:
       value: SceneManager
       objectReference: {fileID: 0}
     - target: {fileID: 6297970418781711797, guid: de72e9bd87d8e184faf27c5c1108caab, type: 3}
+      propertyPath: prefer_scene
+      value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6297970418781711797, guid: de72e9bd87d8e184faf27c5c1108caab, type: 3}
       propertyPath: scenes.Array.size
       value: 12
       objectReference: {fileID: 0}
