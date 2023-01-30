@@ -597,7 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b847eec5b099a5e48b900f9d02d413a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ani: {fileID: 0}
+  ani: {fileID: 605310784874439425}
   min_velocity_to_start_skate: 0
   MissParticle: {fileID: 5593275954400829785, guid: e9e7503a52a039a4ca989fce3eb5aaa6, type: 3}
   health: 100
@@ -1001,6 +1001,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5308258908b1be94abc51ccae010198f, type: 3}
+--- !u!95 &605310784874439425 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1661512138695543502, guid: 5308258908b1be94abc51ccae010198f, type: 3}
+  m_PrefabInstance: {fileID: 2263233150171081167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2254518875727721705 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9348562735078694, guid: 5308258908b1be94abc51ccae010198f, type: 3}
