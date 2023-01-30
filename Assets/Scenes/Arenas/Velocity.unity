@@ -9020,6 +9020,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4473601939628453026, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601939628453026, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601940104405771, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601940104405771, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601941164020062, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601941164020062, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.86
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
 --- !u!1 &1799858402
