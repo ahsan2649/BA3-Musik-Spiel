@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6068474938778953704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6068474938778953709}
+  - component: {fileID: 6068474938778953710}
+  - component: {fileID: 6068474938778953711}
+  m_Layer: 0
+  m_Name: Song Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6068474938778953709
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068474938778953704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.437655, y: -2.6548307, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6068474938778953710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068474938778953704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5cf252fc1bf4f4c96878f9aab4f93f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Light1: {fileID: 0}
+  Light2: {fileID: 0}
+  Color11: {r: 1, g: 0.80423534, b: 0, a: 1}
+  Color12: {r: 1, g: 0, b: 0, a: 1}
+  Color21: {r: 0.25727177, g: 1, b: 0, a: 1}
+  Color22: {r: 0, g: 0.55501795, b: 1, a: 1}
+  KickBeat: 1
+  song:
+    Guid:
+      Data1: 2011340497
+      Data2: 1085677376
+      Data3: 505156247
+      Data4: -1431882874
+    Path: event:/Soundtrack
+  timelineInfo:
+    CurrentMusicBeat: 0
+    tempo: 0
+    currentMarker: 
+    beatInterval: 0
+    timeUntilNextBeat: 0
+    timeAfterPrevBeat: 0
+    gunManager: {fileID: 0}
+    firstcolor: 1
+    Color11: {r: 1, g: 0, b: 0, a: 0}
+    Color12: {r: 0, g: 0.19188643, b: 1, a: 0}
+    Color21: {r: 0, g: 1, b: 0.03938818, a: 0}
+    Color22: {r: 1, g: 0.80982494, b: 0, a: 0}
+    sr1: {fileID: 0}
+    sr2: {fileID: 0}
+  KickMargin: 0.25
+  canKick: 0
+--- !u!114 &6068474938778953711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068474938778953704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1

@@ -8,10 +8,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    [SerializeField]  public GameObject background;
 
     public enum Phase
     {
@@ -117,7 +120,11 @@ public class GameManager : MonoBehaviour
         if (phase==Phase.Starting)
         {
             if (!emitter.IsPlaying()) StartSong();
-            if (characters.All(character => character.RotationReady && character.kick) && canKick) phase = Phase.Playing;
+            if (characters.All(character => character.RotationReady && character.kick) && canKick)
+            {
+                phase = Phase.Playing;
+                if (background.GetComponent<Animator>()) background.GetComponent<Animator>().Play("Background Opening");
+            }
         }
         timelineInfo.timeAfterPrevBeat += Time.deltaTime;
         timelineInfo.timeUntilNextBeat -= Time.deltaTime;

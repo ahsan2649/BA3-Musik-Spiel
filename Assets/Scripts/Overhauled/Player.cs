@@ -39,6 +39,14 @@ public class Player : MonoBehaviour
         GetStickInput();
         CalculateAim();
 
+        
+
+
+        aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : stickAngle), aimSmooth);
+    }
+
+    private void FixedUpdate()
+    {
         if (constantVelocity > min_velocity_to_start_skate)
         {
             if (ani != null) ani.SetBool("HasMomentum", true);
@@ -47,9 +55,6 @@ public class Player : MonoBehaviour
         {
             if (ani != null) ani.SetBool("HasMomentum", false);
         }
-
-
-        aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : stickAngle), aimSmooth);
     }
 
     void ToggleFace()
