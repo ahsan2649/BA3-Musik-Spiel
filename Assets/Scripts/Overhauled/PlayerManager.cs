@@ -64,6 +64,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     Instantiate(missParticle, player.body.transform.position + player.body.transform.up * 2f, Quaternion.identity);
                 }
+                player.kicksMissed += 1;
             }
         }
 
