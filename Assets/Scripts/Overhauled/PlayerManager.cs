@@ -23,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] Animator backgroundAnimator;
     [SerializeField] float health;
     [SerializeField] GameObject missParticle;
+    [SerializeField] float kickPunishment;
 
     
     // Start is called before the first frame update
@@ -60,6 +61,7 @@ public class PlayerManager : MonoBehaviour
 
             if (player.kick && player.grounded && !SongManager.instance.canKick)
             {
+                player.kickPunishment = kickPunishment;
                 if (missParticle != null) 
                 {
                     Instantiate(missParticle, player.body.transform.position + player.body.transform.up * 2f, Quaternion.identity);
@@ -87,7 +89,7 @@ public class PlayerManager : MonoBehaviour
             {
                 if (player.aimDir != Player.AimDirection.none) player.RotationReady = true;
             }
-            if (players.All(player => player.RotationReady == true && player.kick && SongManager.instance.canKick))
+            if (players.All(player => player.RotationReady == true && player.kick && SongManager.instance.canKick && player.kickPunishment <= 0))
             {
                 LevelManager.levelManager.phase = LevelManager.Phase.Playing;
                 backgroundAnimator.Play("Background Opening");
@@ -102,7 +104,7 @@ public class PlayerManager : MonoBehaviour
             {
                 player.body.transform.rotation = Quaternion.Lerp(player.body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -player.gravityDirection), 0.25f);
 
-                if (SongManager.instance.canKick && player.kick && player.aimDir != Player.AimDirection.none && player.grounded)
+                if (SongManager.instance.canKick && player.kick && player.aimDir != Player.AimDirection.none && player.grounded && player.kickPunishment <= 0)
                 {
                     HandleKick(player);
                     HandleAnim(player);
