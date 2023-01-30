@@ -21,6 +21,7 @@ public class Solo : MonoBehaviour
     List<int> damageList = new List<int>();
     Vector2 startposition;
     float timer;
+    public bool moves;
 
     // Start is called before the first frame update
     void Start()
@@ -30,32 +31,37 @@ public class Solo : MonoBehaviour
 
         currentHealth = maxHealth;
         startposition = transform.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Follow Path
-        timer += moveSpeed * Time.deltaTime;
-        Vector2 newPosition = Vector2.MoveTowards(startposition, movePoints[currentMovePoint].position, timer);
-        rb.MovePosition(newPosition);
-        if(transform.position == movePoints[currentMovePoint].position)
+        if (moves)
         {
-            if(currentMovePoint != movePoints.Count - 1)
+            //Follow Path
+            timer += moveSpeed * Time.deltaTime;
+            Vector2 newPosition = Vector2.MoveTowards(startposition, movePoints[currentMovePoint].position, timer);
+            rb.MovePosition(newPosition);
+            if (transform.position == movePoints[currentMovePoint].position)
             {
-                currentMovePoint = currentMovePoint + 1;
-                startposition = transform.position;
-                Debug.Log("Next MovePoint");
-                timer = 0;
-            }
-            else
-            {
-                currentMovePoint = 0;
-                startposition = transform.position;
-                Debug.Log("Reset MovePoint");
-                timer = 0;
+                if (currentMovePoint != movePoints.Count - 1)
+                {
+                    currentMovePoint = currentMovePoint + 1;
+                    startposition = transform.position;
+                    Debug.Log("Next MovePoint");
+                    timer = 0;
+                }
+                else
+                {
+                    currentMovePoint = 0;
+                    startposition = transform.position;
+                    Debug.Log("Reset MovePoint");
+                    timer = 0;
+                }
             }
         }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
