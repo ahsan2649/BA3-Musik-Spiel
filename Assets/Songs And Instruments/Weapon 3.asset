@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80462c6ea1f5d674780d4ba41dac4b4f, type: 3}
   m_Name: Weapon 3
   m_EditorClassIdentifier: 
-  color: {r: 0.21804914, g: 0.79283416, b: 0.9433962, a: 1}
-  bulletSpeed: 25
-  damage: 3
+  color: {r: 0.85882354, g: 0.117647074, b: 0.13856108, a: 1}
+  bulletSpeed: 15
+  damage: 7
   instrument: Weapon 3
-  bulletPrefab: {fileID: 3203100504733436288, guid: 461b32426cdf98d45aa6090060024e7b, type: 3}
+  bulletPrefab: {fileID: 1945558290536063695, guid: 3a6ae61d2eca60f44aa87bd17a1bde2e, type: 3}

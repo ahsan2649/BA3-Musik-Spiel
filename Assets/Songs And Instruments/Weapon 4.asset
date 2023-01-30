@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80462c6ea1f5d674780d4ba41dac4b4f, type: 3}
-  m_Name: Weapon 2
+  m_Name: Weapon 4
   m_EditorClassIdentifier: 
-  color: {r: 0.21960783, g: 0.29865113, b: 0.94509804, a: 1}
-  bulletSpeed: 25
-  damage: 3
-  instrument: Weapon 2
-  bulletPrefab: {fileID: 3203100504733436288, guid: 461b32426cdf98d45aa6090060024e7b, type: 3}
+  color: {r: 0.21960783, g: 0.94509804, b: 0.24975501, a: 1}
+  bulletSpeed: 15
+  damage: 40
+  instrument: Weapon 4
+  bulletPrefab: {fileID: 3995904402947845430, guid: e7b7505b3ef9eca4cb16e70139108724, type: 3}
