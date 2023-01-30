@@ -20,8 +20,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float RegionJumpForce;
     [SerializeField] float topSpeed;
     [SerializeField] float drag;
+    [SerializeField] Animator backgroundAnimator;
 
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +64,8 @@ public class PlayerManager : MonoBehaviour
             if (players.All(player => player.RotationReady == true && player.kick && SongManager.instance.canKick))
             {
                 LevelManager.levelManager.phase = LevelManager.Phase.Playing;
+                backgroundAnimator.Play("Background Opening");
+                Debug.Log("Animation");
             }
         }
 

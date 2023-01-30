@@ -6980,6 +6980,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
+    - target: {fileID: 7004089631202507878, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e5a30011ae1a60446b725f851c243330, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
 --- !u!1 &1391153901 stripped
@@ -6990,6 +6994,11 @@ GameObject:
 --- !u!1 &1391153902 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8691994242603797372, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
+  m_PrefabInstance: {fileID: 1391153900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1391153903 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7004089631202507878, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
   m_PrefabInstance: {fileID: 1391153900}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1501449283
@@ -7211,6 +7220,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4473601939455179905, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: backgroundAnimator
+      value: 
+      objectReference: {fileID: 1391153903}
     - target: {fileID: 4473601939455179906, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
       propertyPath: m_RootOrder
       value: 6
