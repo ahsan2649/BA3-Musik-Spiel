@@ -332,8 +332,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac5cf252fc1bf4f4c96878f9aab4f93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Light1: {fileID: 0}
+  Light2: {fileID: 0}
+  Color11: {r: 0, g: 0, b: 0, a: 0}
+  Color12: {r: 0, g: 0, b: 0, a: 0}
+  Color21: {r: 0, g: 0, b: 0, a: 0}
+  Color22: {r: 0, g: 0, b: 0, a: 0}
   KickBeat: 0
-  song:
+  MainSong:
+    Guid:
+      Data1: 2011340497
+      Data2: 1085677376
+      Data3: 505156247
+      Data4: -1431882874
+    Path: event:/Soundtrack
+  StartingSequenceSong:
     Guid:
       Data1: 2011340497
       Data2: 1085677376
@@ -348,6 +361,13 @@ MonoBehaviour:
     timeUntilNextBeat: 0
     timeAfterPrevBeat: 0
     gunManager: {fileID: 0}
+    firstcolor: 1
+    Color11: {r: 0, g: 0, b: 0, a: 0}
+    Color12: {r: 0, g: 0, b: 0, a: 0}
+    Color21: {r: 0, g: 0, b: 0, a: 0}
+    Color22: {r: 0, g: 0, b: 0, a: 0}
+    sr1: {fileID: 0}
+    sr2: {fileID: 0}
   KickMargin: 0.25
   canKick: 0
 --- !u!4 &197175927

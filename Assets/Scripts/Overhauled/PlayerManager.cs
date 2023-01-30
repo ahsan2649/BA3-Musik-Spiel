@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
 
         for (int i = 0; i < PlayerPrefs.GetInt("PlayerCount"); i++)
         {
-            GetComponent<PlayerInputManager>().playerPrefab = characters[i];
+            GetComponent<PlayerInputManager>().playerPrefab = characters[PlayerPrefs.GetInt("Player"+i.ToString()+"Char")];
             var newPlayer = GetComponent<PlayerInputManager>().JoinPlayer(i, -1, null, Gamepad.all.ToList().Find(gp => gp.deviceId == PlayerPrefs.GetInt("Player" + i.ToString() + "Gamepad")));
             newPlayer.gameObject.transform.position = spawnPoints[i].transform.position;
             players.Add(newPlayer.GetComponent<Player>());
@@ -55,19 +55,35 @@ public class PlayerManager : MonoBehaviour
 
         if (players.Count == 0) return;
 
-        foreach (var player in players)
+        if(LevelManager.levelManager.phase == LevelManager.Phase.Starting)
         {
-            player.body.transform.rotation = Quaternion.Lerp(player.body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -player.gravityDirection), 0.25f);
-
-            if (SongManager.instance.canKick && player.kick && player.aimDir != Player.AimDirection.none && player.grounded)
+            foreach (var player in players)
             {
-                HandleKick(player);
-                HandleAnim(player);
+                if (player.aimDir != Player.AimDirection.none) player.RotationReady = true;
             }
+            if (players.All(player => player.RotationReady == true && player.kick))
+            {
+                LevelManager.levelManager.phase = LevelManager.Phase.Playing;
+            }
+        }
 
-            HandleVelocity(player);
 
-            player.rb.AddForce(player.gravityDirection * player.rb.mass * (!player.grounded ? AirGravity : player.jumpRegion ? RegionGravity : BaseGravity));
+        if(LevelManager.levelManager.phase == LevelManager.Phase.Playing)
+        {
+            foreach (var player in players)
+            {
+                player.body.transform.rotation = Quaternion.Lerp(player.body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -player.gravityDirection), 0.25f);
+
+                if (SongManager.instance.canKick && player.kick && player.aimDir != Player.AimDirection.none && player.grounded)
+                {
+                    HandleKick(player);
+                    HandleAnim(player);
+                }
+
+                HandleVelocity(player);
+
+                player.rb.AddForce(player.gravityDirection * player.rb.mass * (!player.grounded ? AirGravity : player.jumpRegion ? RegionGravity : BaseGravity));
+            }
         }
     }
 

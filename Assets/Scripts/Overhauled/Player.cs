@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     public GameObject body;
     public Animator ani;
 
+    public bool RotationReady;
     public Vector2 gravityDirection;
 
     [SerializeField] float min_velocity_to_start_skate = 0;

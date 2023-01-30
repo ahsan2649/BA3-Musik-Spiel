@@ -14,6 +14,7 @@ public class GunManager : MonoBehaviour
 
     void Start()
     {
+        if (gunObjects.Count == 0) return;
         for (int i = 0; i < PlayerPrefs.GetInt("PlayerCount"); i++)
         {
             var gun = Instantiate(weaponPrefab, spawnPoints[i].position, Quaternion.identity);
