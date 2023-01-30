@@ -353,11 +353,10 @@ public class Character : MonoBehaviour
         {
             case "Weapon":
                 var weapon = collision.GetComponent<Gun>();
-                if (weapon.owner == null && gun == null)
+                if (weapon.shooter == null && gun == null)
                 {
                     Debug.Log("Weapon");
                     gun = weapon;
-                    weapon.owner = this;
                     weapon.GetComponent<Collider2D>().enabled = false;
                     weapon.transform.parent = aimPivot.transform;
                     weapon.transform.localRotation = Quaternion.identity;

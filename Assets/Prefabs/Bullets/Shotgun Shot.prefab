@@ -52,10 +52,15 @@ MonoBehaviour:
   bulletSpeed: 6
   damage: 15
   shooter: {fileID: 0}
+  bulletType: 2
+  synth: 0
+  synthSizeFactor: 2
   laser: 0
   laserStop:
     serializedVersion: 2
     m_Bits: 0
+  laserDestroyDelay: 0.2
+  laserLr: []
 --- !u!70 &3298882832567707891
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -298,10 +303,15 @@ MonoBehaviour:
   bulletSpeed: 6
   damage: 15
   shooter: {fileID: 0}
+  bulletType: 2
+  synth: 0
+  synthSizeFactor: 2
   laser: 0
   laserStop:
     serializedVersion: 2
     m_Bits: 0
+  laserDestroyDelay: 0.2
+  laserLr: []
 --- !u!70 &1945558291191511710
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -495,10 +505,15 @@ MonoBehaviour:
   bulletSpeed: 6
   damage: 15
   shooter: {fileID: 0}
+  bulletType: 2
+  synth: 0
+  synthSizeFactor: 2
   laser: 0
   laserStop:
     serializedVersion: 2
     m_Bits: 0
+  laserDestroyDelay: 0.2
+  laserLr: []
 --- !u!70 &1945558291732053092
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

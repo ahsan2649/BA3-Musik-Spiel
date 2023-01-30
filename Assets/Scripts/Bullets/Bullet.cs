@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float damage;
     public Player shooter;
 
+    [SerializeField] int bulletType;
     public bool synth = false;
     [SerializeField] float synthSizeFactor = 2f;
     public bool laser = false;
@@ -15,7 +16,6 @@ public class Bullet : MonoBehaviour
     private Vector2 laserLength;
     public LayerMask laserStop;
     [SerializeField] float laserDestroyDelay = 0.2f;
-
     public LineRenderer[] laserLr;
     // Start is called before the first frame update
     void Start()
@@ -76,7 +76,21 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            if (collision.GetComponentInParent<Player>() == shooter)
+            {
+                if (!laser && !synth)
+                {
+                    Destroy(gameObject);
+                }
+                return;
+            }
             collision.GetComponentInParent<Player>().health -= damage;
+            
+            if (collision.GetComponentInParent<Player>().health - damage <= 0)
+            {
+                shooter.finalBlows += 1;
+            }
+            shooter.damageDealt += damage;
             if (!laser && !synth)
             {
                 Destroy(gameObject);
@@ -94,7 +108,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.tag == "SOLO")
         {
-            //collision.GetComponent<Solo>().Damage(damage, shooter.)
+            collision.GetComponent<Solo>().Damage(damage, bulletType);
             if (!laser && !synth) { Destroy(gameObject); }
         }
     }

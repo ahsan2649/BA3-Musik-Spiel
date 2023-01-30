@@ -137,6 +137,7 @@ MonoBehaviour:
   bulletSpeed: 5
   damage: 15
   shooter: {fileID: 0}
+  bulletType: 1
   synth: 1
   synthSizeFactor: 1.05
   laser: 0

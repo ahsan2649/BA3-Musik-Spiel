@@ -313,6 +313,9 @@ MonoBehaviour:
   bulletSpeed: 15
   damage: 40
   shooter: {fileID: 0}
+  bulletType: 3
+  synth: 0
+  synthSizeFactor: 2
   laser: 1
   laserStop:
     serializedVersion: 2

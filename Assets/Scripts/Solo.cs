@@ -9,6 +9,8 @@ public class Solo : MonoBehaviour
     [SerializeField] List<Color> colorList = new List<Color>();
     [SerializeField] List<Transform> movePoints = new List<Transform>();
     [SerializeField] float moveSpeed;
+    [SerializeField] GameObject innerCircle;
+    [SerializeField] float maxSize;
     
     //Cached Components
     Rigidbody2D rb;
@@ -19,20 +21,21 @@ public class Solo : MonoBehaviour
     public bool activated = true;
     int currentMaxDmgPlayer;
     int currentMovePoint;
-    List<int> damageList = new List<int>();
+    List<float> damageList = new List<float>();
     Vector2 startposition;
     float timer;
     public bool moves;
+    private float minSize;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
+        sr = innerCircle.GetComponent<SpriteRenderer>();
 
         currentHealth = maxHealth;
         startposition = transform.position;
-
+        minSize = transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -65,27 +68,21 @@ public class Solo : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void Damage(float damage,int bulletType)
     {
         
-    }
-
-
-    public void Damage(int damage, int playerNumber)
-    {
-        
-        damageList[playerNumber] += damage;
+        damageList[bulletType] += damage;
         //If first time hitting orb
         if(currentHealth == 0)
         {
-            currentMaxDmgPlayer = playerNumber;
+            currentMaxDmgPlayer = bulletType;
         }
         //Check which is the most damage dealing player
-        else if (damageList[playerNumber] >= damageList[currentMaxDmgPlayer])
+        else if (damageList[bulletType] >= damageList[currentMaxDmgPlayer])
         {
-            currentMaxDmgPlayer = playerNumber;
+            currentMaxDmgPlayer = bulletType;
         }
-        currentHealth -= damage;
+        currentHealth -= bulletType;
 
         if(currentHealth <= 0)
         {
@@ -100,11 +97,14 @@ public class Solo : MonoBehaviour
     void UpdateVisuals()
     {
         sr.color = colorList[currentMaxDmgPlayer];
-        //Add bar for damage display
+        //Size up 
+        float sizeMultiplier = maxHealth / currentHealth;
+        float newSize = Mathf.Lerp(minSize, maxSize, sizeMultiplier);
+        sr.transform.localScale = new Vector3(newSize, newSize, newSize);
     }
 
     void Destroy()
     {
-        //Activate the S.O.L.O Tracks
+        
     }
 }
