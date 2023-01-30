@@ -8,6 +8,17 @@ public class SongManager : MonoBehaviour
 {
     public static SongManager instance;
 
+    [SerializeField] GameObject Light1;
+    [SerializeField] GameObject Light2;
+    SpriteRenderer sr1;
+    SpriteRenderer sr2;
+    bool firstcolor
+
+    //[SerializeField] Color Color11;
+    //[SerializeField] Color Color12;
+    //[SerializeField] Color Color21;
+    //[SerializeField] Color Color22;
+
     [Serializable]
     public class TimelineInfo
     {
@@ -18,6 +29,22 @@ public class SongManager : MonoBehaviour
         public float timeUntilNextBeat;
         public float timeAfterPrevBeat;
         public GunManager gunManager;
+        public void BeatEvent()
+        {
+            /*if (firstcolor)
+            {
+                sr1.color = Color11;
+                sr2.color = Color21;
+                firstcolor = !firstcolor;
+            }
+            else
+            {
+                sr1.color = Color12;
+                sr2.color = Color22;
+                firstcolor = !firstcolor;
+            }*/
+            Debug.Log("Beat");
+        }
     }
 
     enum Beat
@@ -59,6 +86,9 @@ public class SongManager : MonoBehaviour
         timelineInfo.gunManager = FindObjectOfType<GunManager>();
         timelineHandle = GCHandle.Alloc(timelineInfo);
         shootCallback = new FMOD.Studio.EVENT_CALLBACK(ShootCallback);
+
+        sr1 = Light1.GetComponent<SpriteRenderer>();
+        sr2 = Light2.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -149,6 +179,7 @@ public class SongManager : MonoBehaviour
                     timelineInfo.beatInterval = 60 / timelineInfo.tempo;
                     timelineInfo.timeUntilNextBeat = timelineInfo.beatInterval;
                     timelineInfo.timeAfterPrevBeat = 0;
+                    if (beatParams.beat % 2 == 0) timelineInfo.BeatEvent();
                     break;
             }
         }
