@@ -6980,10 +6980,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background
       objectReference: {fileID: 0}
-    - target: {fileID: 7004089631202507878, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: e5a30011ae1a60446b725f851c243330, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7e0b3971d737a44a5f6cf79a588b52, type: 3}
 --- !u!1 &1391153901 stripped
