@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfd383b831e181449c4aabed878b910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 0
+  bulletSpeed: 5
   damage: 0
   shooter: {fileID: 0}
   bulletType: 0
-  synth: 0
+  synth: 1
   synthSizeFactor: 2
   laser: 0
   laserStop:
