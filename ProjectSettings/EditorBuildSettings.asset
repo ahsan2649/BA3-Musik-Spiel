@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Overhaul.unity
     guid: ecbcc2f0421b48543af2a792225580ad
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Sus.unity
+    guid: eb50e37a2e69979488d11c1fbffea4b5
   m_configObjects: {}

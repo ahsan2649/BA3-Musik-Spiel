@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] string[] scenes;
     public void LoadScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
@@ -22,6 +23,6 @@ public class SceneLoader : MonoBehaviour
     public void LoadRandomArena()
     {
         //Do the randomization here?
-        SceneManager.LoadScene("Overhaul");
+        SceneManager.LoadScene(scenes[Random.Range(0, scenes.Length)]);
     }
 }

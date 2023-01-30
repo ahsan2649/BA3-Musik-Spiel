@@ -18,6 +18,10 @@ public class SongManager : MonoBehaviour
         public float timeUntilNextBeat;
         public float timeAfterPrevBeat;
         public GunManager gunManager;
+        public void BeatEvent()
+        {
+            Debug.Log("Beating");
+        }
     }
 
     enum Beat
@@ -149,6 +153,7 @@ public class SongManager : MonoBehaviour
                     timelineInfo.beatInterval = 60 / timelineInfo.tempo;
                     timelineInfo.timeUntilNextBeat = timelineInfo.beatInterval;
                     timelineInfo.timeAfterPrevBeat = 0;
+                    if(beatParams.beat % 2 == 0) timelineInfo.BeatEvent();
                     break;
             }
         }
