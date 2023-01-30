@@ -21,7 +21,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float topSpeed;
     [SerializeField] float drag;
     [SerializeField] Animator backgroundAnimator;
+    [SerializeField] float health;
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,9 @@ public class PlayerManager : MonoBehaviour
             GetComponent<PlayerInputManager>().playerPrefab = characters[PlayerPrefs.GetInt("Player"+i.ToString()+"Char")];
             var newPlayer = GetComponent<PlayerInputManager>().JoinPlayer(i, -1, null, Gamepad.all.ToList().Find(gp => gp.deviceId == PlayerPrefs.GetInt("Player" + i.ToString() + "Gamepad")));
             newPlayer.gameObject.transform.position = spawnPoints[i].transform.position;
+            newPlayer.GetComponent<Player>().health = health;
             players.Add(newPlayer.GetComponent<Player>());
+
         }
         
         if (players.Count == 0) return;
@@ -46,7 +50,18 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        foreach (var player in players)
+        {
+            if (player.health <= 0)
+            {
+                player.gameObject.SetActive(false);
+            }
+        }
+
+        if (players.Count(player => player.gameObject.activeSelf == true) == 1)
+        {
+            LevelManager.levelManager.phase = LevelManager.Phase.Result;
+        }
     }
 
     private void FixedUpdate()
