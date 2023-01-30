@@ -69,6 +69,9 @@ MonoBehaviour:
   RegionJumpForce: 20
   topSpeed: 15
   drag: 2.5
+  backgroundAnimator: {fileID: 0}
+  health: 100
+  missParticle: {fileID: 0}
 --- !u!114 &4473601939455179904
 MonoBehaviour:
   m_ObjectHideFlags: 0
