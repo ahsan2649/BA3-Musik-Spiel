@@ -22,6 +22,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float drag;
     [SerializeField] Animator backgroundAnimator;
     [SerializeField] float health;
+    [SerializeField] GameObject missParticle;
 
     
     // Start is called before the first frame update
@@ -56,12 +57,21 @@ public class PlayerManager : MonoBehaviour
             {
                 player.gameObject.SetActive(false);
             }
+
+            if (player.kick && player.grounded && !SongManager.instance.canKick)
+            {
+                if (missParticle != null) 
+                {
+                    Instantiate(missParticle, player.body.transform.position + player.body.transform.up * 2f, Quaternion.identity);
+                }
+            }
         }
 
         if (players.Count(player => player.gameObject.activeSelf == true) == 1)
         {
             LevelManager.levelManager.phase = LevelManager.Phase.Result;
         }
+
     }
 
     private void FixedUpdate()
