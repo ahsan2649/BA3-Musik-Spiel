@@ -25,6 +25,6 @@ public class SceneLoader : MonoBehaviour
     {
         //Do the randomization here?
         if (prefer_scene != null) SceneManager.LoadScene(prefer_scene);
-        SceneManager.LoadScene(scenes[Random.Range(0, scenes.Length)]);
+        else SceneManager.LoadScene(scenes[Random.Range(0, scenes.Length)]);
     }
 }

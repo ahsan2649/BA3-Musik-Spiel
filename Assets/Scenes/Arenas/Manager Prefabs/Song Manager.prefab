@@ -52,13 +52,13 @@ MonoBehaviour:
   Color21: {r: 0.25727177, g: 1, b: 0, a: 1}
   Color22: {r: 0, g: 0.55501795, b: 1, a: 1}
   KickBeat: 1
-  song:
+  Song:
     Guid:
-      Data1: 2011340497
-      Data2: 1085677376
-      Data3: 505156247
-      Data4: -1431882874
-    Path: event:/Soundtrack
+      Data1: 1477613667
+      Data2: 1147313561
+      Data3: 1814734254
+      Data4: -361566786
+    Path: event:/Music
   timelineInfo:
     CurrentMusicBeat: 0
     tempo: 0
