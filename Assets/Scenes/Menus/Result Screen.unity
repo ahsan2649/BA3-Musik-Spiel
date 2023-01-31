@@ -297,6 +297,104 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3998507701868649672, guid: e40c3d579633a4f4a9163eace17e03ec, type: 3}
   m_PrefabInstance: {fileID: 23331295}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &177493024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1515047170841630537, guid: f96dc08596e369942aa18785458dff15, type: 3}
+  m_PrefabInstance: {fileID: 2086586270}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &177493025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8732306464734028165, guid: f96dc08596e369942aa18785458dff15, type: 3}
+  m_PrefabInstance: {fileID: 2086586270}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177493024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04bcd029bb972524f830e76953f06ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &177493027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177493024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1ec58e90c35d90e41a1e1483f79a78fe, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 31c00126-9499-46da-a8e0-e9169991363c
+    m_ActionName: Player/Aim[/DualSenseGamepadHID/leftStick,/DualSenseGamepadHID1/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 31e111c9-5194-4ab7-ad2c-44f58dd63ace
+    m_ActionName: Player/Kick[/DualSenseGamepadHID/buttonSouth,/DualSenseGamepadHID1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e4546bbb-20bd-483d-953d-cfa34904c9ff
+    m_ActionName: Player/Pause[/DualSenseGamepadHID/buttonNorth,/DualSenseGamepadHID1/buttonNorth,/DualSenseGamepadHID/start,/DualSenseGamepadHID1/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 177493025}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9b8d14e6-3617-4ad7-846d-39a331316aa4
+    m_ActionName: PauseMenu/Select[/DualSenseGamepadHID/buttonSouth,/DualSenseGamepadHID1/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 177493025}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: StartGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a59cde97-2fba-4940-9100-e3a71e706ec6
+    m_ActionName: PauseMenu/Back[/DualSenseGamepadHID/buttonEast,/DualSenseGamepadHID1/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 421cbefc-7b46-472c-b7c1-d424d942990e
+    m_ActionName: PauseMenu/Up[/DualSenseGamepadHID/leftStick/up,/DualSenseGamepadHID1/leftStick/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c9c54515-5cf6-473f-8f2b-4bcb722f0772
+    m_ActionName: PauseMenu/Down[/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID1/leftStick/down]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PauseMenu
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &192875166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,8 +1206,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 259.00375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1133,7 +1231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485535275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 462, y: 260, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3111,7 +3209,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1337067105
 Canvas:
   m_ObjectHideFlags: 0
@@ -3121,7 +3219,7 @@ Canvas:
   m_GameObject: {fileID: 1337067101}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3142,7 +3240,7 @@ RectTransform:
   m_GameObject: {fileID: 1337067101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.48072916, y: 0.48072916, z: 0.48072916}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 272292758}
@@ -3162,9 +3260,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 461.5, y: 259.5}
+  m_SizeDelta: {x: 1920, y: 1079.61}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1339283639
 GameObject:
   m_ObjectHideFlags: 0
