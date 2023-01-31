@@ -13,6 +13,7 @@ TagManager:
   - Health
   - PlayerBody
   - Character
+  - SOLO
   layers:
   - Default
   - TransparentFX

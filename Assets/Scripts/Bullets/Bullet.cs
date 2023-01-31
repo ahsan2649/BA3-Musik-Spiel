@@ -84,7 +84,9 @@ public class Bullet : MonoBehaviour
                 }
                 return;
             }
+
             collision.GetComponentInParent<Player>().health -= damage;
+            FindObjectOfType<PlayerManager>().HandleCrown();
             //SFX
             SoundManager.instance.PlayOneShot(FMODEvents.instance.hit, transform.position);
 
@@ -111,6 +113,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.tag == "SOLO")
         {
+            Debug.Log("Hit Orb");
             collision.GetComponent<Solo>().Damage(damage, bulletType, shooter);
             if (!laser && !synth) { Destroy(gameObject); }
         }
