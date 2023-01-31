@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3576491206748193378, guid: 86ff230499e1ff74488302d835eb9f01, type: 3}
+      propertyPath: mat
+      value: 
+      objectReference: {fileID: 2100000, guid: 771fa09bad1e4ec4b88183e0ad34252e, type: 2}
     - target: {fileID: 5624303002066168263, guid: 86ff230499e1ff74488302d835eb9f01, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1026,7 +1030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1768898804409611776, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768898804409611778, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
       propertyPath: m_RootOrder
@@ -1337,6 +1341,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SOLO Laser
       objectReference: {fileID: 0}
+    - target: {fileID: 578296895208251462, guid: bc485918327090a42b197a675e2d8c58, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2252860299669853226, guid: bc485918327090a42b197a675e2d8c58, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1501,7 +1509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9070045274426761460, guid: 0bda4bdec6fb00a498e47ed19daeae74, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bda4bdec6fb00a498e47ed19daeae74, type: 3}

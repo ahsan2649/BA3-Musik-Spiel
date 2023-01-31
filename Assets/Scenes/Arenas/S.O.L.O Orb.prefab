@@ -256,16 +256,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 500
   colorList:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 0.91290116, b: 1, a: 1}
-  - {r: 0.4407406, g: 1, b: 0, a: 1}
-  - {r: 0.52433586, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0.9227282, b: 0, a: 1}
+  - {r: 0, g: 0.26041698, b: 1, a: 1}
+  - {r: 1, g: 0.06511342, b: 0, a: 1}
+  - {r: 0.0082166195, g: 1, b: 0, a: 1}
   movePoints: []
   moveSpeed: 15
   innerCircle: {fileID: 3776357267236903363}
   maxSize: 9.5
   currentHealth: 0
   activated: 1
+  damageList:
+  - 0
+  - 0
+  - 0
+  - 0
   moves: 0
 --- !u!95 &9181522073363608653
 Animator:
