@@ -3933,7 +3933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6297970418781711797, guid: de72e9bd87d8e184faf27c5c1108caab, type: 3}
       propertyPath: scenes.Array.data[7]
-      value: Ramps
+      value: Horns
       objectReference: {fileID: 0}
     - target: {fileID: 6297970418781711797, guid: de72e9bd87d8e184faf27c5c1108caab, type: 3}
       propertyPath: scenes.Array.data[8]
