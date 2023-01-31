@@ -1,0 +1,217 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4462775964366280624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4462775964366280627}
+  - component: {fileID: 4462775964366280626}
+  m_Layer: 0
+  m_Name: FMOD Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4462775964366280627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462775964366280624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4462775964805795241}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4462775964366280626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462775964366280624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd3d6fb156163540a005c068a3fce18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <maxSpeed>k__BackingField:
+    Guid:
+      Data1: 1351916852
+      Data2: 1256180860
+      Data3: 89200521
+      Data4: 733397080
+    Path: event:/SFX/Max Speed
+  <grinding>k__BackingField:
+    Guid:
+      Data1: -2056442868
+      Data2: 1193170626
+      Data3: 932277639
+      Data4: -1498913667
+    Path: event:/SFX/Grinding
+  <slideDash>k__BackingField:
+    Guid:
+      Data1: 1445045811
+      Data2: 1298665668
+      Data3: 99285892
+      Data4: -435876085
+    Path: event:/SFX/Slide
+  <completeSlide>k__BackingField:
+    Guid:
+      Data1: -986105824
+      Data2: 1226395177
+      Data3: -690254938
+      Data4: -642122699
+    Path: event:/SFX/Slide Backwards
+  <jump>k__BackingField:
+    Guid:
+      Data1: 322553357
+      Data2: 1120615609
+      Data3: -1214280017
+      Data4: 1704130652
+    Path: event:/SFX/Jump
+  <hit>k__BackingField:
+    Guid:
+      Data1: -2050012432
+      Data2: 1322551105
+      Data3: 1973153677
+      Data4: 362769270
+    Path: event:/SFX/Hit
+  <weaponPickup>k__BackingField:
+    Guid:
+      Data1: -1479526951
+      Data2: 1303580526
+      Data3: 1742554798
+      Data4: -726581723
+    Path: event:/SFX/Weapon_Pickup
+  <dash>k__BackingField:
+    Guid:
+      Data1: -1120258238
+      Data2: 1288655169
+      Data3: 958388631
+      Data4: -917798269
+    Path: event:/SFX/Dash
+  <miss>k__BackingField:
+    Guid:
+      Data1: 1863951146
+      Data2: 1182747998
+      Data3: -1505805144
+      Data4: -784214789
+    Path: event:/SFX/Miss
+  <healthPickup>k__BackingField:
+    Guid:
+      Data1: 305998835
+      Data2: 1284940367
+      Data3: -1452419656
+      Data4: 2067679442
+    Path: event:/SFX/Collectible_Pickup
+  <crown>k__BackingField:
+    Guid:
+      Data1: -1477173518
+      Data2: 1128843111
+      Data3: -1769599068
+      Data4: 665598699
+    Path: event:/SFX/Crown
+  <death>k__BackingField:
+    Guid:
+      Data1: 1732162429
+      Data2: 1215781962
+      Data3: 2026101685
+      Data4: -2028119278
+    Path: event:/SFX/Death
+  <pickupSpawn>k__BackingField:
+    Guid:
+      Data1: 185014663
+      Data2: 1325043472
+      Data3: 760559546
+      Data4: 1477369803
+    Path: event:/SFX/Collectible_Spawn
+  <soloDestroyed>k__BackingField:
+    Guid:
+      Data1: 497146786
+      Data2: 1224459745
+      Data3: 234297019
+      Data4: -214987416
+    Path: event:/SFX/Solo_Destroyed
+  <select>k__BackingField:
+    Guid:
+      Data1: -1995635328
+      Data2: 1121840252
+      Data3: 126182291
+      Data4: 1929487037
+    Path: event:/SFX/UI/Select
+  <back>k__BackingField:
+    Guid:
+      Data1: -1313840578
+      Data2: 1297479662
+      Data3: -476469103
+      Data4: 207403427
+    Path: event:/SFX/UI/Back
+  <move>k__BackingField:
+    Guid:
+      Data1: -598481516
+      Data2: 1151532526
+      Data3: 1964090543
+      Data4: -328980488
+    Path: event:/SFX/UI/Move
+  <start>k__BackingField:
+    Guid:
+      Data1: -2044069405
+      Data2: 1299498951
+      Data3: -884543096
+      Data4: -1527649505
+    Path: event:/SFX/UI/Start
+--- !u!1 &4462775964805795239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4462775964805795241}
+  - component: {fileID: 4462775964805795238}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4462775964805795241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462775964805795239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4462775964366280627}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4462775964805795238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4462775964805795239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4065b8f2710dc924989e64769bd8fe4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
