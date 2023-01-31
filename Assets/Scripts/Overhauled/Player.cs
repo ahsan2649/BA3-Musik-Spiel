@@ -45,10 +45,11 @@ public class Player : MonoBehaviour
     private bool soloActivated;
     private EventInstance grindingSound;
 
+    [SerializeField] GameObject crown;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Crown(false);
     }
 
     // Update is called once per frame
@@ -246,4 +247,10 @@ public class Player : MonoBehaviour
         soloGunInstance.SetActive(false);
     }
     #endregion
+
+    public void Crown(bool hasCrown)
+    {
+        if (hasCrown) { crown.SetActive(true); }
+        else { crown.SetActive(false); }
+    }
 }
