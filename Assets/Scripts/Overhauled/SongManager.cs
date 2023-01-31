@@ -221,6 +221,10 @@ public class SongManager : MonoBehaviour
                         instance.setTimelinePosition(timelineInfo.soloTimePos);
                         timelineInfo.soloActive = false;
                     }
+                    if(markerParams.name == "Solo")
+                    {
+                        SongManager.instance.StartSolo();
+                    }
                     break;
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                     var beatParams = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
@@ -239,15 +243,15 @@ public class SongManager : MonoBehaviour
 
     #endregion
 
-    public void SetSolo(Solo solo)
+    public void SetSolo()
     {
-        while (timelineInfo.CurrentMusicBeat != 4 || timelineInfo.timeUntilNextBeat !<= 0.1f)
-        {
-            Debug.Log("Waiting for 4 Bar"); 
-        }
+        emitter.EventInstance.setParameterByName("solo_start", 1);
+    }
+
+    public void StartSolo()
+    {
         timelineInfo.soloActive = true;
         emitter.EventInstance.getTimelinePosition(out timelineInfo.soloTimePos);
-        emitter.EventInstance.setParameterByName("solo_start", 1);
-        solo.StopSoloSound();
+        FindObjectOfType<Solo>().StopSoloSound();
     }
 }
