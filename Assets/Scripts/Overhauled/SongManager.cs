@@ -243,7 +243,7 @@ public class SongManager : MonoBehaviour
     {
         while (timelineInfo.CurrentMusicBeat != 4 || timelineInfo.timeUntilNextBeat !<= 0.1f)
         {
-            
+            Debug.Log("Waiting for 4 Bar"); 
         }
         timelineInfo.soloActive = true;
         emitter.EventInstance.getTimelinePosition(out timelineInfo.soloTimePos);
