@@ -48,11 +48,6 @@ MonoBehaviour:
   phase: 0
   healthSpawns:
   - {fileID: 5960538627793573422}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   healthPickups: []
   healthPickupPrefab: {fileID: 1061205197076478714, guid: 402b070f158c1b6499a07175179a7997, type: 3}
   minHealthSpawnTime: 5
