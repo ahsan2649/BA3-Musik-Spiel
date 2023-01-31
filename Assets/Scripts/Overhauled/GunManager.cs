@@ -35,7 +35,14 @@ public class GunManager : MonoBehaviour
         {
             if (instrument.Contains(gun.instrument))
             {
-                gun.Shoot();
+                if (gun.soloActive)
+                {
+                    if (instrument.Contains("0")) { gun.SoloShoot(0); }
+                    if (instrument.Contains("1")) { gun.SoloShoot(1); }
+                    if (instrument.Contains("2")) { gun.SoloShoot(2); }
+                }
+                else { gun.Shoot(); }
+                
             }
         }
     }

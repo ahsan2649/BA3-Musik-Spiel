@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 17
-  damage: 30
+  damage: 20
   shooter: {fileID: 0}
   bulletType: 3
   synth: 0
