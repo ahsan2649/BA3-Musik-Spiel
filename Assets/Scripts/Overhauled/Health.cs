@@ -20,8 +20,6 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("health trigger");
-        Debug.Log(collision.tag);
         if (collision.tag == "PlayerBody")
         {
             var player = collision.GetComponentInParent<Player>();
@@ -31,6 +29,9 @@ public class Health : MonoBehaviour
                 Instantiate(healthParticle, player.transform.position, Quaternion.identity, player.gameObject.transform);
 
             }
+            //SFX
+            SoundManager.instance.PlayOneShot(FMODEvents.instance.healthPickup, transform.position);
+
             Destroy(gameObject);
         }
     }
