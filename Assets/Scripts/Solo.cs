@@ -20,6 +20,7 @@ public class Solo : MonoBehaviour
     public int currentHealth;
     public bool activated = true;
     int currentMaxDmgPlayer;
+    Player maxDmgPlayer;
     int currentMovePoint;
     List<float> damageList = new List<float>();
     Vector2 startposition;
@@ -71,7 +72,7 @@ public class Solo : MonoBehaviour
         
     }
 
-    public void Damage(float damage,int bulletType)
+    public void Damage(float damage,int bulletType, Player player)
     {
         
         damageList[bulletType] += damage;
@@ -84,6 +85,7 @@ public class Solo : MonoBehaviour
         else if (damageList[bulletType] >= damageList[currentMaxDmgPlayer])
         {
             currentMaxDmgPlayer = bulletType;
+            maxDmgPlayer = player;
         }
         currentHealth -= bulletType;
 
@@ -112,14 +114,20 @@ public class Solo : MonoBehaviour
 
     void Destroy()
     {
+        GetComponent<CircleCollider2D>().enabled = false;
+
         //Sound Destroyed (needs to be canceled once SOLO starts)
         soloDestroyed = SoundManager.instance.CreateEventInstance(FMODEvents.instance.soloDestroyed);
         soloDestroyed.start();
+
+        FindObjectOfType<SongManager>().SetSolo(this);
         //Visuals still missing
     }
 
     public void StopSoloSound()
     {
         soloDestroyed.stop(STOP_MODE.IMMEDIATE);
+        //SOLO Start for max dmg player
+        maxDmgPlayer.StartSolo();
     }
 }

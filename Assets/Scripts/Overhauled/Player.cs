@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     private Gun originalGun;
     [SerializeField] Gun soloGun;
     private GameObject soloGunInstance;
-
+    private bool soloActivated;
     private EventInstance grindingSound;
 
     // Start is called before the first frame update
@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         ToggleFace();
         GetStickInput();
         CalculateAim();
@@ -64,7 +65,8 @@ public class Player : MonoBehaviour
         if (kickPunishment < 0) kickPunishment = 0;
         if (kickCooldown < 0) kickCooldown= 0;
 
-
+        //Check for Solo
+        if (!SongManager.instance.timelineInfo.soloActive && soloActivated) { StopSolo(); }
 
 
         aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : stickAngle), aimSmooth);
@@ -222,6 +224,7 @@ public class Player : MonoBehaviour
     #region SOLO
     public void StartSolo()
     {
+        soloActivated = true;
         Debug.Log("Solo");
         //Save old gun
         originalGun = gun;

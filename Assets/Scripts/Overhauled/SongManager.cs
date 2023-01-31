@@ -17,6 +17,8 @@ public class SongManager : MonoBehaviour
     [SerializeField] public Color Color21;
     [SerializeField] public Color Color22;
 
+    
+
     [Serializable]
     public class TimelineInfo
     {
@@ -28,6 +30,8 @@ public class SongManager : MonoBehaviour
         public float timeAfterPrevBeat;
         public GunManager gunManager;
         public bool firstcolor = true;
+        public int soloTimePos;
+        public bool soloActive= false;
 
         [SerializeField] public Color Color11;
         [SerializeField] public Color Color12;
@@ -203,6 +207,11 @@ public class SongManager : MonoBehaviour
                     timelineInfo.gunManager.Shoot((string)markerParams.name);
                     timelineInfo.currentMarker = (string)markerParams.name;
                     if (markerParams.name == "End") LevelManager.levelManager.phase = LevelManager.Phase.Result;
+                    if(markerParams.name == "Solo_End") 
+                    { 
+                        instance.setTimelinePosition(timelineInfo.soloTimePos);
+                        timelineInfo.soloActive = false;
+                    }
                     break;
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                     var beatParams = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
@@ -220,4 +229,16 @@ public class SongManager : MonoBehaviour
     }
 
     #endregion
+
+    public void SetSolo(Solo solo)
+    {
+        while (timelineInfo.CurrentMusicBeat != 4 || timelineInfo.timeUntilNextBeat !<= 0.1f)
+        {
+            
+        }
+        timelineInfo.soloActive = true;
+        emitter.EventInstance.getTimelinePosition(out timelineInfo.soloTimePos);
+        emitter.EventInstance.setParameterByName("solo_start", 1);
+        solo.StopSoloSound();
+    }
 }
