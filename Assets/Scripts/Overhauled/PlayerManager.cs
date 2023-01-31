@@ -119,7 +119,7 @@ public class PlayerManager : MonoBehaviour
                 }
 
                 HandleVelocity(player);
-
+                
                 player.rb.AddForce(player.gravityDirection * player.rb.mass * (!player.grounded ? AirGravity : player.jumpRegion ? RegionGravity : BaseGravity));
             }
         }
@@ -148,6 +148,7 @@ public class PlayerManager : MonoBehaviour
             case Player.AimDirection.inside:
                 if (player.ani != null)
                 {
+                    player.ani.SetBool("OnGround", false);
                     player.ani.SetTrigger("Jump");
                 }
                 break;
@@ -228,6 +229,7 @@ public class PlayerManager : MonoBehaviour
                 player.constantVelocity = 0;
                 break;
             case Player.AimDirection.inside:
+                player.grounded = false;
                 player.rb.AddForce(player.body.transform.up * (player.jumpRegion ? RegionJumpForce : BaseJumpForce) * player.rb.mass);
                 break;
             case Player.AimDirection.front:
