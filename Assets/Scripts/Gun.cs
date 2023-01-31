@@ -13,7 +13,6 @@ public class Gun : MonoBehaviour
     public Player shooter;
     public bool soloActive = false;
     [SerializeField] List<GameObject> soloBullets;
-    private int soloBulletInt= 0;
 
     private void Start()
     {
@@ -33,11 +32,7 @@ public class Gun : MonoBehaviour
         {
             return;
         }
-        if (soloActive)
-        {
-            SoloShoot();
-            return;
-        }
+        
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
         if (newBullet.GetComponent<Bullet>())
         {
@@ -49,9 +44,9 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void SoloShoot()
+    public void SoloShoot(int bulletInt)
     {
-        GameObject newBullet = Instantiate(soloBullets[soloBulletInt], transform.position, transform.rotation);
+        GameObject newBullet = Instantiate(soloBullets[bulletInt], transform.position, transform.rotation);
         if (newBullet.GetComponent<Bullet>())
         {
             newBullet.GetComponent<Bullet>().shooter = shooter;
@@ -60,7 +55,5 @@ public class Gun : MonoBehaviour
         {
             newBullet.GetComponent<Shotgun>().SetShooter(shooter);
         }
-        if(soloBulletInt < soloBullets.Count) { soloBulletInt++; }
-        else { soloBulletInt = 0; }
     }
 }
