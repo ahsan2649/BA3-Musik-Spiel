@@ -22,7 +22,7 @@ public class ResultScreen : MonoBehaviour
     List<string> rawPlayerStats;
 
     //Player Stats
-    List<int> player_iD;
+    List<int> player_iD ;
     List<int> player_solos;
     List<int> player_damage;
     List<int> player_finalblows;
@@ -33,6 +33,15 @@ public class ResultScreen : MonoBehaviour
 
     private void Start()
     {
+        rawPlayerStats = new List<string>(PlayerPrefs.GetInt("PlayerCount"));
+        player_iD = new List<int>(PlayerPrefs.GetInt("PlayerCount"));
+        player_solos = new List<int>(PlayerPrefs.GetInt("PlayerCount"));
+        player_damage = new List<int>(PlayerPrefs.GetInt("PlayerCount"));
+        player_finalblows = new List<int>(PlayerPrefs.GetInt("PlayerCount"));
+        player_kicks = new List<int>(PlayerPrefs.GetInt("PlayerCount"));
+        player_misses = new List<int>(PlayerPrefs.GetInt("PlayerCount"));
+        player_pickups = new List<int>(PlayerPrefs.GetInt("PlayerCount"));
+        player_avgSpeed = new List<int>(PlayerPrefs.GetInt("PlayerCount"));
         GetStats();
         UpdateStats();
     }
