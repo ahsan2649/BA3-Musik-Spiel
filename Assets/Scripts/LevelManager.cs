@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -13,7 +14,6 @@ public class LevelManager : MonoBehaviour
     public Phase phase;
 
     [SerializeField] List<Transform> healthSpawns;
-    [SerializeField] List<Health> healthPickups;
     [SerializeField] GameObject healthPickupPrefab;
     [SerializeField] float minHealthSpawnTime, maxHealthSpawnTime;
     float timeUntilLastHealth;
@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
             {
                 var randomPositionIndex = Random.Range(0, healthSpawns.Count);
                 nextSpawnTime = Random.Range(minHealthSpawnTime, maxHealthSpawnTime);
-                if (healthSpawns[randomPositionIndex].childCount == 0)
+                if (healthSpawns.All(spawn => spawn.childCount == 0))
                 {
                     Instantiate(healthPickupPrefab, healthSpawns[randomPositionIndex].position, Quaternion.identity, healthSpawns[randomPositionIndex]);
                 }
