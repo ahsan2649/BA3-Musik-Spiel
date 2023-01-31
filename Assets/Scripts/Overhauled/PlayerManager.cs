@@ -72,6 +72,7 @@ public class PlayerManager : MonoBehaviour
 
             if (player.kick && player.grounded && !SongManager.instance.canKick)
             {
+                player.kick = false;
                 player.kickPunishment = kickPunishment;
                 if (missParticle != null) 
                 {
