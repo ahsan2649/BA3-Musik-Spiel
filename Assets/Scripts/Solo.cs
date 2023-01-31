@@ -122,7 +122,7 @@ public class Solo : MonoBehaviour
         soloDestroyed = SoundManager.instance.CreateEventInstance(FMODEvents.instance.soloDestroyed);
         soloDestroyed.start();
 
-        FindObjectOfType<SongManager>().SetSolo(this);
+        FindObjectOfType<SongManager>().SetSolo();
         //Visuals still missing
     }
 
