@@ -5,9 +5,7 @@ using FMODUnity;
 
 public class FMODEvents : MonoBehaviour
 {
-    [field: Header("SOLO Destroyed")]
-    [field: SerializeField] public EventReference soloDestroyed { get; private set; }
-
+    
     [field: Header("MaxSpeed")]
     [field: SerializeField] public EventReference maxSpeed { get; private set; }
 
@@ -26,7 +24,45 @@ public class FMODEvents : MonoBehaviour
     [field: Header("Hit")]
     [field: SerializeField] public EventReference hit { get; private set; }
 
+    [field: Header("Weapon Pickup")]
+    [field: SerializeField] public EventReference weaponPickup { get; private set; }
 
+    [field: Header("Dash")]
+    [field: SerializeField] public EventReference dash { get; private set; }
+
+    [field: Header("Miss")]
+    [field: SerializeField] public EventReference miss { get; private set; }
+
+    [field: Header("Health Pickup")]
+    [field: SerializeField] public EventReference healthPickup { get; private set; }
+
+    [field: Header("Crown")]
+    [field: SerializeField] public EventReference crown { get; private set; }
+
+    [field: Header("Death")]
+    [field: SerializeField] public EventReference death { get; private set; }
+
+    [field: Header("Pickup Spawn")]
+    [field: SerializeField] public EventReference pickupSpawn { get; private set; }
+
+    [field: Header("SOLO Destroyed")]
+    [field: SerializeField] public EventReference soloDestroyed { get; private set; }
+
+
+
+    [field: Header("UI")]
+
+    [field: Header("Select")]
+    [field: SerializeField] public EventReference select { get; private set; }
+
+    [field: Header("Back")]
+    [field: SerializeField] public EventReference back { get; private set; }
+
+    [field: Header("Move")]
+    [field: SerializeField] public EventReference move { get; private set; }
+
+    [field: Header("Start")]
+    [field: SerializeField] public EventReference start { get; private set; }
 
 
     public static FMODEvents instance { get; private set; }
