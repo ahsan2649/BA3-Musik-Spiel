@@ -43,8 +43,10 @@ public class PlayerManager : MonoBehaviour
         {
             GetComponent<PlayerInputManager>().playerPrefab = characters[PlayerPrefs.GetInt("Player"+i.ToString()+"Char")];
             var newPlayer = GetComponent<PlayerInputManager>().JoinPlayer(i, -1, null, Gamepad.all.ToList().Find(gp => gp.deviceId == PlayerPrefs.GetInt("Player" + i.ToString() + "Gamepad")));
+            
             newPlayer.gameObject.transform.position = spawnPoints[i].transform.position;
             newPlayer.GetComponent<Player>().health = health;
+            newPlayer.GetComponent<Player>().playerID = i;
             players.Add(newPlayer.GetComponent<Player>());
 
         }
@@ -68,7 +70,7 @@ public class PlayerManager : MonoBehaviour
 
             if (player.health <= 0 && player.gameObject.activeSelf)
             {
-                PlayerPrefs.SetString("Dead" + deadPlayers.ToString(), String.Format("ID:{0}, DamageDealt:{1}, FinalBlows:{2}, KicksMissed:{3}, KicksHit:{4}, HealthPacksCollected:{5}, AverageSpeed:{6}, HasGotTheSolo:{7}", player.playerID, player.damageDealt, player.finalBlows, player.kicksMissed, player.kicksHit, player.healthPacksCollected, player.avgSpeed, player.hasGotTheSolo?0:1));
+                PlayerPrefs.SetString("Dead" + deadPlayers.ToString(), String.Format("ID:{0}, DamageDealt:{1}, FinalBlows:{2}, KicksMissed:{3}, KicksHit:{4}, HealthPacksCollected:{5}, AverageSpeed:{6}, HasGotTheSolo:{7}", player.playerID, player.damageDealt, player.finalBlows, player.kicksMissed, player.kicksHit, player.healthPacksCollected, player.avgSpeed, player.hasGotTheSolo?1:0));
                 deadPlayers++;
                 player.gameObject.SetActive(false);
             }
@@ -98,7 +100,7 @@ public class PlayerManager : MonoBehaviour
             foreach (var player in players)
             {
                 if (!player.gameObject.activeSelf) continue;
-                PlayerPrefs.SetString("Dead" + deadPlayers.ToString(), String.Format("ID:{0}, DamageDealt:{1}, FinalBlows:{2}, KicksMissed:{3}, KicksHit:{4}, HealthPacksCollected:{5}, AverageSpeed:{6}, HasGotTheSolo:{7}", player.playerID, player.damageDealt, player.finalBlows, player.kicksMissed, player.kicksHit, player.healthPacksCollected, player.avgSpeed, player.hasGotTheSolo ? 0 : 1));
+                PlayerPrefs.SetString("Dead" + deadPlayers.ToString(), String.Format("ID:{0}, DamageDealt:{1}, FinalBlows:{2}, KicksMissed:{3}, KicksHit:{4}, HealthPacksCollected:{5}, AverageSpeed:{6}, HasGotTheSolo:{7}", player.playerID, player.damageDealt, player.finalBlows, player.kicksMissed, player.kicksHit, player.healthPacksCollected, player.avgSpeed, player.hasGotTheSolo ? 1 : 0));
                 deadPlayers++;
             }
 
@@ -271,7 +273,7 @@ public class PlayerManager : MonoBehaviour
                 if (player.constantVelocity <= minimumSlidingSpeed)
                 {
                     player.antiClockFace = !player.antiClockFace;
-                    player.rb.AddForce((player.antiClockFace ? -player.body.transform.right : player.body.transform.right) * KickForce);
+                    player.rb.AddForce((player.antiClockFace ? player.body.transform.right : -player.body.transform.right) * KickForce);
                     player.constantVelocity += KickForce;
 
                     
