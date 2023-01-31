@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] float min_velocity_to_start_skate = 0;
 
+    private Gun originalGun;
+    [SerializeField] Gun soloGun;
+    private GameObject soloGunInstance;
 
     // Start is called before the first frame update
     void Start()
@@ -203,4 +206,28 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+
+    public void StartSolo()
+    {
+        Debug.Log("Solo");
+        //Save old gun
+        originalGun = gun;
+        originalGun.gameObject.SetActive(false);
+        
+        soloGunInstance = Instantiate(soloGun.gameObject);
+        gun = soloGunInstance.GetComponent<Gun>();
+        soloGunInstance.GetComponent<Gun>().shooter = this;
+        soloGunInstance.GetComponent<Collider2D>().enabled = false;
+        soloGunInstance.transform.parent = aimPivot.transform;
+        soloGunInstance.transform.localRotation = Quaternion.identity;
+        soloGunInstance.transform.localPosition = new Vector3(0.8f, 0, 0);
+    }
+
+    public void StopSolo()
+    {
+        originalGun.gameObject.SetActive(true);
+        gun = originalGun;
+        soloGunInstance.SetActive(false);
+    }
 }
