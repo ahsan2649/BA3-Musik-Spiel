@@ -75,7 +75,7 @@ public class PlayerManager : MonoBehaviour
 
             if (player.kick && player.grounded && !SongManager.instance.canKick)
             {
-                if (missParticle != null && player.kickPunishment != 0)
+                if (missParticle != null && player.kickPunishment == 0)
                 {
                     Instantiate(missParticle, player.transform.position, Quaternion.identity, player.gameObject.transform);
                     SoundManager.instance.PlayOneShot(FMODEvents.instance.miss, transform.position);

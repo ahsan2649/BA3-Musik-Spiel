@@ -88,13 +88,12 @@ public class Bullet : MonoBehaviour
         {
             if (collision.GetComponentInParent<Player>() == shooter)
             {
-                if (!laser && !synth)
-                {
-                    Destroy(gameObject);
-                }
                 return;
             }
-
+            if (!laser && !synth)
+            {
+                Destroy(gameObject);
+            }
             collision.GetComponentInParent<Player>().health -= damage;
             FindObjectOfType<PlayerManager>().HandleCrown();
             //SFX

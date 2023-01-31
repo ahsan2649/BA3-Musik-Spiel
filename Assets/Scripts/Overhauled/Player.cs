@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public bool jumpRegion;
     public bool isSliding;
     public bool antiClockFace = true;
+    public Transform gunTransform;
     Gun gun;
 
     public float damageDealt = 0;

@@ -1013,7 +1013,7 @@ MonoBehaviour:
   kickPunishment: 0
   kickCooldown: 0
   min_velocity_to_start_skate: 0
-  soloGun: {fileID: 140267773015171507, guid: 052576d764a5a99418c6ab10ba2ef835, type: 3}
+  soloGun: {fileID: 140267773015171507, guid: 5d94e9fa73d948f4aa2b5ff54cd00b5f, type: 3}
   crown: {fileID: 7222895785253334644}
   aimDir: 0
   aimSmooth: 0.25

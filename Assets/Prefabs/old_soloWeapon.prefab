@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2873429093019374472}
   - component: {fileID: 140267773015171507}
   m_Layer: 0
-  m_Name: SoloWeapon
+  m_Name: old_soloWeapon
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

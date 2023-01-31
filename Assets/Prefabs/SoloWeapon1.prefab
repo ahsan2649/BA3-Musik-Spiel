@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -2873429093019374472}
   - component: {fileID: 140267773015171507}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: SoloWeapon1
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,10 +72,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccef1fa13dc54d5479fd809101e66e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunObject: {fileID: 0}
+  gunObject: {fileID: 11400000, guid: ba5e19f9f4a68b04b8f37514a7d01f53, type: 2}
   instrument: 
   shooter: {fileID: 0}
-  soloActive: 0
+  soloActive: 1
   soloBullets:
   - {fileID: 1768898804409611776, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
   - {fileID: 6384255333245444470, guid: 35aae1cce45475840be94eb7a61be8ec, type: 3}
