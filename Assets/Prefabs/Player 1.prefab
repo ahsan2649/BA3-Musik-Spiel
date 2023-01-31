@@ -689,7 +689,19 @@ MonoBehaviour:
     m_ActionId: c9c54515-5cf6-473f-8f2b-4bcb722f0772
     m_ActionName: PauseMenu/Down[/DualSenseGamepadHID/leftStick/down,/DualSenseGamepadHID1/leftStick/down]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4830752041157205586}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e4546bbb-20bd-483d-953d-cfa34904c9ff
     m_ActionName: Player/Pause[/DualSenseGamepadHID/buttonNorth,/DualSenseGamepadHID1/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0

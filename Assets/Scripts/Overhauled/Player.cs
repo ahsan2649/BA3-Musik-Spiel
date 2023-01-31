@@ -59,7 +59,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         ToggleFace();
         GetStickInput();
         CalculateAim();
@@ -72,7 +71,6 @@ public class Player : MonoBehaviour
 
         //Check for Solo
         if (!SongManager.instance.timelineInfo.soloActive && soloActivated) { StopSolo(); }
-
 
         aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : stickAngle), aimSmooth);
     }
@@ -257,22 +255,27 @@ public class Player : MonoBehaviour
     public void Pause(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
+        TogglePause();
+    }
+
+    public void TogglePause()
+    {
         if (pauseMenu.active)
         {
             GetComponent<PlayerInput>().currentActionMap = GetComponent<PlayerInput>().actions.FindActionMap(nameOrId: "Player");
             pauseMenu.active = false;
             pauseMenu.GetComponent<Animator>().SetTrigger("closeMenu");
-            Time.timeScale = 1;
+            //Resume Song
+            SongManager.instance.ResumeSong();
         }
         else
         {
             GetComponent<PlayerInput>().currentActionMap = GetComponent<PlayerInput>().actions.FindActionMap(nameOrId: "PauseMenu");
             pauseMenu.active = true;
-            Time.timeScale = 0;
-            pauseMenu.gameObject.SetActive(true);
             pauseMenu.GetComponent<Animator>().SetTrigger("openMenu");
+            //Pause Song
+            SongManager.instance.PauseSong();
         }
-        
     }
     
 
@@ -291,12 +294,12 @@ public class Player : MonoBehaviour
     public void PauseSelect(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
-        pauseMenu.Select();
+        pauseMenu.Select(this);
     }
     public void PauseBack(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
-        pauseMenu.Back();
+        pauseMenu.Back(this);
     }
 
 
@@ -310,5 +313,10 @@ public class Player : MonoBehaviour
     {
         if (hasCrown) { crown.SetActive(true); }
         else { crown.SetActive(false); }
+    }
+
+    private void OnDisable()
+    {
+        SoundManager.instance.PlayOneShot(FMODEvents.instance.death, transform.position);
     }
 }

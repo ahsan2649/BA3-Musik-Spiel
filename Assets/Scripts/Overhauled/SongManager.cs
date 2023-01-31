@@ -158,7 +158,7 @@ public class SongManager : MonoBehaviour
 
 
 
-    #region StartStopSong
+    #region StartStopPauseResumeSong
 
     public void StartSong()
     {
@@ -179,6 +179,15 @@ public class SongManager : MonoBehaviour
         emitter.Stop();
         songInstance.release();
         if (timelineHandle.IsAllocated) timelineHandle.Free();
+    }
+
+    public void PauseSong()
+    {
+        songInstance.setPaused(true);
+    }
+    public void ResumeSong()
+    {
+        songInstance.setPaused(false);
     }
 
     #endregion
@@ -234,7 +243,7 @@ public class SongManager : MonoBehaviour
     {
         while (timelineInfo.CurrentMusicBeat != 4 || timelineInfo.timeUntilNextBeat !<= 0.1f)
         {
-            
+            Debug.Log("Waiting for 4 Bar"); 
         }
         timelineInfo.soloActive = true;
         emitter.EventInstance.getTimelinePosition(out timelineInfo.soloTimePos);

@@ -625,7 +625,19 @@ MonoBehaviour:
     m_ActionId: 31e111c9-5194-4ab7-ad2c-44f58dd63ace
     m_ActionName: Player/Kick[/XInputControllerWindows/buttonSouth,/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -4830752041157205586}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: e4546bbb-20bd-483d-953d-cfa34904c9ff
     m_ActionName: Player/Pause[/DualSenseGamepadHID/buttonNorth,/DualSenseGamepadHID1/buttonNorth]
   - m_PersistentCalls:

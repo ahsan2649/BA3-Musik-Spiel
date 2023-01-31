@@ -18,28 +18,30 @@ public class PauseMenu : MonoBehaviour
     public void MoveSelectionUp()
     {
         if (!active) { return; }
-        if (currentSelection < 2) { currentSelection++; }
-        else { currentSelection = 0; }
+        if (currentSelection > 0) { currentSelection--; }
+        else { currentSelection = 2; }
+        
         UpdateVisuals();
         SoundManager.instance.PlayOneShot(FMODEvents.instance.move, transform.position);
     }
     public void MoveSelectionDown()
     {
         if (!active) { return; }
-        if (currentSelection > 0) { currentSelection--; }
-        else { currentSelection = 2; }
+        if (currentSelection < 2) { currentSelection++; }
+        else { currentSelection = 0; }
         UpdateVisuals();
         SoundManager.instance.PlayOneShot(FMODEvents.instance.move, transform.position);
     }
 
 
-    public void Select()
+    public void Select(Player player)
     {
         if (!active) { return; }
         SoundManager.instance.PlayOneShot(FMODEvents.instance.select, transform.position);
         if (currentSelection == 0)
         {
             //ResumePlay
+            player.TogglePause();
         }
 
         if (currentSelection == 1)
@@ -54,12 +56,12 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Back()
+    public void Back(Player player)
     {
         if (!active) { return; }
         SoundManager.instance.PlayOneShot(FMODEvents.instance.back, transform.position);
         //Resume Play
-
+        player.TogglePause();
     }
 
     void UpdateVisuals()
