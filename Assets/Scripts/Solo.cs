@@ -70,7 +70,6 @@ public class Solo : MonoBehaviour
                 }
             }
         }
-        UpdateVisuals();
         
     }
 

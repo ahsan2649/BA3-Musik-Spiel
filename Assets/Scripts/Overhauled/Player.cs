@@ -314,4 +314,9 @@ public class Player : MonoBehaviour
         if (hasCrown) { crown.SetActive(true); }
         else { crown.SetActive(false); }
     }
+
+    private void OnDisable()
+    {
+        SoundManager.instance.PlayOneShot(FMODEvents.instance.death, transform.position);
+    }
 }

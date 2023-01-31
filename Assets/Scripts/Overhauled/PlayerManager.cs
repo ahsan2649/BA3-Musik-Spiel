@@ -66,7 +66,7 @@ public class PlayerManager : MonoBehaviour
 
             if (player.health <= 0)
             {
-                SoundManager.instance.PlayOneShot(FMODEvents.instance.death, transform.position);
+                
                 player.gameObject.SetActive(false);
             }
 
