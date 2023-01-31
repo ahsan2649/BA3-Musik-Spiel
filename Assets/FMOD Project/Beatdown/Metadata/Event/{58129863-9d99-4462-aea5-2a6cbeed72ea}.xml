@@ -607,7 +607,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{26df9cf5-93e9-4153-bb29-e5edb516514e}">
 		<property name="volume">
-			<value>-7</value>
+			<value>-8.5</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{28672a94-b80d-4d87-9e6b-457fcf8a2388}</destination>
@@ -703,6 +703,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{2b13bb6e-552e-4cb7-8b52-0f76e5717d64}">
+		<property name="volume">
+			<value>0.5</value>
+		</property>
 		<property name="name">
 			<value>Clap</value>
 		</property>
@@ -904,6 +907,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{9be9cbe6-ace3-4270-991d-2632891b629a}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<property name="name">
 			<value>Weapon1</value>
 		</property>
@@ -1006,6 +1012,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{561538e4-b375-4077-b782-18dcce6973e2}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<property name="name">
 			<value>Weapon2</value>
 		</property>
@@ -1108,6 +1117,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{b499b2c8-e4c5-468b-873b-d708ef75c7b3}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<property name="name">
 			<value>Weapon3</value>
 		</property>
@@ -1210,6 +1222,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{3e4a0c51-37f0-4008-a4d2-d10893a5fe8d}">
+		<property name="volume">
+			<value>-4</value>
+		</property>
 		<property name="name">
 			<value>Weapon4</value>
 		</property>
