@@ -71,7 +71,7 @@ MonoBehaviour:
   drag: 2.5
   backgroundAnimator: {fileID: 0}
   health: 100
-  missParticle: {fileID: 0}
+  missParticle: {fileID: 5593275954400829785, guid: e9e7503a52a039a4ca989fce3eb5aaa6, type: 3}
   kickPunishment: 0
   minimunSlidingSpeed: 0
   kickCooldown: 0

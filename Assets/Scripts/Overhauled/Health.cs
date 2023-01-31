@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
         {
             var player = collision.GetComponentInParent<Player>();
             player.health += health;
+            FindObjectOfType<PlayerManager>().HandleCrown();
             if (healthParticle != null)
             {
                 Instantiate(healthParticle, player.transform.position, Quaternion.identity, player.gameObject.transform);

@@ -22,6 +22,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float drag;
     [SerializeField] Animator backgroundAnimator;
     [SerializeField] float health;
+    float crownHealth = 0;
+    Player crownPlayer;
     [SerializeField] GameObject missParticle;
     [SerializeField] float kickPunishment;
     [SerializeField] float minimunSlidingSpeed = 0;
@@ -269,6 +271,36 @@ public class PlayerManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    public void HandleCrown()
+    {
+        foreach(Player player in players)
+        {
+            
+            if (crownHealth < player.health)
+            {
+                if (crownPlayer != null)
+                {
+                    crownPlayer.Crown(false);
+                }
+                crownPlayer = player;
+                crownHealth = player.health;
+            }
+            else if (crownHealth == player.health)
+            {
+                if (crownPlayer != null)
+                {
+                    crownPlayer.Crown(false);
+                }
+                crownPlayer = null;
+            }
+            
+        }
+        if (crownPlayer != null)
+        {
+            crownPlayer.Crown(true);
         }
     }
 }

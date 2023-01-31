@@ -705,6 +705,7 @@ MonoBehaviour:
   kickCooldown: 0
   min_velocity_to_start_skate: 0
   soloGun: {fileID: 140267773015171507, guid: 052576d764a5a99418c6ab10ba2ef835, type: 3}
+  crown: {fileID: 2895433780340553695}
   aimDir: 0
   aimSmooth: 0.25
   aimPivot: {fileID: 2718559642855813903}
