@@ -59,7 +59,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         ToggleFace();
         GetStickInput();
         CalculateAim();
@@ -72,7 +71,6 @@ public class Player : MonoBehaviour
 
         //Check for Solo
         if (!SongManager.instance.timelineInfo.soloActive && soloActivated) { StopSolo(); }
-
 
         aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : stickAngle), aimSmooth);
     }
