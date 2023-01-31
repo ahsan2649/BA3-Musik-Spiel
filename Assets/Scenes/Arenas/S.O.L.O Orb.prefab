@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ec26055b1fc2a4296201425474eb1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
+  maxHealth: 20
   colorList:
   - {r: 1, g: 0.9227282, b: 0, a: 1}
   - {r: 0, g: 0.26041698, b: 1, a: 1}

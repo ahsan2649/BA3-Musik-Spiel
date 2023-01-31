@@ -71,7 +71,7 @@ public class SongManager : MonoBehaviour
     float KickMarginValue;
     public bool canKick;
 
-    FMODUnity.StudioEventEmitter emitter;
+    public FMODUnity.StudioEventEmitter emitter;
     FMOD.Studio.EVENT_CALLBACK shootCallback;
     FMOD.Studio.EventInstance songInstance;
     GCHandle timelineHandle;
@@ -217,16 +217,20 @@ public class SongManager : MonoBehaviour
                     timelineInfo.currentMarker = (string)markerParams.name;
                     if (markerParams.name == "End") LevelManager.levelManager.phase = LevelManager.Phase.Result;
                     if(markerParams.name == "Solo_End") 
-                    { 
-                        instance.setTimelinePosition(timelineInfo.soloTimePos);
+                    {
+                        
+                        SongManager.instance.emitter.EventInstance.setTimelinePosition(timelineInfo.soloTimePos);
                         timelineInfo.soloActive = false;
+                    }
+                    if (((string)markerParams.name).Contains("Time"))
+                    {
+                        SongManager.instance.emitter.EventInstance.getTimelinePosition(out timelineInfo.soloTimePos);
                     }
                     if(markerParams.name == "Solo")
                     {
                         SongManager.instance.StartSolo();
                     }
                     
-                    if (markerParams.name.ToString().Contains("Weapon5")) { Debug.Log("SoloShooting"); }
                     break;
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                     var beatParams = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
@@ -253,7 +257,7 @@ public class SongManager : MonoBehaviour
     public void StartSolo()
     {
         timelineInfo.soloActive = true;
-        emitter.EventInstance.getTimelinePosition(out timelineInfo.soloTimePos);
+       
         FindObjectOfType<Solo>().StopSoloSound();
     }
 }

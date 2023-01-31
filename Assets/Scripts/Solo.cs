@@ -131,5 +131,6 @@ public class Solo : MonoBehaviour
         soloDestroyed.stop(STOP_MODE.IMMEDIATE);
         //SOLO Start for max dmg player
         maxDmgPlayer.StartSolo();
+        gameObject.SetActive(false);
     }
 }
