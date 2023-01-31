@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
     Player crownPlayer;
     [SerializeField] GameObject missParticle;
     [SerializeField] float kickPunishment;
-    [SerializeField] float minimunSlidingSpeed = 0;
+    [SerializeField] float minimumSlidingSpeed = 0;
     [SerializeField] float kickCooldown;
     int deadPlayers = 0;
 
@@ -183,7 +183,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case Player.AimDirection.back:
-                if (player.constantVelocity <= minimunSlidingSpeed)
+                if (player.constantVelocity <= minimumSlidingSpeed)
                 {
                     if (player.ani != null)
                     {
@@ -263,10 +263,10 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case Player.AimDirection.back:
-                if (player.constantVelocity <= minimunSlidingSpeed)
+                if (player.constantVelocity <= minimumSlidingSpeed)
                 {
                     player.antiClockFace = !player.antiClockFace;
-                    player.rb.AddForce((player.antiClockFace ? player.body.transform.right : -player.body.transform.right) * KickForce);
+                    player.rb.AddForce((player.antiClockFace ? -player.body.transform.right : player.body.transform.right) * KickForce);
                     player.constantVelocity += KickForce;
 
                     
