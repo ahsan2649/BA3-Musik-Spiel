@@ -30,9 +30,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Overhaul.unity
     guid: ecbcc2f0421b48543af2a792225580ad
   - enabled: 1
-    path: Assets/Scenes/Arenas/Sus.unity
-    guid: eb50e37a2e69979488d11c1fbffea4b5
-  - enabled: 1
     path: Assets/Scenes/Arenas/Arrow.unity
     guid: 83708616e7242734798aead23ebe8518
   - enabled: 1
@@ -65,4 +62,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Arenas/Velocity.unity
     guid: 69474d8395a6f7f4aa30a244dd9fcfbf
+  - enabled: 1
+    path: Assets/Scenes/Arenas/Sus.unity
+    guid: c3b22075b6147da468aee4dee3971758
   m_configObjects: {}
