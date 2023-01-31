@@ -298,6 +298,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1273842110}
     m_Modifications:
+    - target: {fileID: 5624303002066168263, guid: 86ff230499e1ff74488302d835eb9f01, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5624303002066168312, guid: 86ff230499e1ff74488302d835eb9f01, type: 3}
       propertyPath: m_Name
       value: S.O.L.O Orb

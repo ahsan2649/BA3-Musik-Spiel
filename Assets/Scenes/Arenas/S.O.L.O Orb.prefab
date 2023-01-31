@@ -264,6 +264,7 @@ MonoBehaviour:
   moveSpeed: 15
   innerCircle: {fileID: 3776357267236903363}
   maxSize: 9.5
+  mat: {fileID: 2100000, guid: 771fa09bad1e4ec4b88183e0ad34252e, type: 2}
   currentHealth: 0
   activated: 1
   damageList:

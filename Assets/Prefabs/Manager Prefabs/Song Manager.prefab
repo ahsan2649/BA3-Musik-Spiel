@@ -47,10 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Light1: {fileID: 0}
   Light2: {fileID: 0}
-  Color11: {r: 1, g: 0.80423534, b: 0, a: 1}
-  Color12: {r: 1, g: 0, b: 0, a: 1}
-  Color21: {r: 0.25727177, g: 1, b: 0, a: 1}
-  Color22: {r: 0, g: 0.55501795, b: 1, a: 1}
+  Color11: {r: 0, g: 0.952054, b: 1, a: 1}
+  Color12: {r: 1, g: 0, b: 0.7112603, a: 1}
+  Color21: {r: 0, g: 0.990005, b: 1, a: 1}
+  Color22: {r: 1, g: 0, b: 0.9046192, a: 1}
   KickBeat: 1
   Song:
     Guid:
@@ -68,6 +68,8 @@ MonoBehaviour:
     timeAfterPrevBeat: 0
     gunManager: {fileID: 0}
     firstcolor: 1
+    soloTimePos: 0
+    soloActive: 0
     Color11: {r: 1, g: 0, b: 0, a: 0}
     Color12: {r: 0, g: 0.19188643, b: 1, a: 0}
     Color21: {r: 0, g: 1, b: 0.03938818, a: 0}
