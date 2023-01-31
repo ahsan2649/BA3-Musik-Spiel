@@ -156,9 +156,9 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Surface")
         {
+            gravityDirection = Vector2.down;
             grounded = false;
             if (ani != null) ani.SetBool("OnGround", false);
-            gravityDirection = Vector2.down;
         }
     }
 

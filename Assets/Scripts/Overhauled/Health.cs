@@ -20,13 +20,15 @@ public class Health : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        Debug.Log("health trigger");
+        Debug.Log(collision.tag);
+        if (collision.tag == "PlayerBody")
         {
             var player = collision.GetComponentInParent<Player>();
             player.health += health;
             if (healthParticle != null)
             {
-                Instantiate(healthParticle, player.body.transform.position + player.body.transform.up * 2f, Quaternion.identity);
+                Instantiate(healthParticle, player.transform.position, Quaternion.identity, player.gameObject.transform);
 
             }
             Destroy(gameObject);
