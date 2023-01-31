@@ -102,8 +102,6 @@ public class Solo : MonoBehaviour
 
     void UpdateVisuals()
     {
-
-        Debug.Log("Update Visuals SOLO");
         //Size up 
         float sizeMultiplier = maxHealth - currentHealth;
         sizeMultiplier = sizeMultiplier / maxHealth;
@@ -131,6 +129,6 @@ public class Solo : MonoBehaviour
         soloDestroyed.stop(STOP_MODE.IMMEDIATE);
         //SOLO Start for max dmg player
         maxDmgPlayer.StartSolo();
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

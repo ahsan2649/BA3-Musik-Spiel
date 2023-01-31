@@ -1020,17 +1020,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 144811354642184569, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
-      propertyPath: bulletSpeed
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 1768898804409611776, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
       propertyPath: m_Name
       value: SOLO Hihat
-      objectReference: {fileID: 0}
-    - target: {fileID: 1768898804409611776, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768898804409611778, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
       propertyPath: m_RootOrder
@@ -1038,15 +1030,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1768898804409611778, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4623995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768898804409611778, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.053665
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768898804409611778, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.011992284
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1768898804409611778, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1341,17 +1333,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SOLO Laser
       objectReference: {fileID: 0}
-    - target: {fileID: 578296895208251462, guid: bc485918327090a42b197a675e2d8c58, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2252860299669853226, guid: bc485918327090a42b197a675e2d8c58, type: 3}
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2252860299669853226, guid: bc485918327090a42b197a675e2d8c58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.787
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2252860299669853226, guid: bc485918327090a42b197a675e2d8c58, type: 3}
       propertyPath: m_LocalPosition.y
