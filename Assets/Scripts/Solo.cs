@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FMODUnity;
-
+using FMOD.Studio;
 public class Solo : MonoBehaviour
 {
     //Serializable Values
@@ -27,6 +26,8 @@ public class Solo : MonoBehaviour
     float timer;
     public bool moves;
     private float minSize;
+
+    private EventInstance soloDestroyed;
 
     // Start is called before the first frame update
     void Start()
@@ -111,6 +112,14 @@ public class Solo : MonoBehaviour
 
     void Destroy()
     {
+        //Sound Destroyed (needs to be canceled once SOLO starts)
+        soloDestroyed = SoundManager.instance.CreateEventInstance(FMODEvents.instance.soloDestroyed);
+        soloDestroyed.start();
+        //Visuals still missing
+    }
 
+    public void StopSoloSound()
+    {
+        soloDestroyed.stop(STOP_MODE.IMMEDIATE);
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMOD.Studio;
 
 public class Player : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class Player : MonoBehaviour
     private Gun originalGun;
     [SerializeField] Gun soloGun;
     private GameObject soloGunInstance;
+
+    private EventInstance grindingSound;
 
     // Start is called before the first frame update
     void Start()
@@ -95,7 +98,9 @@ public class Player : MonoBehaviour
                 var weapon = collision.GetComponent<Gun>();
                 if (weapon.shooter == null && gun == null)
                 {
-                    Debug.Log("Weapon");
+                    //Sound
+                    SoundManager.instance.PlayOneShot(FMODEvents.instance.weaponPickup, transform.position);
+
                     gun = weapon;
                     weapon.shooter = this;
                     weapon.GetComponent<Collider2D>().enabled = false;
@@ -137,6 +142,10 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Surface")
         {
+            //Start Grinding Sound
+            grindingSound = SoundManager.instance.CreateEventInstance(FMODEvents.instance.grinding);
+            grindingSound.start();
+
             grounded = true;
             if (ani != null) ani.SetBool("OnGround", true);
             gravityDirection = -collision.GetContact(0).normal;
@@ -159,6 +168,9 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Surface")
         {
+            //Stop Grinding Sound
+            grindingSound.stop(STOP_MODE.IMMEDIATE);
+
             gravityDirection = Vector2.down;
             grounded = false;
             if (ani != null) ani.SetBool("OnGround", false);
@@ -207,7 +219,7 @@ public class Player : MonoBehaviour
 
     #endregion
 
-
+    #region SOLO
     public void StartSolo()
     {
         Debug.Log("Solo");
@@ -230,4 +242,5 @@ public class Player : MonoBehaviour
         gun = originalGun;
         soloGunInstance.SetActive(false);
     }
+    #endregion
 }
