@@ -54,5 +54,13 @@ public class LevelManager : MonoBehaviour
                 timeUntilLastHealth = 0;
             }
         }
+
+        if (phase == Phase.Result)
+        {
+            if (SongManager.instance.emitter.IsPlaying())
+            {
+                SongManager.instance.StopSong();
+            }
+        }
     }
 }

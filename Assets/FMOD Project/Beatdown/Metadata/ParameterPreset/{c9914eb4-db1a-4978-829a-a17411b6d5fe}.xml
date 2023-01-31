@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{c9914eb4-db1a-4978-829a-a17411b6d5fe}">
+		<property name="name">
+			<value>GrindVolume</value>
+		</property>
+		<relationship name="folder">
+			<destination>{157f2c77-f42e-4d27-a31d-1cfe0c7ad103}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{04802527-f025-4811-bb71-3029fac10926}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{04802527-f025-4811-bb71-3029fac10926}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

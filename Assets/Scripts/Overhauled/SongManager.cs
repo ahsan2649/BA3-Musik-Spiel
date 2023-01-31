@@ -215,7 +215,11 @@ public class SongManager : MonoBehaviour
                     var markerParams = (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES));
                     timelineInfo.gunManager.Shoot((string)markerParams.name);
                     timelineInfo.currentMarker = (string)markerParams.name;
-                    if (markerParams.name == "End") LevelManager.levelManager.phase = LevelManager.Phase.Result;
+                    if (markerParams.name == "End")
+                    {
+                        LevelManager.levelManager.phase = LevelManager.Phase.Result;
+                        SongManager.instance.StopSong();
+                    }
                     if(markerParams.name == "Solo_End") 
                     {
                         SongManager.instance.emitter.EventInstance.setParameterByName("solo_start", 0);

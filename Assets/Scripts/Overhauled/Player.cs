@@ -7,6 +7,7 @@ using FMOD.Studio;
 
 public class Player : MonoBehaviour
 {
+    public int playerID;
     public float health;
     public bool kick;
     public bool grounded;
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour
     private GameObject soloGunInstance;
     private bool soloActivated;
     private EventInstance grindingSound;
-
+    FMOD.Studio.PLAYBACK_STATE grindState;
 
     [SerializeField] GameObject crown;
     // Start is called before the first frame update
@@ -59,6 +60,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        grindingSound.getPlaybackState(out grindState);
+
+        if (grindState == PLAYBACK_STATE.PLAYING)
+        {
+            grindingSound.setParameterByName("GrindVolume", Mathf.InverseLerp(0, FindObjectOfType<PlayerManager>().topSpeed, rb.velocity.magnitude));
+        }
+
         ToggleFace();
         GetStickInput();
         CalculateAim();
