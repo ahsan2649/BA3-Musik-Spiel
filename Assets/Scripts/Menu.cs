@@ -8,7 +8,7 @@ public class Menu : MonoBehaviour
     public float sceneTransitionTime = 3.5f;
     public int sceneToLoad;
 
-    bool started;
+    bool started = false;
 
     public void StartGame(InputAction.CallbackContext context)
     {

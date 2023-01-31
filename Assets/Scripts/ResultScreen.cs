@@ -214,13 +214,22 @@ public class ResultScreen : MonoBehaviour
     {
         for (int i = 0; i < playerStats.Count; i++)
         {
+            //Activate Text Fields
+            foreach (var item in playerTexts[i].texts)
+            {
+                item.gameObject.SetActive(true);
+            }
+            
+
             for (int j = 1; j < 7; j++)
             {
                 playerTexts[i].texts[j - 1].text = playerStats[i][j].ToString();
             }
 
-
-            playerModels[i] = characterSprites[playerStats[i][0]];
+            //playerModels[i].SetActive(true);
+            characterSprites[PlayerPrefs.GetInt("Player" + playerStats[i][0].ToString() + "Char")].SetActive(true);
+            //playerModels[i] = characterSprites[PlayerPrefs.GetInt("Player"+playerStats[i][0].ToString()+ "Char")];
+            characterSprites[PlayerPrefs.GetInt("Player" + playerStats[i][0].ToString() + "Char")].transform.position = playerModels[i].transform.position;
             if (playerStats[i][7] == 1)
             {
                 soloShines[i].SetActive(true);
