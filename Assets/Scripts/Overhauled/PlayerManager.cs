@@ -58,6 +58,8 @@ public class PlayerManager : MonoBehaviour
     {
         foreach (var player in players)
         {
+            player.body.transform.rotation = Quaternion.Lerp(player.body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -player.gravityDirection), 0.25f);
+
             player.health = Mathf.Clamp(player.health, 0, health);
 
             if (player.health <= 0)
@@ -86,6 +88,7 @@ public class PlayerManager : MonoBehaviour
     private void FixedUpdate()
     {
         
+                
 
         if (players.Count == 0) return;
 
@@ -108,7 +111,6 @@ public class PlayerManager : MonoBehaviour
         {
             foreach (var player in players)
             {
-                player.body.transform.rotation = Quaternion.Lerp(player.body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -player.gravityDirection), 0.25f);
 
                 if (SongManager.instance.canKick && player.kick && player.aimDir != Player.AimDirection.none && player.grounded && player.kickPunishment <= 0 && player.kickCooldown <= 0)
                 {
