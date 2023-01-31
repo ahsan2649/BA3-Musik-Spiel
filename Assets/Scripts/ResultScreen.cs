@@ -6,6 +6,7 @@ using TMPro;
 
 public class ResultScreen : MonoBehaviour
 {
+
     [SerializeField] List<GameObject> soloShines;
     [SerializeField] List<TextMeshProUGUI> player1_texts;
     [SerializeField] List<TextMeshProUGUI> player2_texts;
@@ -49,7 +50,7 @@ public class ResultScreen : MonoBehaviour
     void GetStats()
     {
         //Unpack all ints into lists
-        for (int i = PlayerPrefs.GetInt("PlayerCount") - 1; i >= 0 ; i++)
+        for (int i = 0  ; i < PlayerPrefs.GetInt("PlayerCount") -1; i++)
         {
             rawPlayerStats[PlayerPrefs.GetInt("PlayerCount") -1 - i] = PlayerPrefs.GetString("Dead" + (PlayerPrefs.GetInt("PlayerCount") - 1 - i).ToString());
             string[] stats = Regex.Split(rawPlayerStats[PlayerPrefs.GetInt("PlayerCount") - 1 - i], @"\D+");
