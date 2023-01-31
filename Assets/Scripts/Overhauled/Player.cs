@@ -235,6 +235,7 @@ public class Player : MonoBehaviour
         
         soloGunInstance = Instantiate(soloGun.gameObject);
         gun = soloGunInstance.GetComponent<Gun>();
+        FindObjectOfType<GunManager>().guns.Add(gun);
         soloGunInstance.GetComponent<Gun>().shooter = this;
         soloGunInstance.GetComponent<Collider2D>().enabled = false;
         soloGunInstance.transform.parent = aimPivot.transform;

@@ -7,8 +7,8 @@ using UnityEngine;
 public class GunManager : MonoBehaviour
 {
 
-    List<Gun> guns = new List<Gun>();
-    [SerializeField]List<GunObject> gunObjects;
+    public List<Gun> guns = new List<Gun>();
+    [SerializeField] List<GunObject> gunObjects;
     [SerializeField] List<Transform> spawnPoints;
     [SerializeField] GameObject weaponPrefab;
 
@@ -40,6 +40,7 @@ public class GunManager : MonoBehaviour
                     if (instrument.Contains("0")) { gun.SoloShoot(0); }
                     if (instrument.Contains("1")) { gun.SoloShoot(1); }
                     if (instrument.Contains("2")) { gun.SoloShoot(2); }
+                    Debug.Log("SOLO SHOULD SHOOT CMON");
                 }
                 else { gun.Shoot(); }
                 

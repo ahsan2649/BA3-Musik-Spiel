@@ -225,6 +225,8 @@ public class SongManager : MonoBehaviour
                     {
                         SongManager.instance.StartSolo();
                     }
+                    
+                    if (markerParams.name.ToString().Contains("Weapon5")) { Debug.Log("SoloShooting"); }
                     break;
                 case FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT:
                     var beatParams = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameterPtr, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
