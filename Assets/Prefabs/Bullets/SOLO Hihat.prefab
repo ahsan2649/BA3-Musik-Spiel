@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 12
-  damage: 10
+  damage: 6
   shooter: {fileID: 0}
   bulletType: 0
   synth: 0
@@ -1987,7 +1987,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 15
-  damage: 10
+  damage: 6
   shooter: {fileID: 0}
   bulletType: 0
   synth: 0
