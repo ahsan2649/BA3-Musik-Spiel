@@ -20,6 +20,8 @@ public class CharacterSelectorInput : MonoBehaviour
     public bool firstInput = false;
 
     public int gamepadID;
+
+    bool started = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,7 @@ public class CharacterSelectorInput : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !started)
         {
             if (characterSubmitted) { return; }
             int tempSelect = selectedChar;
@@ -69,18 +71,20 @@ public class CharacterSelectorInput : MonoBehaviour
 
     public void Select(InputAction.CallbackContext context)
     {
-        if (context.performed && firstInput)
+        if (context.performed && firstInput && !started)
         {
             if (!characterSubmitted && cs != null)
             {
                 if (cs.CharacterSubmit(selectedChar))
                 {
                     characterSubmitted = true;
+
                     SoundManager.instance.PlayOneShot(FMODEvents.instance.select, transform.position);
                 }
             }
             else if (everyoneReady) 
             {
+                started = true;
                 cs.StartGame();
             }
             
@@ -92,7 +96,7 @@ public class CharacterSelectorInput : MonoBehaviour
 
     public void Back(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !started)
         {
             if (characterSubmitted && cs != null)
             {
