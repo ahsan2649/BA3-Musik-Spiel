@@ -10,6 +10,8 @@ TagManager:
   - Bullet
   - Coin
   - Wall
+  - Health
+  - PlayerBody
   - Character
   layers:
   - Default
@@ -25,7 +27,7 @@ TagManager:
   - 
   - Bullet
   - SOLO
-  - 
+  - Health
   - 
   - 
   - 

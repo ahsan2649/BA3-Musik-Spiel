@@ -70,7 +70,7 @@ public class PlayerManager : MonoBehaviour
                 player.kickPunishment = kickPunishment;
                 if (missParticle != null) 
                 {
-                    Instantiate(missParticle, player.body.transform.position + player.body.transform.up * 2f, Quaternion.identity);
+                    Instantiate(missParticle, player.transform.position, Quaternion.identity, player.gameObject.transform);
                 }
                 player.kicksMissed += 1;
             }
@@ -146,7 +146,6 @@ public class PlayerManager : MonoBehaviour
             case Player.AimDirection.inside:
                 if (player.ani != null)
                 {
-                    player.ani.SetBool("OnGround", false);
                     player.ani.SetTrigger("Jump");
                 }
                 break;
@@ -227,7 +226,6 @@ public class PlayerManager : MonoBehaviour
                 player.constantVelocity = 0;
                 break;
             case Player.AimDirection.inside:
-                player.grounded = false;
                 player.rb.AddForce(player.body.transform.up * (player.jumpRegion ? RegionJumpForce : BaseJumpForce) * player.rb.mass);
                 break;
             case Player.AimDirection.front:
