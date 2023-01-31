@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{203c906c-0093-46ab-b2e8-18c09bf242b9}">
+		<property name="assetPath">
+			<value>SFX Raw/reverseSlide.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.6319999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a55eb3cd-63ea-4179-8e00-4a3bdcb420ed}</destination>
+		</relationship>
+	</object>
+</objects>

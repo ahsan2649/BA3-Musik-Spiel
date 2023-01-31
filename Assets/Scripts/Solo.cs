@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Solo : MonoBehaviour
 {
@@ -106,8 +107,10 @@ public class Solo : MonoBehaviour
         sr.material.SetColor("Color", colorList[currentMaxDmgPlayer]* (sizeMultiplier * 2));
     }
 
+
+
     void Destroy()
     {
-        
+
     }
 }
