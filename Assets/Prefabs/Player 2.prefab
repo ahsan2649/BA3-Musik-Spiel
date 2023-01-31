@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 4917497902499147597}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Character
+  m_TagString: PlayerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -597,6 +597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4222bb71f3a594d44a37dd41c4c91af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   kick: 0
   grounded: 0
   jumpRegion: 0
@@ -614,7 +615,10 @@ MonoBehaviour:
   rb: {fileID: 0}
   body: {fileID: 748162646908231712}
   ani: {fileID: 8950318279317124509}
+  RotationReady: 0
   gravityDirection: {x: 0, y: 0}
+  kickPunishment: 0
+  kickCooldown: 0
   min_velocity_to_start_skate: 0
   aimDir: 0
   aimSmooth: 0.25

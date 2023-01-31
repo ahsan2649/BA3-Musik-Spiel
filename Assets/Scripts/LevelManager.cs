@@ -12,6 +12,13 @@ public class LevelManager : MonoBehaviour
 
     public Phase phase;
 
+    [SerializeField] List<Transform> healthSpawns;
+    [SerializeField] List<Health> healthPickups;
+    [SerializeField] GameObject healthPickupPrefab;
+    [SerializeField] float minHealthSpawnTime, maxHealthSpawnTime;
+    float timeUntilLastHealth;
+    float nextSpawnTime;
+
     private void Awake()
     {
         if(levelManager != null && levelManager != this)
@@ -26,12 +33,26 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        nextSpawnTime = Random.Range(minHealthSpawnTime,maxHealthSpawnTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (phase == Phase.Playing)
+        {
+            timeUntilLastHealth += Time.deltaTime;
+
+            if (timeUntilLastHealth >= nextSpawnTime)
+            {
+                var randomPositionIndex = Random.Range(0, healthSpawns.Count);
+                nextSpawnTime = Random.Range(minHealthSpawnTime, maxHealthSpawnTime);
+                if (healthSpawns[randomPositionIndex].childCount == 0)
+                {
+                    Instantiate(healthPickupPrefab, healthSpawns[randomPositionIndex].position, Quaternion.identity, healthSpawns[randomPositionIndex]);
+                }
+                timeUntilLastHealth = 0;
+            }
+        }
     }
 }

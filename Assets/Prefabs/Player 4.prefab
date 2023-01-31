@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 4917497902499147597}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Character
+  m_TagString: PlayerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,6 +618,7 @@ MonoBehaviour:
   RotationReady: 0
   gravityDirection: {x: 0, y: 0}
   kickPunishment: 0
+  kickCooldown: 0
   min_velocity_to_start_skate: 0
   aimDir: 0
   aimSmooth: 0.25
