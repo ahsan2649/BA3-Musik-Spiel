@@ -257,22 +257,27 @@ public class Player : MonoBehaviour
     public void Pause(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
+        TogglePause();
+    }
+
+    public void TogglePause()
+    {
         if (pauseMenu.active)
         {
             GetComponent<PlayerInput>().currentActionMap = GetComponent<PlayerInput>().actions.FindActionMap(nameOrId: "Player");
             pauseMenu.active = false;
             pauseMenu.GetComponent<Animator>().SetTrigger("closeMenu");
-            Time.timeScale = 1;
+            //Resume Song
+            SongManager.instance.ResumeSong();
         }
         else
         {
             GetComponent<PlayerInput>().currentActionMap = GetComponent<PlayerInput>().actions.FindActionMap(nameOrId: "PauseMenu");
             pauseMenu.active = true;
-            Time.timeScale = 0;
-            pauseMenu.gameObject.SetActive(true);
             pauseMenu.GetComponent<Animator>().SetTrigger("openMenu");
+            //Pause Song
+            SongManager.instance.PauseSong();
         }
-        
     }
     
 
@@ -291,12 +296,12 @@ public class Player : MonoBehaviour
     public void PauseSelect(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
-        pauseMenu.Select();
+        pauseMenu.Select(this);
     }
     public void PauseBack(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
-        pauseMenu.Back();
+        pauseMenu.Back(this);
     }
 
 

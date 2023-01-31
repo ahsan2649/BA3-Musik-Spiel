@@ -158,7 +158,7 @@ public class SongManager : MonoBehaviour
 
 
 
-    #region StartStopSong
+    #region StartStopPauseResumeSong
 
     public void StartSong()
     {
@@ -179,6 +179,15 @@ public class SongManager : MonoBehaviour
         emitter.Stop();
         songInstance.release();
         if (timelineHandle.IsAllocated) timelineHandle.Free();
+    }
+
+    public void PauseSong()
+    {
+        songInstance.setPaused(true);
+    }
+    public void ResumeSong()
+    {
+        songInstance.setPaused(false);
     }
 
     #endregion
