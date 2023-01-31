@@ -58,6 +58,7 @@ public class CharacterSelectorInput : MonoBehaviour
             {
                 if (cs != null)
                 {
+                    SoundManager.instance.PlayOneShot(FMODEvents.instance.move, transform.position);
                     cs.RemoveVisualizer(playerNumber, selectedChar);
                     selectedChar = tempSelect;
                     cs.MoveSelector(selectedChar, playerNumber);
@@ -75,6 +76,7 @@ public class CharacterSelectorInput : MonoBehaviour
                 if (cs.CharacterSubmit(selectedChar))
                 {
                     characterSubmitted = true;
+                    SoundManager.instance.PlayOneShot(FMODEvents.instance.select, transform.position);
                 }
             }
             else if (everyoneReady) 
@@ -96,6 +98,7 @@ public class CharacterSelectorInput : MonoBehaviour
             {
                 characterSubmitted = false;
                 cs.DeselectChar(selectedChar);
+                SoundManager.instance.PlayOneShot(FMODEvents.instance.back, transform.position);
             }
             else if(firstInput)
             {

@@ -32,6 +32,8 @@ public class CharacterSelecting : MonoBehaviour
     List<int> playerVisualizers = new List<int>();
     Transform[] visualizers;
 
+
+    [SerializeField] float sceneTransitionTime = 4;
     void Start()
     {
         PlayerPrefs.SetInt("Player0Char", 0);
@@ -150,7 +152,15 @@ public class CharacterSelecting : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("PlayerCount", players.Count);
+
+        SoundManager.instance.PlayOneShot(FMODEvents.instance.start, transform.position);
         //LOAD NEXT SCENE HERE
+        StartCoroutine(WaitUntilNextScene());       
+    }
+
+    IEnumerator WaitUntilNextScene()
+    {
+        yield return new WaitForSeconds(sceneTransitionTime);
         FindObjectOfType<SceneLoader>().LoadRandomArena();
     }
 }
