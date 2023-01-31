@@ -230,7 +230,7 @@ public class PlayerManager : MonoBehaviour
                 break;
             case Player.AimDirection.inside:
                 player.grounded = false;
-                player.rb.AddForce(player.body.transform.up * (player.jumpRegion ? RegionJumpForce : BaseJumpForce) * player.rb.mass);
+                player.rb.AddForce(player.body.transform.up * (player.jumpRegion ? RegionJumpForce : BaseJumpForce) * player.rb.mass, ForceMode2D.Impulse);
                 break;
             case Player.AimDirection.front:
                 if (player.isSliding)

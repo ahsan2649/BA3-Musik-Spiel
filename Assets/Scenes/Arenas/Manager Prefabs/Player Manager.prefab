@@ -62,7 +62,7 @@ MonoBehaviour:
   - {fileID: 8950715888965338946, guid: 714e8f5f700ece8458fde741aa2f902c, type: 3}
   slideModifier: 0.5
   KickForce: 6.5
-  BaseJumpForce: 800
+  BaseJumpForce: 10
   BaseGravity: 500
   AirGravity: 15
   RegionGravity: 10
@@ -72,6 +72,9 @@ MonoBehaviour:
   backgroundAnimator: {fileID: 0}
   health: 100
   missParticle: {fileID: 0}
+  kickPunishment: 0
+  minimunSlidingSpeed: 0
+  kickCooldown: 0
 --- !u!114 &4473601939455179904
 MonoBehaviour:
   m_ObjectHideFlags: 0
