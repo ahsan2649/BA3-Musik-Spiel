@@ -218,7 +218,7 @@ public class SongManager : MonoBehaviour
                     if (markerParams.name == "End") LevelManager.levelManager.phase = LevelManager.Phase.Result;
                     if(markerParams.name == "Solo_End") 
                     {
-                        
+                        SongManager.instance.emitter.EventInstance.setParameterByName("solo_start", 0);
                         SongManager.instance.emitter.EventInstance.setTimelinePosition(timelineInfo.soloTimePos);
                         timelineInfo.soloActive = false;
                     }

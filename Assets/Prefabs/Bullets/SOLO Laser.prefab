@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfd383b831e181449c4aabed878b910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 17
+  bulletSpeed: 45
   damage: 20
   shooter: {fileID: 0}
   bulletType: 3
@@ -123,14 +123,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4280778161758287599}
-  m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.24640176, y: 0.24640176, z: 0.24640176}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2252860299669853226}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &4280778161758287592
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -254,14 +254,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4571936560896863764}
-  m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.26557508, y: 0.2659907, z: 0.2659907}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2252860299669853226}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &4571936560896863766
 LineRenderer:
   m_ObjectHideFlags: 0

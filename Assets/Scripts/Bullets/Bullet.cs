@@ -31,6 +31,14 @@ public class Bullet : MonoBehaviour
                 i.SetPosition(1, transform.position);
             }
             maxLaserLength = hit.point;
+            foreach (LineRenderer i in laserLr)
+            {
+                i.SetPosition(1, maxLaserLength);
+            }
+            var col = GetComponent<CapsuleCollider2D>();
+            col.offset = new Vector2(laserLr[0].GetPosition(1).x / 2, 0);
+            col.size = new Vector2(laserLr[0].GetPosition(1).x, laserLr[0].startWidth);
+            StartCoroutine(DelayedDestroy());
         }
         
     }
@@ -40,12 +48,13 @@ public class Bullet : MonoBehaviour
     {
         if (laser)
         {
+            /*
             if (laserLength != maxLaserLength)
             {
                 laserLength = new Vector2(Mathf.MoveTowards(laserLength.x, maxLaserLength.x, (laserLength.x+ bulletSpeed) * Time.deltaTime), Mathf.MoveTowards(laserLength.y, maxLaserLength.y, (laserLength.y + bulletSpeed) * Time.deltaTime));
                 foreach (LineRenderer i in laserLr)
                 {
-                    i.SetPosition(1, laserLength);
+                    i.SetPosition(1, maxLaserLength);
                 }
                 
 
@@ -57,7 +66,8 @@ public class Bullet : MonoBehaviour
             {
                 StartCoroutine(DelayedDestroy());
             }
-            
+                */
+
         }
         else
         {
