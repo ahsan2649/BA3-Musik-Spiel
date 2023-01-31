@@ -77,12 +77,14 @@ public class PlayerManager : MonoBehaviour
 
             if (player.kick && player.grounded && !SongManager.instance.canKick)
             {
-                player.kick = false;
-                player.kickPunishment = kickPunishment;
-                if (missParticle != null) 
+                if (missParticle != null && player.kickPunishment != 0)
                 {
                     Instantiate(missParticle, player.transform.position, Quaternion.identity, player.gameObject.transform);
+                    SoundManager.instance.PlayOneShot(FMODEvents.instance.miss, transform.position);
                 }
+                player.kick = false;
+                player.kickPunishment = kickPunishment;
+                
                 player.kicksMissed += 1;
             }
         }
@@ -249,6 +251,7 @@ public class PlayerManager : MonoBehaviour
             case Player.AimDirection.inside:
                 player.grounded = false;
                 player.rb.AddForce(player.body.transform.up * (player.jumpRegion ? RegionJumpForce : BaseJumpForce) * player.rb.mass, ForceMode2D.Impulse);
+                SoundManager.instance.PlayOneShot(FMODEvents.instance.jump, transform.position);
                 break;
             case Player.AimDirection.front:
                 if (player.isSliding)
@@ -256,12 +259,14 @@ public class PlayerManager : MonoBehaviour
                     player.isSliding = false;
                     player.constantVelocity /= slideModifier;
                     player.rb.velocity = player.rb.velocity.normalized * player.constantVelocity;
-                    
+                    SoundManager.instance.PlayOneShot(FMODEvents.instance.dash, transform.position);
+
                 }
                 else
                 {
                     player.rb.AddForce((player.antiClockFace ? player.body.transform.right : -player.body.transform.right) * KickForce);
                     player.constantVelocity += KickForce;
+                    SoundManager.instance.PlayOneShot(FMODEvents.instance.dash, transform.position);
                 }
                 break;
             case Player.AimDirection.back:
@@ -277,13 +282,15 @@ public class PlayerManager : MonoBehaviour
                 {
                     player.isSliding = true;
                     player.constantVelocity *= slideModifier;
-                    
+                    SoundManager.instance.PlayOneShot(FMODEvents.instance.slideDash, transform.position);
+
                 }
                 else
                 {
                     player.isSliding = false;
                     player.constantVelocity /= slideModifier;
                     player.rb.velocity = -player.rb.velocity.normalized * player.constantVelocity;
+                    SoundManager.instance.PlayOneShot(FMODEvents.instance.completeSlide, transform.position);
                 }
                 break;
             case Player.AimDirection.none:
@@ -306,6 +313,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 crownPlayer = player;
                 crownHealth = player.health;
+                SoundManager.instance.PlayOneShot(FMODEvents.instance.crown, transform.position);
             }
             else if (crownHealth == player.health)
             {

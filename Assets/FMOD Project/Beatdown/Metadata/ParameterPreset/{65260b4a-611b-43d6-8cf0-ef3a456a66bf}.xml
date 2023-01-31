@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{65260b4a-611b-43d6-8cf0-ef3a456a66bf}">
+		<property name="name">
+			<value>Weapon1Mute</value>
+		</property>
+		<relationship name="folder">
+			<destination>{157f2c77-f42e-4d27-a31d-1cfe0c7ad103}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{7db64835-12ea-4a61-bd04-c8601fdf927b}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{7db64835-12ea-4a61-bd04-c8601fdf927b}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="automators">
+			<destination>{a96af18b-a412-4a96-b7bd-d530f690f1cb}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{a96af18b-a412-4a96-b7bd-d530f690f1cb}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>cursorPosition</value>
+		</property>
+	</object>
+</objects>
