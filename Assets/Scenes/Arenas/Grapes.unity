@@ -358,6 +358,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4473601939471450678, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601939471450678, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601939628453026, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601939628453026, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601940104405771, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601940104405771, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601941164020062, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4473601941164020062, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd52bb9fefbe0f6489564ca37d5dcb73, type: 3}
 --- !u!1001 &153895103

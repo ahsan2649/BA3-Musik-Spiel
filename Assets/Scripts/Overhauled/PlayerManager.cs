@@ -24,8 +24,12 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float health;
     [SerializeField] GameObject missParticle;
     [SerializeField] float kickPunishment;
+    [SerializeField] float minimunSlidingSpeed = 0;
+    [SerializeField] float kickCooldown;
 
-    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +58,8 @@ public class PlayerManager : MonoBehaviour
     {
         foreach (var player in players)
         {
+            player.health = Mathf.Clamp(player.health, 0, health);
+
             if (player.health <= 0)
             {
                 player.gameObject.SetActive(false);
@@ -89,7 +95,7 @@ public class PlayerManager : MonoBehaviour
             {
                 if (player.aimDir != Player.AimDirection.none) player.RotationReady = true;
             }
-            if (players.All(player => player.RotationReady == true && player.kick && SongManager.instance.canKick && player.kickPunishment <= 0))
+            if (players.All(player => player.RotationReady == true && player.kick && SongManager.instance.canKick && player.kickPunishment <= 0 && player.kickCooldown <= 0))
             {
                 LevelManager.levelManager.phase = LevelManager.Phase.Playing;
                 backgroundAnimator.Play("Background Opening");
@@ -104,7 +110,7 @@ public class PlayerManager : MonoBehaviour
             {
                 player.body.transform.rotation = Quaternion.Lerp(player.body.transform.rotation, Quaternion.FromToRotation(Vector2.up, -player.gravityDirection), 0.25f);
 
-                if (SongManager.instance.canKick && player.kick && player.aimDir != Player.AimDirection.none && player.grounded && player.kickPunishment <= 0)
+                if (SongManager.instance.canKick && player.kick && player.aimDir != Player.AimDirection.none && player.grounded && player.kickPunishment <= 0 && player.kickCooldown <= 0)
                 {
                     HandleKick(player);
                     HandleAnim(player);
@@ -159,7 +165,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case Player.AimDirection.back:
-                if (player.constantVelocity == 0)
+                if (player.constantVelocity <= minimunSlidingSpeed)
                 {
                     if (player.ani != null)
                     {
@@ -212,6 +218,8 @@ public class PlayerManager : MonoBehaviour
     public void HandleKick(Player player)
     {
         player.kicksHit += 1;
+        player.kick = false;
+        player.kickCooldown += kickCooldown;
         switch (player.aimDir)
         {
             case Player.AimDirection.outside:
@@ -237,7 +245,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case Player.AimDirection.back:
-                if (player.constantVelocity == 0)
+                if (player.constantVelocity <= minimunSlidingSpeed)
                 {
                     player.antiClockFace = !player.antiClockFace;
                     player.rb.AddForce((player.antiClockFace ? player.body.transform.right : -player.body.transform.right) * KickForce);
