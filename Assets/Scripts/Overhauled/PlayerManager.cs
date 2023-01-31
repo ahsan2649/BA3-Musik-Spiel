@@ -58,6 +58,8 @@ public class PlayerManager : MonoBehaviour
     {
         foreach (var player in players)
         {
+            player.health = Mathf.Clamp(player.health, 0, health);
+
             if (player.health <= 0)
             {
                 player.gameObject.SetActive(false);
