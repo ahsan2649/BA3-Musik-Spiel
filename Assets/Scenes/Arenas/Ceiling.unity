@@ -289,10 +289,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6e645d22bd60a63449966a91dc89df00, type: 3}
-=======
     - target: {fileID: 667014421263602244, guid: 6e645d22bd60a63449966a91dc89df00, type: 3}
       propertyPath: healthSpawns.Array.size
       value: 3
@@ -320,7 +316,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 667014421263602243, guid: 6e645d22bd60a63449966a91dc89df00, type: 3}
   m_PrefabInstance: {fileID: 414631790}
   m_PrefabAsset: {fileID: 0}
->>>>>>> Stashed changes
 --- !u!1 &582912981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,8 +1302,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1243907895
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,7 +1333,6 @@ Transform:
   m_Father: {fileID: 414631791}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &1273842109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1561,8 +1553,6 @@ Transform:
   m_Father: {fileID: 1273842110}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1338005641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,7 +1584,6 @@ Transform:
   m_Father: {fileID: 414631791}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1001 &1524203505
 PrefabInstance:
   m_ObjectHideFlags: 0

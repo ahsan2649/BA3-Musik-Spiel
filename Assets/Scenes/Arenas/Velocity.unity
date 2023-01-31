@@ -8560,8 +8560,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< Updated upstream
-=======
 --- !u!1 &1570877377
 GameObject:
   m_ObjectHideFlags: 0
@@ -8593,7 +8591,6 @@ Transform:
   m_Father: {fileID: 1948670983}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &1603051444
 GameObject:
   m_ObjectHideFlags: 0
@@ -21821,10 +21818,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6e645d22bd60a63449966a91dc89df00, type: 3}
-=======
     - target: {fileID: 667014421263602244, guid: 6e645d22bd60a63449966a91dc89df00, type: 3}
       propertyPath: healthSpawns.Array.size
       value: 3
@@ -21883,4 +21876,3 @@ Transform:
   m_Father: {fileID: 1948670983}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes
