@@ -15,5 +15,5 @@ MonoBehaviour:
   color: {r: 0.21960783, g: 0.29865113, b: 0.94509804, a: 1}
   bulletSpeed: 25
   damage: 3
-  instrument: Weapon 2
+  instrument: Weapon2
   bulletPrefab: {fileID: 3203100504733436288, guid: 461b32426cdf98d45aa6090060024e7b, type: 3}

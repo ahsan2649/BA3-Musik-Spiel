@@ -111,7 +111,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.tag == "SOLO")
         {
-            collision.GetComponent<Solo>().Damage(damage, bulletType);
+            collision.GetComponent<Solo>().Damage(damage, bulletType, shooter);
             if (!laser && !synth) { Destroy(gameObject); }
         }
     }
