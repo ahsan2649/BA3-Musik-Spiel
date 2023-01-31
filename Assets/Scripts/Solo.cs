@@ -65,6 +65,7 @@ public class Solo : MonoBehaviour
                 }
             }
         }
+        UpdateVisuals();
         
     }
 
@@ -96,11 +97,13 @@ public class Solo : MonoBehaviour
 
     void UpdateVisuals()
     {
-        sr.color = colorList[currentMaxDmgPlayer];
+
         //Size up 
-        float sizeMultiplier = maxHealth / currentHealth;
+        float sizeMultiplier = maxHealth - currentHealth;
+        sizeMultiplier = sizeMultiplier / maxHealth;
         float newSize = Mathf.Lerp(minSize, maxSize, sizeMultiplier);
-        sr.transform.localScale = new Vector3(newSize, newSize, newSize);
+        innerCircle.transform.localScale = new Vector3(newSize, newSize, newSize);
+        sr.material.SetColor("Color", colorList[currentMaxDmgPlayer]* (sizeMultiplier * 2));
     }
 
     void Destroy()

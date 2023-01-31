@@ -1,0 +1,14 @@
+02:03:20:816 [ALWAYS]	GUDE Logging Started
+02:03:20:816 [INFO]	SqliteResumeCache::SqliteResumeCache basedirectory is null/empty
+02:03:20:816 [ERROR]	SqliteResumeCache::CreateSqliteResumeCache creating resume cache pointer failure
+02:03:20:816 [ERROR]	Initialize resume cache pointer failure
+02:03:20:816 [INFO]	gude policy POLICY_USER limit (2,2,1) chunk 2097152, chunking (UL 0 DL 1), resXfer 1, adapt 0, NSURL 0, timeout 86400 
+02:03:20:816 [INFO]	Initialized -- gude-lib version: v0.12.1 app: gude
+02:03:32:353 [WARN]	Ignoring attempt to reinit logging to \gude at level 4 retaining 3 days of logs
+02:03:32:356 [INFO]	SqliteResumeCache::SqliteResumeCache basedirectory is null/empty
+02:03:32:356 [ERROR]	SqliteResumeCache::CreateSqliteResumeCache creating resume cache pointer failure
+02:03:32:356 [ERROR]	Initialize resume cache pointer failure
+02:03:32:356 [INFO]	gude policy POLICY_USER limit (4,4,1) chunk 2097152, chunking (UL 0 DL 1), resXfer 1, adapt 0, NSURL 1, timeout 86400 
+02:03:32:356 [INFO]	Initialized -- gude-lib version: v0.12.1 app: gude
+02:03:32:781 [WARN]	WGudeRequest::applyAutoDetectProxyAutoConfigSettings Failed to autodetect proxy settings. WinHTTP Unable To Download Script. last error code = 12167 
+02:03:32:781 [WARN]	WGudeRequest::applyAutoDetectProxyAutoConfigSettings Failed to autodetect proxy settings. WinHTTP Unable To Download Script. last error code = 12167 
