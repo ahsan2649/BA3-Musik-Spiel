@@ -28,7 +28,7 @@ public class Health : MonoBehaviour
             if (healthParticle != null)
             {
                 Instantiate(healthParticle, player.transform.position, Quaternion.identity, player.gameObject.transform);
-
+                SoundManager.instance.PlayOneShot(FMODEvents.instance.pickupSpawn, transform.position);
             }
             //SFX
             SoundManager.instance.PlayOneShot(FMODEvents.instance.healthPickup, transform.position);
