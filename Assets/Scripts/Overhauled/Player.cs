@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
 
     public float kickPunishment = 0;
     public float kickCooldown = 0;
+    PauseMenu pauseMenu;
 
     [SerializeField] float min_velocity_to_start_skate = 0;
 
@@ -45,11 +46,14 @@ public class Player : MonoBehaviour
     private bool soloActivated;
     private EventInstance grindingSound;
 
+
     [SerializeField] GameObject crown;
     // Start is called before the first frame update
     void Start()
     {
         Crown(false);
+
+        pauseMenu = FindObjectOfType<PauseMenu>();
     }
 
     // Update is called once per frame
@@ -247,6 +251,60 @@ public class Player : MonoBehaviour
         soloGunInstance.SetActive(false);
     }
     #endregion
+
+    #region Pause Menu
+
+    public void Pause(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        if (pauseMenu.active)
+        {
+            GetComponent<PlayerInput>().currentActionMap = GetComponent<PlayerInput>().actions.FindActionMap(nameOrId: "Player");
+            pauseMenu.active = false;
+            pauseMenu.GetComponent<Animator>().SetTrigger("closeMenu");
+            Time.timeScale = 1;
+        }
+        else
+        {
+            GetComponent<PlayerInput>().currentActionMap = GetComponent<PlayerInput>().actions.FindActionMap(nameOrId: "PauseMenu");
+            pauseMenu.active = true;
+            Time.timeScale = 0;
+            pauseMenu.gameObject.SetActive(true);
+            pauseMenu.GetComponent<Animator>().SetTrigger("openMenu");
+        }
+        
+    }
+    
+
+
+
+    public void PauseMoveUp(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        pauseMenu.MoveSelectionUp();
+    }
+    public void PauseMoveDown(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        pauseMenu.MoveSelectionDown();
+    }
+    public void PauseSelect(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        pauseMenu.Select();
+    }
+    public void PauseBack(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        pauseMenu.Back();
+    }
+
+
+
+
+    #endregion
+
+
 
     public void Crown(bool hasCrown)
     {
