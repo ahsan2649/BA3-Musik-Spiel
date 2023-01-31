@@ -241,6 +241,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1298937404927526901, guid: 61ba46287c214b44381ac09fbedf4998, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -123
+      objectReference: {fileID: 0}
     - target: {fileID: 1298937404927526902, guid: 61ba46287c214b44381ac09fbedf4998, type: 3}
       propertyPath: m_text
       value: Velocity
