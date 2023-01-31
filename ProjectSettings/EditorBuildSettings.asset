@@ -54,7 +54,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Arenas/Boobs.unity
     guid: fee4acb4684f4b84c8a207368f7ff99c
   - enabled: 1
-    path: Assets/Scenes/Arenas/Two Islands.unity
+    path: Assets/Scenes/Arenas/Beans.unity
     guid: 88e3e915ac1e34c498ef6f6c0f08dee1
   - enabled: 1
     path: Assets/Scenes/Arenas/Velocity.unity
