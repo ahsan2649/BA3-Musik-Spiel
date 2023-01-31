@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 6.unity
     guid: c4dfa6811b1ee3049a8e1ef24c7a7e6d
   - enabled: 1
-    path: Assets/Scenes/ResultScreen.unity
+    path: Assets/Scenes/Menus/ResultScreen.unity
     guid: a6eb0eb6094f56248a5a2f84a81d426b
   - enabled: 1
     path: Assets/Scenes/Overhaul.unity

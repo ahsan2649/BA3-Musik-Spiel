@@ -11,18 +11,20 @@ public class Solo : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] GameObject innerCircle;
     [SerializeField] float maxSize;
-    
+
+    [SerializeField] Material mat;
+
     //Cached Components
     Rigidbody2D rb;
     SpriteRenderer sr;
 
     //State
-    public int currentHealth;
+    public float currentHealth;
     public bool activated = true;
     int currentMaxDmgPlayer;
     Player maxDmgPlayer;
     int currentMovePoint;
-    List<float> damageList = new List<float>();
+    [SerializeField] List<float> damageList;
     Vector2 startposition;
     float timer;
     public bool moves;
@@ -77,7 +79,7 @@ public class Solo : MonoBehaviour
         
         damageList[bulletType] += damage;
         //If first time hitting orb
-        if(currentHealth == 0)
+        if(currentHealth == maxHealth)
         {
             currentMaxDmgPlayer = bulletType;
         }
@@ -87,7 +89,7 @@ public class Solo : MonoBehaviour
             currentMaxDmgPlayer = bulletType;
             maxDmgPlayer = player;
         }
-        currentHealth -= bulletType;
+        currentHealth -= damage;
 
         if(currentHealth <= 0)
         {
@@ -102,12 +104,13 @@ public class Solo : MonoBehaviour
     void UpdateVisuals()
     {
 
+        Debug.Log("Update Visuals SOLO");
         //Size up 
         float sizeMultiplier = maxHealth - currentHealth;
         sizeMultiplier = sizeMultiplier / maxHealth;
         float newSize = Mathf.Lerp(minSize, maxSize, sizeMultiplier);
         innerCircle.transform.localScale = new Vector3(newSize, newSize, newSize);
-        sr.material.SetColor("Color", colorList[currentMaxDmgPlayer]* (sizeMultiplier * 2));
+        mat.SetColor("_Color", colorList[currentMaxDmgPlayer]* (1 + (sizeMultiplier * 2)));
     }
 
 
