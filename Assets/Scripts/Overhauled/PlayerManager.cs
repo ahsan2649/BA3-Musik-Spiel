@@ -64,6 +64,7 @@ public class PlayerManager : MonoBehaviour
 
             if (player.health <= 0)
             {
+                SoundManager.instance.PlayOneShot(FMODEvents.instance.death, transform.position);
                 player.gameObject.SetActive(false);
             }
 
@@ -87,9 +88,6 @@ public class PlayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
-                
-
         if (players.Count == 0) return;
 
         if(LevelManager.levelManager.phase == LevelManager.Phase.Starting)
@@ -102,7 +100,6 @@ public class PlayerManager : MonoBehaviour
             {
                 LevelManager.levelManager.phase = LevelManager.Phase.Playing;
                 backgroundAnimator.Play("Background Opening");
-                Debug.Log("Animation");
             }
         }
 

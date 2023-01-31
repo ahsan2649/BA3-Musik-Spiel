@@ -85,6 +85,9 @@ public class Bullet : MonoBehaviour
                 return;
             }
             collision.GetComponentInParent<Player>().health -= damage;
+            //SFX
+            SoundManager.instance.PlayOneShot(FMODEvents.instance.hit, transform.position);
+
             
             if (collision.GetComponentInParent<Player>().health - damage <= 0)
             {
