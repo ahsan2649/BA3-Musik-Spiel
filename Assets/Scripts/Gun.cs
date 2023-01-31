@@ -28,6 +28,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        Debug.Log(this.name + " Shoot");
         if (shooter == null)
         {
             return;
