@@ -113,6 +113,18 @@ public class PlayerManager : MonoBehaviour
     {
         if (players.Count == 0) return;
 
+        foreach (var player in players)
+        {
+            if (player.constantVelocity > player.min_velocity_to_start_skate)
+            {
+                if (player.ani != null) player.ani.SetBool("HasMomentum", true);
+            }
+            else
+            {
+                if (player.ani != null) player.ani.SetBool("HasMomentum", false);
+            }
+        }
+
         if(LevelManager.levelManager.phase == LevelManager.Phase.Starting)
         {
             foreach (var player in players)
