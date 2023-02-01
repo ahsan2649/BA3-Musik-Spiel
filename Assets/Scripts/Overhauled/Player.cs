@@ -166,6 +166,8 @@ public class Player : MonoBehaviour
             grounded = true;
             if (ani != null) ani.SetBool("OnGround", true);
             gravityDirection = -collision.GetContact(0).normal;
+
+            GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 
@@ -191,6 +193,8 @@ public class Player : MonoBehaviour
             gravityDirection = Vector2.down;
             grounded = false;
             if (ani != null) ani.SetBool("OnGround", false);
+
+            GetComponentInChildren<ParticleSystem>().Stop();
         }
     }
 
