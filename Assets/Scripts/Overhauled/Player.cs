@@ -237,11 +237,11 @@ public class Player : MonoBehaviour
     public void StartSolo()
     {
         soloActivated = true;
-        Debug.Log("Solo");
         //Save old gun
         originalGun = gun;
         originalGun.gameObject.SetActive(false);
-        
+        hasGotTheSolo = true;
+
         soloGunInstance = Instantiate(soloGun.gameObject);
         gun = soloGunInstance.GetComponent<Gun>();
         FindObjectOfType<GunManager>().guns.Add(gun);

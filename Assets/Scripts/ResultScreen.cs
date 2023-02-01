@@ -175,6 +175,7 @@ public class ResultScreen : MonoBehaviour
     [SerializeField] List<TextList> playerTexts;
     [SerializeField] List<GameObject> playerModels;
     [SerializeField] List<GameObject> characterSprites;
+    [SerializeField] List<GameObject> crowns;
     [SerializeField] Color noSoloShine;
     [SerializeField] List<GameObject> soloShines;
 
@@ -214,6 +215,7 @@ public class ResultScreen : MonoBehaviour
     {
         for (int i = 0; i < playerStats.Count; i++)
         {
+            
             //Activate Text Fields
             foreach (var item in playerTexts[i].texts)
             {
@@ -230,6 +232,10 @@ public class ResultScreen : MonoBehaviour
             characterSprites[PlayerPrefs.GetInt("Player" + playerStats[i][0].ToString() + "Char")].SetActive(true);
             //playerModels[i] = characterSprites[PlayerPrefs.GetInt("Player"+playerStats[i][0].ToString()+ "Char")];
             characterSprites[PlayerPrefs.GetInt("Player" + playerStats[i][0].ToString() + "Char")].transform.position = playerModels[i].transform.position;
+            if (i == 0)
+            {
+                crowns[PlayerPrefs.GetInt("Player" + playerStats[i][0].ToString() + "Char")].SetActive(true);
+            }
             if (playerStats[i][7] == 1)
             {
                 soloShines[i].SetActive(true);
