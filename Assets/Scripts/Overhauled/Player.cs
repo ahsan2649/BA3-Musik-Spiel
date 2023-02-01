@@ -115,6 +115,8 @@ public class Player : MonoBehaviour
                     //Sound
                     SoundManager.instance.PlayOneShot(FMODEvents.instance.weaponPickup, transform.position);
 
+                    SongManager.instance.emitter.EventInstance.setParameterByName(weapon.instrument+"Enabled", 1);
+
                     gun = weapon;
                     weapon.shooter = this;
                     weapon.GetComponent<Collider2D>().enabled = false;

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="ParameterPreset" id="{65260b4a-611b-43d6-8cf0-ef3a456a66bf}">
+	<object class="ParameterPreset" id="{2d3fc289-ae45-424f-bf9e-a0a8ba6c4b05}">
 		<property name="name">
-			<value>Weapon1Enabled</value>
+			<value>Weapon4Enabled</value>
 		</property>
 		<relationship name="folder">
 			<destination>{157f2c77-f42e-4d27-a31d-1cfe0c7ad103}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{7db64835-12ea-4a61-bd04-c8601fdf927b}</destination>
+			<destination>{a634c425-b0fc-486a-97bd-5ceb35ad926a}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{7db64835-12ea-4a61-bd04-c8601fdf927b}">
+	<object class="GameParameter" id="{a634c425-b0fc-486a-97bd-5ceb35ad926a}">
 		<property name="parameterType">
 			<value>1</value>
 		</property>

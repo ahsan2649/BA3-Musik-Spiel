@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Gun : MonoBehaviour
 {
     [SerializeField] public GunObject gunObject;
-    [HideInInspector] public string instrument;
+    public string instrument;
     GameObject bulletPrefab;
     float bulletSpeed;
     float damage;
