@@ -119,8 +119,9 @@ public class Player : MonoBehaviour
                     weapon.shooter = this;
                     weapon.GetComponent<Collider2D>().enabled = false;
                     weapon.transform.parent = aimPivot.transform;
-                    weapon.transform.localRotation = Quaternion.identity;
-                    weapon.transform.localPosition = new Vector3(0.8f, 0, 0);
+                    weapon.transform.rotation = gunTransform.rotation;
+                    weapon.transform.position = gunTransform.position;
+                    weapon.transform.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -317,6 +318,11 @@ public class Player : MonoBehaviour
 
     #endregion
 
+
+    public void HitAnim()
+    {
+        GetComponent<Animator>().SetTrigger("hit");
+    }
 
 
     public void Crown(bool hasCrown)
