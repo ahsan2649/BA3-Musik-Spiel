@@ -23,6 +23,15 @@ public class Menu : MonoBehaviour
 
     }
 
+    public void StopGame(InputAction.CallbackContext context)
+    {
+        if (!context.performed) { return; }
+        else
+        {
+            Application.Quit();
+        }
+    }
+
     IEnumerator WaitUntilNextScene()
     {
         yield return new WaitForSeconds(sceneTransitionTime);

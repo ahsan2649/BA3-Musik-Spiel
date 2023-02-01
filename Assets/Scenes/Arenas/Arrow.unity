@@ -8125,6 +8125,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 667014421263602244, guid: 6e645d22bd60a63449966a91dc89df00, type: 3}
+      propertyPath: startingPrompt
+      value: 
+      objectReference: {fileID: 1298937405546028666}
+    - target: {fileID: 667014421263602244, guid: 6e645d22bd60a63449966a91dc89df00, type: 3}
       propertyPath: healthSpawns.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -22407,5 +22411,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1555048537859987635, guid: 61ba46287c214b44381ac09fbedf4998, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ba46287c214b44381ac09fbedf4998, type: 3}
+--- !u!1 &1298937405546028666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1555048537859987635, guid: 61ba46287c214b44381ac09fbedf4998, type: 3}
+  m_PrefabInstance: {fileID: 1298937405546028664}
+  m_PrefabAsset: {fileID: 0}

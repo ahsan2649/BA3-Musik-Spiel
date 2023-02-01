@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<Transform> healthSpawns;
     [SerializeField] GameObject healthPickupPrefab;
     [SerializeField] float minHealthSpawnTime, maxHealthSpawnTime;
+    [SerializeField] GameObject startingPrompt;
     float timeUntilLastHealth;
     float nextSpawnTime;
 
@@ -41,6 +42,7 @@ public class LevelManager : MonoBehaviour
     {
         if (phase == Phase.Playing)
         {
+            startingPrompt.SetActive(false);
             timeUntilLastHealth += Time.deltaTime;
 
             if (timeUntilLastHealth >= nextSpawnTime)
@@ -62,5 +64,7 @@ public class LevelManager : MonoBehaviour
                 SongManager.instance.StopSong();
             }
         }
+
+
     }
 }

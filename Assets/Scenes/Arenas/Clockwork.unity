@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -400,6 +400,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 667014421263602244, guid: 6e645d22bd60a63449966a91dc89df00, type: 3}
+      propertyPath: startingPrompt
+      value: 
+      objectReference: {fileID: 1347094330}
     - target: {fileID: 667014421263602244, guid: 6e645d22bd60a63449966a91dc89df00, type: 3}
       propertyPath: healthSpawns.Array.size
       value: 4
@@ -4072,7 +4076,7 @@ Transform:
   - {fileID: 444407882}
   - {fileID: 617593812}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1290177264
 PrefabInstance:
@@ -4317,7 +4321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1298937406822805439, guid: 61ba46287c214b44381ac09fbedf4998, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1298937406822805439, guid: 61ba46287c214b44381ac09fbedf4998, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4393,6 +4397,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61ba46287c214b44381ac09fbedf4998, type: 3}
+--- !u!1 &1347094330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1555048537859987635, guid: 61ba46287c214b44381ac09fbedf4998, type: 3}
+  m_PrefabInstance: {fileID: 1347094329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1369955731
 GameObject:
   m_ObjectHideFlags: 0
@@ -22168,7 +22177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6195313938384691021, guid: cfe21a6db8e1d6146a1cc782505813bd, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 6195313938384691021, guid: cfe21a6db8e1d6146a1cc782505813bd, type: 3}
       propertyPath: m_AnchorMax.x
