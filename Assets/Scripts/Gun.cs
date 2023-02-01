@@ -20,7 +20,7 @@ public class Gun : MonoBehaviour
     private float _saturation = 1f;
     private float _value = 1f;
 
-    int laserCount = 0;
+    
     private void Start()
     {
         instrument = gunObject.instrument;
@@ -61,50 +61,31 @@ public class Gun : MonoBehaviour
     public void Shoot()
     {
         GameObject newBullet;
-        Debug.Log(this.name + " Shoot");
         if (shooter == null)
         {
             return;
         }
         
-        if (bulletPrefab.GetComponent<Bullet>().laser)
+        newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        if (newBullet.GetComponent<Bullet>())
         {
-            if (laserCount == 0)
-            {
-                newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-                if (newBullet.GetComponent<Bullet>())
-                {
-                    newBullet.GetComponent<Bullet>().shooter = shooter;
-                }
-                laserCount ++;
-            }
-            else
-            {
-                newBullet = Instantiate(gunObject.laserSecondary, transform.position, transform.rotation);
-                if (newBullet.GetComponent<Bullet>())
-                {
-                    newBullet.GetComponent<Bullet>().shooter = shooter;
-                }
-                laserCount++;
-                if (laserCount == 3)
-                {
-                    laserCount = 0;
-                }
-            }
+            newBullet.GetComponent<Bullet>().shooter = shooter;
         }
         else
         {
-            newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            if (newBullet.GetComponent<Bullet>())
-            {
-                newBullet.GetComponent<Bullet>().shooter = shooter;
-            }
-            else
-            {
-                newBullet.GetComponent<Shotgun>().SetShooter(shooter);
-            }
+            newBullet.GetComponent<Shotgun>().SetShooter(shooter);
         }
         
+    }
+
+    public void LaserBoltShoot()
+    {
+        
+        GameObject newBullet = Instantiate(gunObject.laserSecondary, transform.position, transform.rotation);
+        if (newBullet.GetComponent<Bullet>())
+        {
+            newBullet.GetComponent<Bullet>().shooter = shooter;
+        }
     }
 
     public void SoloShoot(int bulletInt)

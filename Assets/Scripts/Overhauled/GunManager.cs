@@ -53,6 +53,17 @@ public class GunManager : MonoBehaviour
                     if (instrument.Contains("2")) { gun.SoloShoot(2); }
                     Debug.Log("SOLO SHOULD SHOOT CMON");
                 }
+                if (instrument.Contains("Weapon4"))
+                {
+                    if (instrument.Contains("Laser"))
+                    {
+                        gun.Shoot();
+                    }
+                    else
+                    {
+                        gun.LaserBoltShoot();
+                    }
+                }
                 else { gun.Shoot(); }
                 
             }
