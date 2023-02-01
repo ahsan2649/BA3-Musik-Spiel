@@ -7676,7 +7676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 0
-  health: 0
+  health: 200
   kick: 0
   grounded: 0
   jumpRegion: 0

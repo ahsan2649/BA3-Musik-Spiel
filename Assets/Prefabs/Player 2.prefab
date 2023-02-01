@@ -5516,13 +5516,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 0
-  health: 0
+  health: 200
   kick: 0
   grounded: 0
   jumpRegion: 0
   isSliding: 0
   antiClockFace: 1
-  gunTransform: {fileID: 0}
+  gunTransform: {fileID: 1055917067553879979}
   damageDealt: 0
   finalBlows: 0
   kicksMissed: 0

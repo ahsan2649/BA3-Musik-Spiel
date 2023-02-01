@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
         {
             var player = collision.GetComponentInParent<Player>();
             player.health += health;
+            player.healthPacksCollected++;
             FindObjectOfType<PlayerManager>().HandleCrown();
             if (healthParticle != null)
             {

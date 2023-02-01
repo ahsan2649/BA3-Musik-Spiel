@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Gun Shader 2.0
+  m_Name: Shader Graphs_Gun Shader 2 Shotgun
   m_Shader: {fileID: -6465566751694194690, guid: d9f3a134f7e122a45a156436e760936b, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -58,5 +58,5 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 16.586386, g: 0, b: 5.863874, a: 0}
+    - _Color: {r: 16.586384, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
