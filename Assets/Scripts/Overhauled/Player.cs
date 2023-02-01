@@ -209,6 +209,7 @@ public class Player : MonoBehaviour
 
     public void Kick(InputAction.CallbackContext ctx)
     {
+        Debug.Log("Kick");
         kick = ctx.ReadValueAsButton();
     }
 
