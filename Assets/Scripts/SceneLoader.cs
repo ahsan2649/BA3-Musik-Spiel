@@ -23,6 +23,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadRandomArena()
     {
+        Destroy(menusong.instance.gameObject);
         //Do the randomization here?
         if (prefer_scene != "") SceneManager.LoadScene(prefer_scene);
         else SceneManager.LoadScene(scenes[Random.Range(0, scenes.Length)]);
