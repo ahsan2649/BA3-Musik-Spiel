@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{9d3fe55f-5338-4ce3-808c-958c062aacbc}">
+		<property name="name">
+			<value>Weapon4Enabled</value>
+		</property>
+		<relationship name="folder">
+			<destination>{157f2c77-f42e-4d27-a31d-1cfe0c7ad103}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{d5c8c96a-dcf3-4f1f-bc4a-0d1a1e58e941}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{d5c8c96a-dcf3-4f1f-bc4a-0d1a1e58e941}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="automators">
+			<destination>{e4889af2-405e-497b-acec-5b2a3d4b10e6}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{e4889af2-405e-497b-acec-5b2a3d4b10e6}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>cursorPosition</value>
+		</property>
+	</object>
+</objects>

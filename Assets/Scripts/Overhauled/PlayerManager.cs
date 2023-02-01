@@ -328,7 +328,7 @@ public class PlayerManager : MonoBehaviour
                 crownHealth = player.health;
                 SoundManager.instance.PlayOneShot(FMODEvents.instance.crown, transform.position);
             }
-            else if (crownHealth == player.health)
+            else if (crownHealth == player.health && crownPlayer != player)
             {
                 if (crownPlayer != null)
                 {
