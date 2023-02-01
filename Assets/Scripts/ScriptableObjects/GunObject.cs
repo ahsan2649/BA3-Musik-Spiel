@@ -12,4 +12,5 @@ public class GunObject : ScriptableObject
     public string instrument;
     public GameObject bulletPrefab;
     public Material gunColorShader;
+    public GameObject laserSecondary;
 }

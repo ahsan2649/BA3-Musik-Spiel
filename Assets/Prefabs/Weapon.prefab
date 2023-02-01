@@ -76,6 +76,7 @@ MonoBehaviour:
   instrument: 
   shooter: {fileID: 0}
   soloActive: 0
+  soloRainbowHueSpeed: 1
   soloBullets:
   - {fileID: 1768898804409611776, guid: aeaf69f430f133c488e2a1a05ec692f1, type: 3}
   - {fileID: 6384255333245444470, guid: 35aae1cce45475840be94eb7a61be8ec, type: 3}
@@ -95,6 +96,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 7687074887119263007, guid: f303024c7814ed74c805621b6518e4bd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4f50d6d9a6f1d95489bb00ee318603c0, type: 2}
     - target: {fileID: 8681949732344553938, guid: f303024c7814ed74c805621b6518e4bd, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -20,6 +20,7 @@ public class Gun : MonoBehaviour
     private float _saturation = 1f;
     private float _value = 1f;
 
+    int laserCount = 0;
     private void Start()
     {
         instrument = gunObject.instrument;
@@ -59,21 +60,50 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
+        GameObject newBullet;
         Debug.Log(this.name + " Shoot");
         if (shooter == null)
         {
             return;
         }
         
-        GameObject newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        if (newBullet.GetComponent<Bullet>())
+        if (bulletPrefab.GetComponent<Bullet>().laser)
         {
-            newBullet.GetComponent<Bullet>().shooter = shooter;
+            if (laserCount == 0)
+            {
+                newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+                if (newBullet.GetComponent<Bullet>())
+                {
+                    newBullet.GetComponent<Bullet>().shooter = shooter;
+                }
+            }
+            else
+            {
+                newBullet = Instantiate(gunObject.laserSecondary, transform.position, transform.rotation);
+                if (newBullet.GetComponent<Bullet>())
+                {
+                    newBullet.GetComponent<Bullet>().shooter = shooter;
+                }
+                laserCount++;
+                if (laserCount == 2)
+                {
+                    laserCount = 0;
+                }
+            }
         }
         else
         {
-            newBullet.GetComponent<Shotgun>().SetShooter(shooter);
+            newBullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            if (newBullet.GetComponent<Bullet>())
+            {
+                newBullet.GetComponent<Bullet>().shooter = shooter;
+            }
+            else
+            {
+                newBullet.GetComponent<Shotgun>().SetShooter(shooter);
+            }
         }
+        
     }
 
     public void SoloShoot(int bulletInt)

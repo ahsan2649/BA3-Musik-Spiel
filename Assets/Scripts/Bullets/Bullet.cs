@@ -17,11 +17,13 @@ public class Bullet : MonoBehaviour
     public LayerMask laserStop;
     [SerializeField] float laserDestroyDelay = 0.2f;
     public LineRenderer[] laserLr;
+
     // Start is called before the first frame update
     void Start()
     {
         if (laser)
         {
+
             laserLength = transform.position;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right,Mathf.Infinity, laserStop);
             foreach (LineRenderer i in laserLr)
