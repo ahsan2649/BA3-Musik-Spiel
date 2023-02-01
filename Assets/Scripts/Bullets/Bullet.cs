@@ -97,8 +97,8 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
             collision.GetComponentInParent<Player>().health -= damage;
-            collision.GetComponentInParent<Player>().HitAnim();
-            
+            collision.GetComponentInParent<Animator>().SetTrigger("hit");
+
             FindObjectOfType<PlayerManager>().HandleCrown();
             //SFX
             SoundManager.instance.PlayOneShot(FMODEvents.instance.hit, transform.position);

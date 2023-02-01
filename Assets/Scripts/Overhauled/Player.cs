@@ -345,11 +345,6 @@ public class Player : MonoBehaviour
     #endregion
 
 
-    public void HitAnim()
-    {
-        GetComponent<Animator>().SetTrigger("hit");
-    }
-
 
     public void Crown(bool hasCrown)
     {
