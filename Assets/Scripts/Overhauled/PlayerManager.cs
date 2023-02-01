@@ -77,12 +77,12 @@ public class PlayerManager : MonoBehaviour
 
             if (player.kick && player.grounded && !SongManager.instance.canKick)
             {
+                player.kick = false;
                 if (missParticle != null && player.kickPunishment == 0)
                 {
                     Instantiate(missParticle, player.transform.position, Quaternion.identity, player.gameObject.transform);
                     SoundManager.instance.PlayOneShot(FMODEvents.instance.miss, transform.position);
                 }
-                player.kick = false;
                 player.kickPunishment = kickPunishment;
                 
                 player.kicksMissed += 1;
@@ -121,6 +121,7 @@ public class PlayerManager : MonoBehaviour
             }
             if (players.All(player => player.RotationReady == true && player.kick && SongManager.instance.canKick && player.kickPunishment <= 0 && player.kickCooldown <= 0))
             {
+                players.ForEach(player => player.kicksHit += 1);
                 LevelManager.levelManager.phase = LevelManager.Phase.Playing;
                 backgroundAnimator.Play("Background Opening");
             }
