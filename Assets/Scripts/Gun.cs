@@ -80,6 +80,10 @@ public class Gun : MonoBehaviour
 
     public void LaserBoltShoot()
     {
+        if(shooter == null)
+        {
+            return;
+        }
         
         GameObject newBullet = Instantiate(gunObject.laserSecondary, transform.position, transform.rotation);
         if (newBullet.GetComponent<Bullet>())
