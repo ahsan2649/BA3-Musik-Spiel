@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 45
-  damage: 40
+  damage: 45
   shooter: {fileID: 0}
   bulletType: 3
   synth: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   laserStop:
     serializedVersion: 2
     m_Bits: 64
-  laserDestroyDelay: 0.4
+  laserDestroyDelay: 0.7
   laserLr:
   - {fileID: 295734658814147480}
   - {fileID: 2086249318}

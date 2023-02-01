@@ -11,4 +11,5 @@ public class GunObject : ScriptableObject
     public float damage;
     public string instrument;
     public GameObject bulletPrefab;
+    public Material gunColorShader;
 }
