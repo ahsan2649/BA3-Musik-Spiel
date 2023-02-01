@@ -136,7 +136,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 4, y: 2169}
-    spritePosition: {x: 569, y: 566}
+    spritePosition: {x: 629, y: 626}
   - name: Hue/Saturation 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
