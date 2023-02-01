@@ -200,7 +200,7 @@ public class PlayerManager : MonoBehaviour
                 }
                 break;
             case Player.AimDirection.back:
-                if (player.constantVelocity <= minimumSlidingSpeed)
+                if (player.constantVelocity <= minimumSlidingSpeed && !player.isSliding)
                 {
                     if (player.ani != null)
                     {
@@ -208,7 +208,7 @@ public class PlayerManager : MonoBehaviour
                         player.ani.SetTrigger("Kick");
                     }
                 }
-                else if (!player.isSliding)
+                else if (player.isSliding)
                 {
                     if (player.ani != null)
                     {

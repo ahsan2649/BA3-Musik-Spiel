@@ -78,6 +78,7 @@ MonoBehaviour:
     sr2: {fileID: 0}
   KickMargin: 0.25
   canKick: 0
+  emitter: {fileID: 0}
 --- !u!114 &6068474938778953711
 MonoBehaviour:
   m_ObjectHideFlags: 0

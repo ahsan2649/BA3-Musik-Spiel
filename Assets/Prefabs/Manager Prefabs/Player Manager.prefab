@@ -60,7 +60,7 @@ MonoBehaviour:
   - {fileID: 8950715888965338946, guid: a1344555f2cb0424d883f23c405654d5, type: 3}
   - {fileID: 8950715888965338946, guid: 043c3dbf157285c4c9fd39b24c043974, type: 3}
   - {fileID: 8950715888965338946, guid: 714e8f5f700ece8458fde741aa2f902c, type: 3}
-  slideModifier: 0.5
+  slideModifier: 0.8
   KickForce: 6.5
   BaseJumpForce: 10
   BaseGravity: 500
