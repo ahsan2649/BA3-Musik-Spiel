@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
@@ -12,7 +13,12 @@ public class Gun : MonoBehaviour
     float damage;
     public Player shooter;
     public bool soloActive = false;
+    public float soloRainbowHueSpeed = 1f;
     [SerializeField] List<GameObject> soloBullets;
+
+    private float _hueShiftSpeed = 0.2f;
+    private float _saturation = 1f;
+    private float _value = 1f;
 
     private void Start()
     {
@@ -20,10 +26,35 @@ public class Gun : MonoBehaviour
         bulletSpeed = gunObject.bulletSpeed;
         damage = gunObject.damage;
         bulletPrefab= gunObject.bulletPrefab;
-        if (GetComponent<SpriteRenderer>() != null)
+        if (GetComponentInChildren<SpriteRenderer>() != null)
         {
-            GetComponent<SpriteRenderer>().color = gunObject.color;
+            GetComponentInChildren<SpriteRenderer>().material = gunObject.gunColorShader;
         }
+    }
+
+    private void Update()
+    {
+        
+        if (soloActive)
+        {
+            float amountToShift = _hueShiftSpeed * Time.deltaTime;
+            Color newColor = ShiftHueBy(GetComponentInChildren<SpriteRenderer>().material.GetColor("_Color"), amountToShift);
+            GetComponentInChildren<SpriteRenderer>().material.SetColor("_Color", newColor);
+        }
+    }
+
+    private Color ShiftHueBy(Color color, float amount)
+    {
+        // convert from RGB to HSV
+        Color.RGBToHSV(color, out float hue, out float sat, out float val);
+
+        // shift hue by amount
+        hue += amount;
+        sat = _saturation;
+        val = _value;
+
+        // convert back to RGB and return the color
+        return Color.HSVToRGB(hue, sat, val);
     }
 
     public void Shoot()

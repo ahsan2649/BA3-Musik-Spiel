@@ -17,3 +17,4 @@ MonoBehaviour:
   damage: 5
   instrument: Weapon1
   bulletPrefab: {fileID: 9070045274426761460, guid: 0bda4bdec6fb00a498e47ed19daeae74, type: 3}
+  gunColorShader: {fileID: 2100000, guid: de320679813b02c4fac25ed336964f06, type: 2}
