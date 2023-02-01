@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     public float kickCooldown = 0;
     PauseMenu pauseMenu;
 
-    [SerializeField] float min_velocity_to_start_skate = 0;
+    public float min_velocity_to_start_skate = 0;
 
     private Gun originalGun;
     [SerializeField] Gun soloGun;
@@ -86,14 +86,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (constantVelocity > min_velocity_to_start_skate)
-        {
-            if (ani != null) ani.SetBool("HasMomentum", true);
-        }
-        else
-        {
-            if (ani != null) ani.SetBool("HasMomentum", false);
-        }
+        
     }
 
     void ToggleFace()
