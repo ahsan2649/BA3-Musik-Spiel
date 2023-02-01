@@ -5517,6 +5517,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   health: 200
+  lowHealthThreshhold: 30
+  lowHealthAnimTime: 2.5
   kick: 0
   grounded: 0
   jumpRegion: 0
@@ -5618,6 +5620,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3722243447266099239, guid: b5b2a31fa56da75489f92f742dc05bca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5570604201467760859, guid: b5b2a31fa56da75489f92f742dc05bca, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

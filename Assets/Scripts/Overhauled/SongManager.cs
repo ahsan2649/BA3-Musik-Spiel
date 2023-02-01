@@ -262,6 +262,5 @@ public class SongManager : MonoBehaviour
     {
         timelineInfo.soloActive = true;
        
-        FindObjectOfType<Solo>().StopSoloSound();
     }
 }

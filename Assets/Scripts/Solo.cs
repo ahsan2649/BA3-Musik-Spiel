@@ -125,15 +125,13 @@ public class Solo : MonoBehaviour
         //Visuals still missing
     }
 
-    public void StopSoloSound()
+    
+
+    public void EndOfAnimation()
     {
         soloDestroyed.stop(STOP_MODE.IMMEDIATE);
         //SOLO Start for max dmg player
         maxDmgPlayer.StartSolo();
-    }
-
-    public void EndOfAnimation()
-    {
         Destroy(gameObject);
     }
 }
