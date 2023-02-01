@@ -115,6 +115,7 @@ public class Solo : MonoBehaviour
     void Destroy()
     {
         GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<Animator>().SetTrigger("destroyed");
 
         //Sound Destroyed (needs to be canceled once SOLO starts)
         soloDestroyed = SoundManager.instance.CreateEventInstance(FMODEvents.instance.soloDestroyed);
@@ -129,6 +130,10 @@ public class Solo : MonoBehaviour
         soloDestroyed.stop(STOP_MODE.IMMEDIATE);
         //SOLO Start for max dmg player
         maxDmgPlayer.StartSolo();
+    }
+
+    public void EndOfAnimation()
+    {
         Destroy(gameObject);
     }
 }

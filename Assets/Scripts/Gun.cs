@@ -76,6 +76,7 @@ public class Gun : MonoBehaviour
                 {
                     newBullet.GetComponent<Bullet>().shooter = shooter;
                 }
+                laserCount ++;
             }
             else
             {
@@ -85,7 +86,7 @@ public class Gun : MonoBehaviour
                     newBullet.GetComponent<Bullet>().shooter = shooter;
                 }
                 laserCount++;
-                if (laserCount == 2)
+                if (laserCount == 3)
                 {
                     laserCount = 0;
                 }

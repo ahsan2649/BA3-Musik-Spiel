@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
                     weapon.transform.parent = aimPivot.transform;
                     weapon.transform.rotation = gunTransform.rotation;
                     weapon.transform.position = gunTransform.position;
-                    weapon.transform.gameObject.SetActive(false);
+                    gunTransform.gameObject.SetActive(false);
                 }
                 else
                 {
