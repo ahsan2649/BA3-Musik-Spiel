@@ -15,6 +15,17 @@ public class GunManager : MonoBehaviour
     void Start()
     {
         if (gunObjects.Count == 0) return;
+        System.Random rnd = new System.Random();
+        int n = gunObjects.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rnd.Next(n + 1);
+            GunObject value = gunObjects[k];
+            gunObjects[k] = gunObjects[n];
+            gunObjects[n] = value;
+        }
+
         for (int i = 0; i < PlayerPrefs.GetInt("PlayerCount"); i++)
         {
             var gun = Instantiate(weaponPrefab, spawnPoints[i].position, Quaternion.identity);
