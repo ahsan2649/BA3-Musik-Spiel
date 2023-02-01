@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 {
     public int playerID;
     public float health;
+    public float lowHealthThreshhold = 30;
+    public float lowHealthAnimTime = 2.5f;
     public bool kick;
     public bool grounded;
     public bool jumpRegion;
@@ -49,6 +51,7 @@ public class Player : MonoBehaviour
     private EventInstance grindingSound;
     FMOD.Studio.PLAYBACK_STATE grindState;
 
+    private bool lowHealth;
     [SerializeField] GameObject crown;
     // Start is called before the first frame update
     void Start()
@@ -82,6 +85,29 @@ public class Player : MonoBehaviour
         if (!SongManager.instance.timelineInfo.soloActive && soloActivated) { StopSolo(); }
 
         aimPivot.transform.rotation = Quaternion.Lerp(aimPivot.transform.rotation, Quaternion.Euler(0, 0, stickValue.magnitude == 0 ? transform.rotation.eulerAngles.z : stickAngle), aimSmooth);
+
+
+        //Check low health
+        if (health <= lowHealthThreshhold)
+        {
+            if (!lowHealth)
+            {
+                GetComponent<Animator>().SetBool("lowHealth", true);
+                StartCoroutine(LowHealthAnimLength());
+            }
+            lowHealth = true;
+        }
+        else
+        {
+            lowHealth = false;
+        }
+    }
+
+    IEnumerator LowHealthAnimLength()
+    {
+        yield return new WaitForSeconds(lowHealthAnimTime);
+        GetComponent<Animator>().SetBool("lowHealth", false);
+
     }
 
     private void FixedUpdate()
