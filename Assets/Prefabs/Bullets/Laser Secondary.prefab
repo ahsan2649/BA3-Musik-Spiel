@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9070045274426761463}
   - component: {fileID: 9070045274426761459}
   m_Layer: 11
-  m_Name: Hihat Bullet
+  m_Name: Laser Secondary
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 9070045274426761460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1137, y: 2.1137, z: 2.1137}
+  m_LocalScale: {x: 3.8015103, y: 1.0861458, z: 1.0861458}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9070045274660702892}
@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfd383b831e181449c4aabed878b910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
-  damage: 15
+  bulletSpeed: 24
+  damage: 8
   shooter: {fileID: 0}
   bulletType: 0
   synth: 0
@@ -74,8 +74,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00025823724, y: 0.0007087142}
-  m_Size: {x: 0.24520001, y: 0.24142066}
+  m_Offset: {x: 0.00025814358, y: 0.0007087164}
+  m_Size: {x: 0.22158903, y: 0.1779254}
   m_Direction: 1
 --- !u!50 &9070045274426761463
 Rigidbody2D:
@@ -106,7 +106,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9070045274426761460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 4d02aa883d26d7c4da7947b51d32b110, type: 2}
   m_CullingMode: 0
@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 9070045274660702893}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.18106341, y: 0.18106341, z: 0.18106341}
+  m_LocalScale: {x: 0.16744122, y: 0.22632927, z: 0.18106341}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9070045274426761456}
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.97694933, b: 0.28773582, a: 1}
+  m_Color: {r: 0.3703502, g: 1, b: 0.28627455, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -228,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 9070045275022602334}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.24640176, y: 0.24640176, z: 0.24640176}
+  m_LocalScale: {x: 0.20216008, y: 0.2285532, z: 0.22462231}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9070045274426761456}
